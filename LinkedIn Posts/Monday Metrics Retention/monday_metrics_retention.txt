@@ -1,0 +1,33 @@
+𝗠𝗢𝗡𝗗𝗔𝗬 𝗠𝗘𝗧𝗥𝗜𝗖𝗦: 𝗥𝗲𝘁𝗲𝗻𝘁𝗶𝗼𝗻 𝗥𝗮𝘁𝗲
+
+Retention is the metric that separates growing companies from leaky buckets.
+
+But a single retention number doesn't tell you much. The real insight is in the cohorts.
+
+𝗪𝗵𝗮𝘁 𝗶𝘀 𝗰𝗼𝗵𝗼𝗿𝘁 𝗿𝗲𝘁𝗲𝗻𝘁𝗶𝗼𝗻? 
+Instead of looking at all customers together, you group them by when they started—then track how each group retains over time.
+
+This lets you see patterns you'd miss otherwise: 
+→ Is retention improving with newer cohorts? 
+→ Where's the biggest drop-off happening? 
+→ Did something change in February that hurt retention?
+
+𝗛𝗼𝘄 𝘁𝗼 𝗿𝗲𝗮𝗱 𝗮 𝗰𝗼𝗵𝗼𝗿𝘁 𝗰𝗵𝗮𝗿𝘁: 
+→ Each row is a group of customers who started in the same month 
+→ Each column shows what % are still active after X months 
+→ Darker colors = higher retention 
+→ Look for patterns down (are newer cohorts better?) and across (where do you lose people?)
+
+𝗧𝗵𝗲 𝗿𝗲𝘁𝗲𝗻𝘁𝗶𝗼𝗻 𝗰𝘂𝗿𝘃𝗲: Most products see a steep drop in Month 1, then gradual decline until it flattens out. That flat part? That's your "core" retained base. The goal is to make the drop smaller and the flat part higher.
+
+𝗕𝘂𝘁 𝗵𝗲𝗿𝗲'𝘀 𝘄𝗵𝗲𝗿𝗲 𝗶𝘁 𝗯𝗿𝗲𝗮𝗸𝘀 𝗱𝗼𝘄𝗻:
+1️⃣ 𝗖𝗼𝗵𝗼𝗿𝘁 𝗮𝘀𝘀𝗶𝗴𝗻𝗺𝗲𝗻𝘁 When does a customer "start"? First purchase? Sign-up? Activation? Different definitions = completely different retention curves.
+2️⃣ 𝗜𝗱𝗲𝗻𝘁𝗶𝘁𝘆 𝗿𝗲𝘀𝗼𝗹𝘂𝘁𝗶𝗼𝗻 If the same person exists as three accounts in your database, they might show up in three different cohorts. Your data is lying to you.
+3️⃣ 𝗘𝘃𝗲𝗻𝘁 𝘁𝗿𝗮𝗰𝗸𝗶𝗻𝗴 𝗴𝗮𝗽𝘀 Missing events = missing users = artificially inflated churn. You think they left, but you just stopped seeing them.
+
+𝗧𝗵𝗲 𝗿𝗲𝗮𝗹 𝗽𝗿𝗼𝗯𝗹𝗲𝗺: 
+Beautiful cohort charts mean nothing if the underlying data is broken.
+
+Most companies don't have a retention problem. They have a data problem dressed up as a retention problem.
+
+𝗪𝗵𝗮𝘁 𝗺𝗲𝘁𝗿𝗶𝗰 𝘀𝗵𝗼𝘂𝗹𝗱 𝘄𝗲 𝗯𝗿𝗲𝗮𝗸 𝗱𝗼𝘄𝗻 𝗻𝗲𝘅𝘁 𝘄𝗲𝗲𝗸? 👇

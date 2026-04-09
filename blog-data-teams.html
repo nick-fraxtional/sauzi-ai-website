@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Teams Then vs Now | Sauzi.ai Blog</title>
+    <meta name="description"
+        content="Data teams look very different than they did 5 years ago. The shift from 15-person siloed departments to lean, AI-enabled pods.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #6B6560;
+        }
+        .prose h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1A1814;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            margin-bottom: 2rem;
+            color: #6B6560;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #C8860A;
+            font-weight: bold;
+        }
+        .prose strong {
+            color: #1A1814;
+            font-weight: 600;
+        }
+        .prose hr {
+            border-color: #E8E2D8;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <!-- Web Components -->
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <app-header></app-header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <a href="blog.html"
+            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                <span>Team Building</span>
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span>4 Min Read</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Data Teams Look Very Different
+                Than They Did 5 Years Ago</h1>
+            <p class="text-xl text-ink-2 font-medium leading-relaxed">The shift from large departments to lean,
+                infrastructure-focused pods.</p>
+        </header>
+
+        <div class="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 relative card p-2 shadow-warm-lg">
+            <img src="Brand Assets/blog/data_teams_hero.png" alt="Data Teams"
+                class="w-full h-full object-cover rounded-2xl">
+        </div>
+
+        <article class="prose prose-lg max-w-none text-lg">
+            <p><strong>The modern data team has completely fundamentally transformed in just a half-decade.</strong></p>
+
+            <p>If you walked into an enterprise data department five years ago, you'd likely see the "old model" in full
+                swing: A massive 10 to 15 person team. A VP dictating top-down roadmaps. Multiple layers of middle
+                managers. Siloed roles consisting of pure data engineers, secluded analysts, and specialized BI
+                developers. You would submit a Jira ticket for a supposedly simple dashboard metric, and then wait three
+                weeks to see it.</p>
+
+            <p>To be fair, it worked. But it was agonizingly slow, incredibly expensive, and architecturally built for a
+                world where <em>human beings</em> were the only consumers of the final data output.</p>
+
+            <p>That world is gone.</p>
+
+            <h2>The New Playbook</h2>
+
+            <p>Today, the most effective, forward-thinking organizations are adopting a radically different approach to
+                data management. The new model looks much more like this:</p>
+
+            <ul>
+                <li><strong>Extremely lean:</strong> 1 to 3 core practitioners, not 15.</li>
+                <li><strong>Embedded leadership:</strong> A strategic leader who is actually hands-on with the codebase,
+                    not just managing ticket queues.</li>
+                <li><strong>Direct partnerships:</strong> Deep collaboration with business stakeholders instead of
+                    tossing requirements over the wall.</li>
+                <li><strong>Self-service analytics:</strong> Empowering marketing, sales, and operations teams to pull
+                    their own insights so they aren't held hostage waiting on IT reports.</li>
+                <li><strong>Agentic Architecture:</strong> Data infrastructure designed from the ground up to be
+                    consumed by AI agents and LLMs, not just static BI dashboards.</li>
+            </ul>
+
+            <h2>Smarter, Not Bigger</h2>
+
+            <p>The companies getting this right aren't focused on building massive in-house data teams with extensive
+                payroll overhead. Instead, they are building leaner, fundamentally smarter teams. When they hit
+                technical resource gaps, they lean heavily on fractional expertise to build out their medallion
+                architectures or semantic layers exactly when they need it—without the bloated full-time salaries.</p>
+
+            <p>Why is this shift happening? Because AI is fundamentally changing the core mandate of what data teams
+                actually do. Time spent manually building out ad-hoc reports is plummeting. Conversely, time spent
+                building rigid, trusted, scalable foundations that allow AI agents to securely interact with enterprise
+                data is skyrocketing. The heavy lifting is being outsourced to the intelligence layer.</p>
+
+            <p>The relevant question for technical founders and data leaders is no longer: <em>"How many data people do
+                    we need?"</em></p>
+
+            <p>Instead, you must ask: <strong>"Do we have the right data infrastructure to let a small team—and our AI
+                    systems—do the work of many?"</strong></p>
+
+            <p>That is the definitive shift in the modern data landscape. And it's happening faster than anyone
+                predicted.</p>
+
+            <hr class="my-10">
+
+            <p class="text-xl text-ink font-medium text-center"><em>Need senior data engineering without the 15-person
+                    payroll?</em></p>
+
+            <div class="mt-8 text-center flex justify-center">
+                <a href="why-sauzi.html"
+                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">See
+                    The Sauzi Advantage</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

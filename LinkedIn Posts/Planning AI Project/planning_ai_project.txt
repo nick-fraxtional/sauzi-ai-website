@@ -1,0 +1,24 @@
+𝗣𝗹𝗮𝗻𝗻𝗶𝗻𝗴 𝗮𝗻 𝗔𝗜 𝗽𝗿𝗼𝗷𝗲𝗰𝘁? 𝗔𝘀𝗸 𝘁𝗵𝗲𝘀𝗲 𝟱 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀 𝗳𝗶𝗿𝘀𝘁.
+
+Before you invest in AI tooling, models, or consultants—take 60 seconds and be honest with yourself:
+
+𝟭. 𝗗𝗼 𝘆𝗼𝘂 𝘁𝗿𝘂𝘀𝘁 𝘆𝗼𝘂𝗿 𝗰𝘂𝗿𝗿𝗲𝗻𝘁 𝗱𝗮𝘀𝗵𝗯𝗼𝗮𝗿𝗱𝘀?
+Or do different reports show different numbers for the same metric?
+
+𝟮. 𝗛𝗼𝘄 𝗹𝗼𝗻𝗴 𝗱𝗼𝗲𝘀 𝗮 “𝘀𝗶𝗺𝗽𝗹𝗲” 𝗱𝗮𝘁𝗮 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻 𝘁𝗮𝗸𝗲?
+If the answer is “days” or “depends who you ask”—that’s a red flag.
+
+𝟯. 𝗜𝘀 𝘁𝗵𝗲𝗿𝗲 𝗮 𝘀𝗶𝗻𝗴𝗹𝗲 𝘀𝗼𝘂𝗿𝗰𝗲 𝗼𝗳 𝘁𝗿𝘂𝘁𝗵 𝗳𝗼𝗿 𝗸𝗲𝘆 𝗺𝗲𝘁𝗿𝗶𝗰𝘀?
+Revenue, churn, customer count—does everyone agree on the definitions?
+
+𝟰. 𝗖𝗼𝘂𝗹𝗱 𝗮𝗻 𝗼𝘂𝘁𝘀𝗶𝗱𝗲𝗿 𝘂𝗻𝗱𝗲𝗿𝘀𝘁𝗮𝗻𝗱 𝘆𝗼𝘂𝗿 𝗱𝗮𝘁𝗮 𝘀𝗰𝗵𝗲𝗺𝗮?
+If your data only makes sense to the one person who built it—AI won’t figure it out either.
+
+𝟱. 𝗗𝗼 𝘆𝗼𝘂𝗿 𝗽𝗶𝗽𝗲𝗹𝗶𝗻𝗲𝘀 𝗿𝘂𝗻 𝗿𝗲𝗹𝗶𝗮𝗯𝗹𝘆 𝘄𝗶𝘁𝗵𝗼𝘂𝘁 𝗶𝗻𝘁𝗲𝗿𝘃𝗲𝗻𝘁𝗶𝗼𝗻?
+AI needs consistent, fresh data. Broken pipelines = broken AI.
+
+If you answered “no” or “I don’t know” to most of these—you’re not alone. Most companies aren’t ready.
+
+But here’s the good news: this is fixable. And it doesn’t take years.
+
+𝗛𝗼𝘄 𝗺𝗮𝗻𝘆 𝗼𝗳 𝘁𝗵𝗲𝘀𝗲 𝗱𝗶𝗱 𝘆𝗼𝘂 𝗮𝗻𝘀𝘄𝗲𝗿 “𝘆𝗲𝘀” 𝘁𝗼? 𝗕𝗲 𝗵𝗼𝗻𝗲𝘀𝘁. 👇

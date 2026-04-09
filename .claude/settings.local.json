@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /mnt/c/Users/nhern/Documents/sauzi/sauzi-website/*.json)",
+      "Bash(ls -la /mnt/c/Users/nhern/Documents/sauzi/sauzi-website/.[a-z]*)",
+      "Bash(wc:*)",
+      "Bash(find /mnt/c/Users/nhern/Documents/sauzi/sauzi-website -type f -name \"*.html\" -exec head -1 {} \\\\;)"
+    ]
+  }
+}

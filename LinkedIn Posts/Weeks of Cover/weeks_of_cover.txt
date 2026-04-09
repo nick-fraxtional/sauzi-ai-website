@@ -1,0 +1,15 @@
+𝗠𝗢𝗡𝗗𝗔𝗬 𝗠𝗘𝗧𝗥𝗜𝗖𝗦: 𝗪𝗘𝗘𝗞𝗦 𝗢𝗙 𝗖𝗢𝗩𝗘𝗥
+
+If you sell physical products, this is the metric that determines whether you're growing or firefighting.
+
+𝗪𝗵𝗮𝘁 𝗶𝘁 𝗶𝘀: Weeks of Cover (WoC) tells you how many weeks your current inventory will last at the current rate of sales. It's your early warning system for stockouts—and overstocking.
+
+𝗧𝗵𝗲 𝗳𝗼𝗿𝗺𝘂𝗹𝗮: WoC = Current Inventory ÷ Average Weekly Sell-Through
+
+Simple. But here's where it falls apart:
+1️⃣ 𝗜𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗹𝗮𝗴 If your warehouse counts update weekly (or worse, monthly), your WoC is already wrong by the time you see it. Real-time inventory sync isn't optional—it's the baseline.
+2️⃣ 𝗗𝗲𝗺𝗮𝗻𝗱 𝗮𝘃𝗲𝗿𝗮𝗴𝗶𝗻𝗴 A flat weekly average ignores seasonality. Your "6 weeks of cover" in January means nothing if February demand spikes 3x. At minimum, use a trailing 4-week weighted average.
+3️⃣ 𝗦𝗞𝗨 𝗴𝗿𝗮𝗻𝘂𝗹𝗮𝗿𝗶𝘁𝘆 Measuring at the category level? One hot SKU can mask 10 dead ones. You think "Apparel" has 6 weeks of cover—but your best-selling jacket has 0.8 weeks and your slowest polo has 40.
+4️⃣ 𝗧𝗵𝗲 𝗵𝗲𝗮𝘁𝗺𝗮𝗽 𝘁𝗲𝗹𝗹𝘀 𝘁𝗵𝗲 𝘀𝘁𝗼𝗿𝘆. When you visualize WoC across categories and time, you can see trouble coming months before it hits. Red cells aren't just data points—they're revenue at risk.
+
+If your inventory data isn't clean and real-time, your Weeks of Cover is a guess, not a strategy.

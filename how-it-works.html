@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | Sauzi.ai</title>
+    <meta name="description"
+        content="Sauzi shows every step of the implementation. We configure your warehouse, model your data, and connect the AI tools. No black boxes — ever.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm': '0 1px 3px rgba(26, 24, 20, 0.06), 0 1px 2px rgba(26, 24, 20, 0.04)',
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                        'amber-glow': '0 0 20px rgba(200, 134, 10, 0.15)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="components.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-balance { text-wrap: balance; }
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+            .card-hover:hover {
+                background: #FDF5E6;
+                border-color: #C8860A;
+                box-shadow: 0 4px 12px rgba(26, 24, 20, 0.08);
+            }
+            .amber-bar {
+                display: block;
+                width: 2rem;
+                height: 2px;
+                background: #C8860A;
+                margin-bottom: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden selection:bg-primary/20 selection:text-ink">
+
+    <app-header></app-header>
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block px-4 py-2 rounded-full bg-surface border border-border text-primary text-sm font-bold tracking-wide mb-6">
+                THE IMPLEMENTATION PROCESS
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+                We Show Our Work.<br />
+                <span class="text-primary">Every Step, Explained.</span>
+            </h1>
+            <p class="text-xl text-ink-2 max-w-3xl mx-auto leading-relaxed">
+                Most data consultants hand you a dashboard and disappear. Sauzi works differently — we show you exactly what we're building and why. No black boxes. No mystery ingredients.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Two Ingredients -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4">The Two Ingredients of Every Sauzi Implementation</h2>
+                <p class="text-ink-2 text-lg max-w-2xl mx-auto">Think of it like a great meal: the right ingredients, prepared properly, in the right order. Skip either one and the whole thing falls flat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Ingredient 1 -->
+                <div class="card rounded-3xl p-10 border border-primary/20 bg-surface-amber">
+                    <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                        </svg>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Ingredient One</div>
+                    <h3 class="text-2xl font-bold mb-4">Warehouse Configuration</h3>
+                    <p class="text-ink-2 leading-relaxed">
+                        We configure dimension and fact tables so AI agents can reason about your business data the way a skilled analyst would. The structure we build is the "menu" — it tells the AI exactly what data exists, how it relates, and what questions it can answer. Without this structure, the AI is guessing.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Dimension Tables</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Fact Tables</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Snowflake</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">dbt Models</span>
+                    </div>
+                </div>
+
+                <!-- Ingredient 2 -->
+                <div class="card rounded-3xl p-10 border border-secondary/20 bg-surface">
+                    <div class="w-12 h-12 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-secondary mb-3">Ingredient Two</div>
+                    <h3 class="text-2xl font-bold mb-4">AI Tool Connection</h3>
+                    <p class="text-ink-2 leading-relaxed">
+                        We connect your structured warehouse to the AI tools — Claude Code, Cowork, and others — that query it. Once the connection is live, your team can ask questions in plain English and get real answers backed by your actual data. Not a guess. Not a hallucination. Your numbers.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary/10 border border-secondary/20 text-secondary">Claude Code</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary/10 border border-secondary/20 text-secondary">Cowork</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary/10 border border-secondary/20 text-secondary">Natural Language</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary/10 border border-secondary/20 text-secondary">Live Queries</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase Breakdown -->
+    <section class="py-20 bg-surface relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4">The Path to Get There</h2>
+                <p class="text-ink-2 text-lg max-w-2xl mx-auto">The path looks different depending on where you're starting. But every implementation follows the same three-phase structure.</p>
+            </div>
+
+            <div class="flex flex-col gap-8">
+
+                <!-- Phase 1 -->
+                <div class="card rounded-3xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-primary/10 to-transparent border-b border-border p-8 flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-lg flex-shrink-0">1</div>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Phase One</div>
+                            <h3 class="text-2xl font-bold mb-2">Foundation</h3>
+                            <p class="text-ink-2 leading-relaxed max-w-3xl">
+                                For companies without a warehouse or with messy, unreliable data. We connect your data sources — Shopify, Recharge, Magento, Mailchimp, and others — build the ETL/ELT pipelines that move data cleanly, and configure your warehouse so everything flows reliably. You can't deploy AI on a leaky pipe. We fix the pipe first.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What this phase covers</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">Source Connections</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Connect Shopify, Recharge, Mailchimp, Magento, or whichever platforms your data lives in today.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">Pipeline Build / Repair</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Build new ETL/ELT pipelines from scratch, or diagnose and repair existing ones that are dropping data or producing errors.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">Warehouse Setup</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Configure Snowflake (or your warehouse of choice) with the proper schema, access controls, and staging layers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="card rounded-3xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-secondary/10 to-transparent border-b border-border p-8 flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary font-black text-lg flex-shrink-0">2</div>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Phase Two</div>
+                            <h3 class="text-2xl font-bold mb-2">Structuring</h3>
+                            <p class="text-ink-2 leading-relaxed max-w-3xl">
+                                This is the step that separates AI implementations that actually work from ones that don't. We configure the dimension and fact tables — the semantic layer — that tells AI agents how your business data is organized. Without this, AI doesn't understand the difference between a customer, an order, a subscription, and a product. With it, it does.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What this phase covers</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-secondary font-bold text-sm mb-2">Semantic Layer</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Define business metrics — LTV, CAC, retention, Weeks of Cover — in a way AI agents can understand and query consistently.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-secondary font-bold text-sm mb-2">Dim / Fact Modeling</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Build the dimension and fact table structure that gives AI agents the context they need to reason about your business.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-secondary font-bold text-sm mb-2">Medallion Architecture</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Organize data into bronze (raw), silver (cleaned), and gold (business-ready) layers so every query draws from trusted, validated data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="card rounded-3xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-primary/10 to-transparent border-b border-border p-8 flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-lg flex-shrink-0">3</div>
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Phase Three</div>
+                            <h3 class="text-2xl font-bold mb-2">AI Connection</h3>
+                            <p class="text-ink-2 leading-relaxed max-w-3xl">
+                                We connect your clean, structured warehouse to the AI tools that query it. Your team asks questions in plain English — "What's our repeat purchase rate this month vs. last month?" — and gets accurate, data-backed answers in seconds. Insights stop waiting in a ticket queue. This is the destination.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What this phase covers</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">AI Tool Integration</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Connect Claude Code, Cowork, or the AI tooling that makes sense for your team directly to your warehouse.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">Natural Language Interface</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">Your team asks questions the way they'd ask a colleague. No SQL required. No tickets. Just answers.</p>
+                            </div>
+                            <div class="bg-surface rounded-xl p-4 border border-border">
+                                <div class="text-primary font-bold text-sm mb-2">Anomaly Detection</div>
+                                <p class="text-ink-2 text-xs leading-relaxed">AI agents surface unusual patterns automatically — before someone manually checks a dashboard and notices something is off.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes This Different -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4">What Makes This Different</h2>
+                <p class="text-ink-2 text-lg max-w-2xl mx-auto">The process matters. Here's how Sauzi actually works — not how consultants say they work.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card card-hover rounded-2xl p-8 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">We document what we build</h4>
+                    <p class="text-ink-2 text-sm leading-relaxed">Every implementation comes with clear documentation of the data model, pipelines, and connections. Your team will always know what's running and why — not just us.</p>
+                </div>
+
+                <div class="card card-hover rounded-2xl p-8 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">We work with your existing tools</h4>
+                    <p class="text-ink-2 text-sm leading-relaxed">We configure Snowflake, or your warehouse of choice. We connect to Claude, Cowork, or whatever AI tooling makes sense. No rip-and-replace. No forcing you onto a platform you don't want.</p>
+                </div>
+
+                <div class="card card-hover rounded-2xl p-8 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">We meet you where your data is</h4>
+                    <p class="text-ink-2 text-sm leading-relaxed">Different clients need different meals. Some need a full kitchen built from scratch. Some just need the right seasoning on what already exists. We scope the work to what you actually need — not a generic package.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl font-semibold mb-6">Ready to see what this looks like for your stack?</h2>
+            <p class="text-ink-2 text-xl mb-10 leading-relaxed text-balance">Tell us where your data stands today. We'll map out the exact phases, timeline, and what your team gets when we're done.</p>
+            <a href="index.html#book-call"
+                class="inline-block bg-ink hover:bg-ink/90 text-background text-lg font-bold py-5 px-12 rounded-2xl shadow-warm-md hover:scale-105 transition-all">
+                Get My Data Readiness Map
+            </a>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <script>
+        const observerOptions = { threshold: 0.05 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-6');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

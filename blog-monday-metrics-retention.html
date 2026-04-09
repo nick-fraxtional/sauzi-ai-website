@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monday Metrics: Retention Rate | Sauzi.ai Blog</title>
+    <meta name="description"
+        content="Retention is the metric that separates growing companies from leaky buckets. But a single retention number doesn't tell you much — the real insight is in the cohorts.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #6B6560;
+        }
+        .prose h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1A1814;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            margin-bottom: 2rem;
+            color: #6B6560;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #C8860A;
+            font-weight: bold;
+        }
+        .prose strong {
+            color: #1A1814;
+            font-weight: 600;
+        }
+        .prose hr {
+            border-color: #E8E2D8;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <app-header></app-header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <a href="blog.html"
+            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                <span>Monday Metrics</span>
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span>3 Min Read</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Monday Metrics: Retention Rate</h1>
+            <p class="text-xl text-ink-2 font-medium leading-relaxed">The metric that separates growing companies from leaky buckets — and why a single number almost always lies.</p>
+        </header>
+
+        <!-- Hero Image — displayed at natural aspect ratio for full infographic readability -->
+        <div class="rounded-3xl overflow-hidden mb-16 card p-3 shadow-warm-lg">
+            <img src="LinkedIn Posts/Monday Metrics Retention/monday_metrics_retention.jpg"
+                alt="Monday Metrics: Retention Rate — Cohort Retention Dashboard"
+                class="w-full h-auto rounded-2xl block">
+        </div>
+
+        <article class="prose prose-lg max-w-none text-lg">
+
+            <p>Retention is the metric that separates growing companies from leaky buckets. But if you're only tracking a single retention number, you're missing the story entirely.</p>
+
+            <p>A company with 70% retention and a company with 70% retention can be in completely different situations — depending on <em>which</em> customers are staying, <em>when</em> they're leaving, and whether retention is trending up or down with newer cohorts. That's why the real insight isn't in the headline number. It's in the cohorts.</p>
+
+            <h2>What Is Cohort Retention?</h2>
+
+            <p>Instead of looking at all customers together, cohort retention groups them by when they started — then tracks how each group retains over time.</p>
+
+            <p>This lets you see patterns you'd completely miss with a blended average:</p>
+
+            <ul>
+                <li>Is retention improving with newer cohorts?</li>
+                <li>Where's the biggest drop-off happening — Month 1? Month 3?</li>
+                <li>Did something change in a specific month that hurt or helped retention?</li>
+                <li>Which acquisition channels produce customers who actually stick?</li>
+            </ul>
+
+            <h2>How to Read a Cohort Chart</h2>
+
+            <p>The structure is simple once you know what you're looking at:</p>
+
+            <ul>
+                <li>Each <strong>row</strong> is a group of customers who started in the same month</li>
+                <li>Each <strong>column</strong> shows the percentage still active after X months</li>
+                <li><strong>Darker cells</strong> = higher retention (better)</li>
+                <li>Read <strong>down the columns</strong> to see if newer cohorts outperform older ones</li>
+                <li>Read <strong>across the rows</strong> to see where you're losing people</li>
+            </ul>
+
+            <h2>The Retention Curve</h2>
+
+            <p>Almost every product sees the same shape: a steep drop in Month 1, then a gradual decline that eventually flattens out. That flat part — the stabilization point — is your core retained base. The two levers you have are:</p>
+
+            <ul>
+                <li>Make the <strong>Month 1 drop smaller</strong> (better onboarding, faster time-to-value)</li>
+                <li>Make the <strong>flat part higher</strong> (stronger product-market fit, better engagement loops)</li>
+            </ul>
+
+            <p>Both require clean data to even measure correctly. Which brings us to where this usually breaks down.</p>
+
+            <h2>Where Cohort Retention Breaks Down</h2>
+
+            <p>Beautiful cohort charts mean nothing if the underlying data is broken. And the data breaks in three predictable ways:</p>
+
+            <ul>
+                <li><strong>Cohort assignment:</strong> When does a customer actually "start"? First purchase? Sign-up date? Activation event? Different definitions produce completely different retention curves — and entirely different strategic conclusions.</li>
+                <li><strong>Identity resolution:</strong> If the same person exists as three accounts in your database, they might show up in three different cohorts. Your data is lying to you about who's retaining and who's churning.</li>
+                <li><strong>Event tracking gaps:</strong> Missing events equal missing users. Your platform stops seeing a customer's activity — not because they left, but because your tracking broke. You think they churned. They didn't. Your churn rate is artificially inflated.</li>
+            </ul>
+
+            <h2>The Real Problem</h2>
+
+            <p>Most companies don't have a retention problem. <strong>They have a data problem dressed up as a retention problem.</strong></p>
+
+            <p>You can hire retention consultants, run A/B tests, redesign your onboarding — and get zero signal — if the cohort data feeding those decisions is unreliable. Every fix you apply is built on a foundation that's already cracked.</p>
+
+            <p>The fix starts upstream: clean event tracking, consistent identity resolution, a defined and documented definition of "when a customer starts." Once those are in place, the cohort chart stops being a source of confusion and starts being one of the most powerful tools in your business.</p>
+
+            <hr class="my-10">
+
+            <p class="text-xl text-ink font-medium text-center"><em>Want to know if your retention data is telling you the truth?</em></p>
+
+            <div class="mt-8 text-center flex justify-center">
+                <a href="index.html#book-call"
+                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">
+                    Get My AI Analyst Roadmap
+                </a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <app-footer></app-footer>
+
+</body>
+
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Sauzi.ai</title>
+    <meta name="description"
+        content="Practical takes on AI data implementation, the modern data stack, and what it actually takes to make AI agents work on your business data.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm': '0 1px 3px rgba(26, 24, 20, 0.06), 0 1px 2px rgba(26, 24, 20, 0.04)',
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                        'amber-glow': '0 0 20px rgba(200, 134, 10, 0.15)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-balance { text-wrap: balance; }
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+            .card-hover:hover {
+                background: #FDF5E6;
+                border-color: #C8860A;
+                box-shadow: 0 4px 12px rgba(26, 24, 20, 0.08);
+            }
+            /* Image container */
+            .img-contain {
+                background: #F7F2EA;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+            .img-contain img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <app-header></app-header>
+
+    <!-- Header Section -->
+    <header class="relative pt-40 pb-20">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
+                Insights
+            </h1>
+            <p class="text-xl text-ink-2 max-w-3xl mx-auto mb-10 text-balance">
+                Practical takes on AI data implementation, the modern data stack, and what it actually takes to make AI agents work on your business data.
+            </p>
+        </div>
+    </header>
+
+    <!-- Blog Posts -->
+    <section class="py-10 pb-32 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- ===== FEATURED POST ===== -->
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+                    Featured
+                </div>
+            </div>
+            <article class="card card-hover rounded-3xl overflow-hidden group mb-16">
+                <div class="flex flex-col md:flex-row">
+                    <a href="blog-ai-data-analysts.html"
+                        class="img-contain w-full md:w-1/2 aspect-square flex-shrink-0 p-5 group-hover:opacity-95 transition-opacity">
+                        <img src="LinkedIn Posts/AI Data Analysts/ai_data_analysts.jpg"
+                            alt="The BI Dashboard Era Is Ending"
+                            class="rounded-xl group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>AI Implementation</span>
+                        </div>
+                        <a href="blog-ai-data-analysts.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                The BI Dashboard Era Is Ending. Here's What Comes Next.</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            For a decade, companies scaled analytics by scaling headcount. The companies that win going forward won't have bigger data teams — they'll have AI agents working on top of their data 24/7. But it only works if the data is built right. Here's what that actually means.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">4 Min Read</div>
+                            <a href="blog-ai-data-analysts.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== DIVIDER ===== -->
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-px flex-1 bg-border"></div>
+                <span class="text-xs font-bold uppercase tracking-widest text-ink-3">More Articles</span>
+                <div class="h-px flex-1 bg-border"></div>
+            </div>
+
+            <!-- ===== REGULAR POSTS GRID ===== -->
+            <div class="flex flex-col gap-8">
+
+                <!-- Monday Metrics: Retention Rate -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-monday-metrics-retention.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="LinkedIn Posts/Monday Metrics Retention/monday_metrics_retention.jpg"
+                            alt="Monday Metrics: Retention Rate"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>Monday Metric</span>
+                        </div>
+                        <a href="blog-monday-metrics-retention.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Monday Metrics: Retention Rate</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            Retention separates growing companies from leaky buckets. But a single retention number doesn't tell you much — the real insight is in the cohorts. Here's how to read them, and where they break down.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">3 Min Read</div>
+                            <a href="blog-monday-metrics-retention.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Monday Metrics: Weeks of Cover -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-monday-metrics-weeks-of-cover.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="LinkedIn Posts/Weeks of Cover/weeks_of_cover.jpeg"
+                            alt="Monday Metrics: Weeks of Cover"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>Monday Metric</span>
+                        </div>
+                        <a href="blog-monday-metrics-weeks-of-cover.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Monday Metrics: Weeks of Cover</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            If you sell physical products, this is the metric that determines whether you're growing or firefighting. The formula is simple. The execution — and the data quality behind it — almost never is.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">3 Min Read</div>
+                            <a href="blog-monday-metrics-weeks-of-cover.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- AI Data Culture -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-ai-data-culture.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="Brand Assets/blog/ai_data_culture.jpg" alt="AI Data Culture"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>Data Infrastructure</span>
+                        </div>
+                        <a href="blog-ai-data-culture.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Culture Takes Time. Data Doesn't Have To.</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            90% of companies say data and culture are the biggest barriers to AI. Not talent. Not budget. Not technology. While culture shifts take years, fixing your data can be fast-tracked right now.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">3 Min Read</div>
+                            <a href="blog-ai-data-culture.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Data Teams Then vs Now -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-data-teams.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="Brand Assets/blog/data_team_image.jpg" alt="Data Teams Then vs Now"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>AI Implementation</span>
+                        </div>
+                        <a href="blog-data-teams.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Data Teams Look Very Different Than They Did 5 Years Ago</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            The old model: 10–15 person teams. Siloed engineers and analysts submitting tickets. The new model relies on lean, focused pods building infrastructure for AI, not ad-hoc reports.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">4 Min Read</div>
+                            <a href="blog-data-teams.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Monday Metrics: CLTV -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-monday-metrics-cltv.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="Brand Assets/blog/monday_metrics_cltv.jpg" alt="Monday Metrics: CLTV"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>Monday Metric</span>
+                        </div>
+                        <a href="blog-monday-metrics-cltv.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Monday Metrics: CLTV</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard, but because the data behind it is a mess. Audit the inputs before you trust the outputs.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">3 Min Read</div>
+                            <a href="blog-monday-metrics-cltv.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Planning an AI Project -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-planning-ai-project.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="Brand Assets/blog/planning_ai_project.jpg" alt="Planning an AI Project"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>AI Implementation</span>
+                        </div>
+                        <a href="blog-planning-ai-project.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                Planning an AI Project? Ask These 5 Questions First.</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            Before you invest in AI tooling, models, or consultants — take 60 seconds and be honest with yourself. Can you answer these 5 critical data questions confidently?
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">2 Min Read</div>
+                            <a href="blog-planning-ai-project.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Data Team of 2030 -->
+                <article class="card card-hover rounded-3xl overflow-hidden flex flex-col md:flex-row group">
+                    <a href="blog-data-team-impact.html"
+                        class="img-contain w-full md:w-2/5 aspect-square md:aspect-auto flex-shrink-0 p-4">
+                        <img src="Brand Assets/blog/data-team-impact-thumbnail.png" alt="The Data Team of 2030"
+                            class="rounded-lg group-hover:scale-[1.02] transition-transform duration-700 ease-in-out">
+                    </a>
+                    <div class="p-8 md:p-12 flex flex-col flex-grow justify-center">
+                        <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                            <span>Data Infrastructure</span>
+                        </div>
+                        <a href="blog-data-team-impact.html" class="block">
+                            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                                The Data Team of 2030 Won't Look Like the Data Team of 2020</h2>
+                        </a>
+                        <p class="text-ink-2 text-sm md:text-base leading-relaxed mb-8 flex-grow">
+                            Scaling analytics no longer means scaling headcount. Conversational AI, automated BI, and focused implementation are replacing layers on layers — but only if your data is built to support it.
+                        </p>
+                        <div class="pt-6 border-t border-border flex items-center justify-between">
+                            <div class="text-xs text-ink-3 font-medium tracking-widest uppercase">4 Min Read</div>
+                            <a href="blog-data-team-impact.html"
+                                class="text-primary hover:text-ink font-bold text-sm flex items-center gap-1 transition-colors">
+                                Read Article
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+</body>
+
+</html>

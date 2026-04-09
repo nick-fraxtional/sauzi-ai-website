@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning an AI Project? Ask These 5 Questions First. | Sauzi.ai Blog</title>
+    <meta name="description"
+        content="Before you invest in AI tooling, models, or consultants, take 60 seconds to answer these 5 critical data questions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #6B6560;
+        }
+        .prose h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1A1814;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            margin-bottom: 2rem;
+            color: #6B6560;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #C8860A;
+            font-weight: bold;
+        }
+        .prose strong {
+            color: #1A1814;
+            font-weight: 600;
+        }
+        .prose hr {
+            border-color: #E8E2D8;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <!-- Web Components -->
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <app-header></app-header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <a href="blog.html"
+            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                <span>AI Readiness</span>
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span>4 Min Read</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Planning an AI Project? Ask
+                These 5 Questions First.</h1>
+            <p class="text-xl text-ink-2 font-medium leading-relaxed">Before you invest in AI tooling, models, or
+                consultants—take 60 seconds and be honest with yourself.</p>
+        </header>
+
+        <div class="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 relative card p-2 shadow-warm-lg">
+            <img src="Brand Assets/blog/ai_readiness_banner.png" alt="AI Planning Concept"
+                class="w-full h-full object-cover rounded-2xl">
+        </div>
+
+        <article class="prose prose-lg max-w-none text-lg">
+            <p>Every executive wants to implement AI right now. The pressure from the board is real, and the competitive
+                landscape demands it. But before you invest in shiny new AI tooling, sign a massive contract for
+                proprietary models, or bring in expensive consultants—take 60 seconds and be completely honest about
+                your foundation.</p>
+
+            <p>AI is simply an accelerator. If you point it at clean, structured data, it accelerates insight. If you
+                point it at a disorganized swamp, it accelerates confusion and hallucinations.</p>
+
+            <h2>1. Do you trust your current dashboards?</h2>
+            <p><strong>The Symptom:</strong> Different departments show up to leadership meetings with reports that pull
+                from the "same" system, yet display wildly different numbers for core metrics like Monthly Recurring
+                Revenue (MRR) or Active Users.</p>
+            <p><strong>The Reality:</strong> If humans looking at your BI tools can't agree on what reality looks like,
+                an LLM won't be able to either. AI models lack the nuanced, historical context that "Bob in finance
+                excludes these specific legacy accounts when pulling his report." To an AI, inconsistent data simply
+                looks like contradictory facts.</p>
+
+            <h2>2. How long does a "simple" data question take?</h2>
+            <p><strong>The Symptom:</strong> When the CEO asks a straightforward question like "How did this sub-segment
+                perform compared to last quarter?", the response is "Let me file a Jira ticket for the data team,
+                they'll get back to us on Thursday."</p>
+            <p><strong>The Reality:</strong> If the answer is "days," "it depends who you ask," or "we need to join
+                these three spreadsheets manually," that's a massive red flag. Your data isn't modeled for self-service
+                answering. An AI agent trying to perform Retrieval-Augmented Generation (RAG) against your databases
+                will hit the exact same structural bottlenecks your human analysts do.</p>
+
+            <h2>3. Is there a single source of truth for key metrics?</h2>
+            <p><strong>The Symptom:</strong> Sales tracks "churn" as a canceled contract. Customer Success tracks
+                "churn" as a lack of login activity for 30 days. Finance tracks "churn" only when the final invoice is
+                unpaid.</p>
+            <p><strong>The Reality:</strong> Revenue, churn, customer count—does everyone explicitly agree on these
+                definitions, and is that agreement codified in code? This is where a semantic layer comes in. If an AI
+                agent attempts to calculate a metric without a clearly defined, globally accepted formula, the outputs
+                will be fundamentally flawed and untrustworthy.</p>
+
+            <h2>4. Could an outsider understand your data schema?</h2>
+            <p><strong>The Symptom:</strong> You have tables named `tbl_cust_data_v4_FINAL` with fifty poorly named
+                columns like `flag_1` and `dt_mod` that only make sense to the original developer who built the database
+                in 2018.</p>
+            <p><strong>The Reality:</strong> LLMs are incredibly adept at writing SQL—but only if the database schema is
+                logically structured, properly aliased, and well-documented. If your data ecosystem requires deep
+                institutional knowledge to navigate, an AI won't be able to figure it out either. You need clean
+                semantic mapping, descriptions, and logical foreign keys.</p>
+
+            <h2>5. Do your pipelines run reliably without intervention?</h2>
+            <p><strong>The Symptom:</strong> A data engineer has to log in every Tuesday at 8 AM to manually re-run a
+                script because the API connection to your CRM times out sporadically.</p>
+            <p><strong>The Reality:</strong> AI agents and automated workflows require consistent, fresh, and reliable
+                data to function autonomously. Broken pipelines equal broken AI. You cannot build a durable AI solution
+                on top of brittle infrastructure that requires constant human life support.</p>
+
+            <hr class="border-border my-10">
+
+            <p>If you answered "no" or "I don't know" to most of these—you're not alone. The vast majority of companies
+                are rushing toward generative AI without having solved traditional Business Intelligence first.</p>
+
+            <p>But here's the good news: this is entirely fixable. And contrary to popular belief, modernizing this
+                foundation doesn't necessarily take an 18-month migration project or a massive 15-person engineering
+                team.</p>
+
+            <p class="text-xl text-ink font-medium text-center mt-10"><em>How many of these did you answer "yes" to?
+                    Be honest.</em></p>
+
+            <div class="mt-8 text-center flex justify-center">
+                <a href="how-it-works.html"
+                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">Start
+                    Your AI Readiness Journey</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauzi.ai | AI Data Implementation for the AI Agent Era</title>
+    <meta name="description"
+        content="Sauzi.ai implements the data infrastructure that makes AI agents work. We configure your warehouse, model your data, and connect the AI tools — so your team gets answers in seconds, not requests in a ticket queue.">
+
+    <!-- Google Fonts: Lora + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm': '0 1px 3px rgba(26, 24, 20, 0.06), 0 1px 2px rgba(26, 24, 20, 0.04)',
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                        'amber-glow': '0 0 20px rgba(200, 134, 10, 0.15)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Web Components -->
+    <script src="components.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-balance { text-wrap: balance; }
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+            .card-hover:hover {
+                background: #FDF5E6;
+                border-color: #C8860A;
+                box-shadow: 0 4px 12px rgba(26, 24, 20, 0.08);
+            }
+            .amber-bar {
+                display: block;
+                width: 2rem;
+                height: 2px;
+                background: #C8860A;
+                margin-bottom: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <app-header></app-header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-40 overflow-hidden">
+
+        <div
+            class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex-grow flex flex-col justify-center">
+
+            <!-- Badge Pill -->
+            <div
+                class="inline-flex items-center gap-0 rounded-full card mb-10 animate-fade-in-up overflow-hidden p-1 pr-4 group cursor-default mx-auto">
+                <div class="bg-primary/20 p-2 rounded-full mr-3 group-hover:bg-primary/30 transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="text-primary">
+                        <path
+                            d="M11 5V3M11 5C9.34315 5 8 6.34315 8 8V11C8 11.5523 8.44772 12 9 12H13C13.5523 12 14 11.5523 14 11V8C14 6.34315 12.6569 5 11 5ZM13 5V3"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M11 12V16C11 18.2091 9.20914 20 7 20" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="11" cy="5" r="0.5" fill="currentColor" />
+                    </svg>
+                </div>
+                <span class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-ink-2">
+                    AI Data Implementation <span class="text-primary">· Taking Clients Now</span>
+                </span>
+                <div class="ml-3 flex items-center gap-1.5 border-l border-border pl-3">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span class="text-[10px] font-bold text-ink-3">ACTIVE</span>
+                </div>
+            </div>
+
+            <!-- Headline -->
+            <h1
+                class="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mb-10 leading-[1.1] animate-fade-in-up delay-100">
+                Your Data Is the Foundation. <br class="hidden md:block" />
+                We Build It <span class="text-primary">AI-Ready.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p
+                class="text-xl md:text-2xl text-ink-2 mb-12 max-w-3xl mx-auto leading-relaxed text-balance animate-fade-in-up delay-200">
+                Sauzi.ai implements the data infrastructure that makes AI agents work. We configure your warehouse, model your data, and connect the AI tools — so your team gets answers in seconds, not requests in a ticket queue.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
+                <a href="#book-call"
+                    class="w-full sm:w-auto bg-ink text-background hover:bg-ink/90 text-lg font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-warm-md">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+
+        <!-- Trusted By / Social Proof -->
+        <div class="relative z-10 w-full mt-auto animate-fade-in-up delay-500 pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-sm font-bold uppercase tracking-widest mb-10 text-center text-ink-3">Data expertise from teams at</p>
+
+                <!-- Marquee Container -->
+                <div class="relative w-full mask-gradient">
+                    <style>
+                        .mask-gradient {
+                            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                        }
+                    </style>
+                    <div class="flex w-max animate-marquee gap-24 items-center">
+                        <!-- Set 1 -->
+                        <div class="flex gap-24 items-center">
+                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/chewy-logo.png" alt="Chewy"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                        </div>
+                        <!-- Set 2 -->
+                        <div class="flex gap-24 items-center">
+                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/chewy-logo.png" alt="Chewy"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                        </div>
+                        <!-- Set 3 -->
+                        <div class="flex gap-24 items-center">
+                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/chewy-logo.png" alt="Chewy"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI"
+                                class="w-40 h-16 object-contain grayscale opacity-60 hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-4">
+                        <span class="text-primary">
+                            Three Phases.
+                        </span>
+                        One Destination: AI Agents on Your Data.
+                    </h2>
+                    <p class="text-ink-2 text-lg">Every company starts somewhere different. Some have a clean warehouse ready for AI today. Others have messy pipelines. Some don't have a warehouse at all. Sauzi meets you wherever you are and gets you to the same place: AI agents working on your data, answering questions in seconds.</p>
+                </div>
+                <div class="hidden md:block pb-2">
+                    <div class="flex items-center gap-2 text-primary font-bold">
+                        <span>Scroll for more</span>
+                        <svg class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 1 -->
+                <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Phase 1: Foundation</h3>
+                    <p class="text-ink-2 leading-relaxed mb-6">
+                        We connect your data sources, build or repair your pipelines, and get clean data flowing into your warehouse. You can't deploy AI on a leaky pipe — so we fix the pipe first.
+                    </p>
+                    <ul class="space-y-3 text-sm text-ink-2">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> ETL/ELT Pipeline Buildout
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> Pipeline Repair &amp; Optimization
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> Warehouse Setup &amp; Migration
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div
+                    class="card card-hover p-10 rounded-3xl transition-all duration-500 group border-primary/20">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 text-secondary group-hover:scale-110 group-hover:bg-secondary group-hover:text-background transition-all duration-300">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Phase 2: Structuring</h3>
+                    <p class="text-ink-2 leading-relaxed mb-6">
+                        We configure your warehouse with the dimension and fact tables AI agents need to reason about your business. This is the step most implementations skip — and why most AI projects fail.
+                    </p>
+                    <ul class="space-y-3 text-sm text-ink-2">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-secondary"></div> Semantic Layer Modeling
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-secondary"></div> AI-Ready Data Structuring
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-secondary"></div> Medallion Architecture Design
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Phase 3: AI Connection</h3>
+                    <p class="text-ink-2 leading-relaxed mb-6">
+                        We connect your clean, structured warehouse to the AI tools that query it. Your team asks questions in plain English. The AI answers. Insights stop waiting in a ticket queue.
+                    </p>
+                    <ul class="space-y-3 text-sm text-ink-2">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> Claude / Cowork Connection
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> Natural Language Query Interface
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1 h-1 rounded-full bg-primary"></div> Automated Anomaly Detection
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center">The Old Hire vs. <span
+                    class="text-primary">The Sauzi Model.</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                <!-- Vertical Line -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2"></div>
+
+                <!-- Old Model -->
+                <div class="space-y-8 p-6">
+                    <div class="flex items-center gap-3 text-ink-3 font-bold uppercase tracking-widest text-sm">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        The Old Hire
+                    </div>
+
+                    <div
+                        class="card p-8 rounded-2xl opacity-60 grayscale hover:opacity-100 transition-all cursor-default">
+                        <div class="text-3xl font-bold mb-2">$1,000,000+ / Year</div>
+                        <p class="text-ink-2 text-sm mb-6">Analyst team. Reports still take a week.</p>
+                        <ul class="space-y-4 text-ink-2">
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-red-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg> Analysts still waiting on data engineers</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-red-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg> Dashboards answering last week's questions</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-red-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg> Headcount that doesn't scale down</li>
+                        </ul>
+                        <div class="mt-8 pt-6 border-t border-red-500/10">
+                            <a href="why-sauzi.html"
+                                class="block w-full text-center py-3 rounded-lg bg-red-500/10 text-red-400 font-bold text-sm hover:bg-red-500/20 transition-all">
+                                Why the old model is broken
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sauzi Model -->
+                <div class="space-y-8 p-6">
+                    <div class="flex items-center gap-3 text-primary font-bold uppercase tracking-widest text-sm">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        The Sauzi Model
+                    </div>
+
+                    <div class="card border-primary/40 bg-surface-amber p-8 rounded-2xl shadow-warm-md">
+                        <div class="text-3xl font-bold mb-2">Implementation Once. AI Agents Forever.</div>
+                        <p class="text-primary text-sm mb-6">AI agents that run 24/7. Natural language queries. Scales without headcount.</p>
+                        <ul class="space-y-4 text-ink">
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg> Warehouse configured and AI-connected</li>
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg> Questions answered in plain English, instantly</li>
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg> 10x analytical leverage without 10x headcount</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="book-call" class="py-32 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="card rounded-[2.5rem] p-8 md:p-16 border-primary/20 shadow-warm-lg text-center overflow-hidden relative">
+
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-6">Ready to Make Your Data <span class="text-primary">AI-Ready?</span>
+                </h2>
+                <p class="text-ink-2 text-lg mb-12">Tell us where your data stands today. We'll map out exactly what needs to be built — and what your team unlocks when we're done.</p>
+
+                <div id="form-container">
+                    <form id="contact-form" class="space-y-6 max-w-lg mx-auto text-left">
+                        <!-- User Info -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-ink-2 mb-2">Full Name</label>
+                                <input type="text" name="fullName" required
+                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                                    placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-ink-2 mb-2">Email Address</label>
+                                <input type="email" name="email" required
+                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                                    placeholder="john@company.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-ink-2 mb-2">Role / Job Title</label>
+                                <input type="text" name="role" required
+                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                                    placeholder="CTO, Founder, etc.">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-ink-2 mb-2">Company Name</label>
+                                <input type="text" name="company" required
+                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                                    placeholder="Acme Corp">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-ink-2 mb-2">What industry are you in?</label>
+                            <input type="text" name="industry" required
+                                class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                                placeholder="E.g. E-commerce, SaaS, Retail">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-primary hover:bg-primary-mid text-background font-bold py-4 rounded-xl hover:shadow-warm-md hover:scale-[1.02] transition-all transform duration-300 flex justify-center items-center gap-2">
+                            <span>Get My Data Readiness Map</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="success-message" class="hidden max-w-lg mx-auto text-center py-10">
+                    <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-ink mb-4">You're on the list.</h3>
+                    <p class="text-ink-2 leading-relaxed">
+                        Thanks for reaching out. A Sauzi data strategist will be in touch shortly to walk through your current stack and next steps.
+                    </p>
+                </div>
+
+                <script>
+                    const form = document.getElementById('contact-form');
+                    const formContainer = document.getElementById('form-container');
+                    const successMessage = document.getElementById('success-message');
+                    const submitBtn = document.getElementById('submit-btn');
+
+                    const WEBHOOK_URL = 'https://hook.us2.make.com/50v4vpsrkfcxljo1e017w0uv16s3323c';
+
+                    form.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+
+                        // Loading State
+                        const originalBtnText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+                        submitBtn.disabled = true;
+
+                        const formData = new FormData(form);
+                        const data = {
+                            timestamp: new Date().toISOString()
+                        };
+                        formData.forEach((value, key) => data[key] = value);
+
+                        try {
+                            await fetch(WEBHOOK_URL, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data)
+                            });
+
+                            // Success State
+                            formContainer.classList.add('hidden');
+                            successMessage.classList.remove('hidden');
+                            successMessage.classList.add('animate-fade-in-up');
+
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('Something went wrong. Please try again.');
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+
+    <!-- Scripts -->
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

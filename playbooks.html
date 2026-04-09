@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementation Playbooks | Sauzi.ai</title>
+    <meta name="description"
+        content="Stack-specific implementation blueprints from Sauzi.ai. See exactly what we build in each phase — and what your AI agents can answer on day one.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm': '0 1px 3px rgba(26, 24, 20, 0.06), 0 1px 2px rgba(26, 24, 20, 0.04)',
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                        'amber-glow': '0 0 20px rgba(200, 134, 10, 0.15)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="components.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-balance { text-wrap: balance; }
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+            .card-hover:hover {
+                background: #FDF5E6;
+                border-color: #C8860A;
+                box-shadow: 0 4px 12px rgba(26, 24, 20, 0.08);
+            }
+            .amber-bar {
+                display: block;
+                width: 2rem;
+                height: 2px;
+                background: #C8860A;
+                margin-bottom: 1.25rem;
+            }
+        }
+        body { background-color: #FDFAF5; color: #1A1814; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+
+        /* Phase step connector */
+        .phase-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+        @media (max-width: 768px) {
+            .phase-steps { grid-template-columns: 1fr; }
+        }
+        .phase-connector { position: relative; }
+        .phase-connector:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -1px;
+            width: 2px;
+            height: calc(100% - 40px);
+            background: linear-gradient(to bottom, rgba(200,134,10,0.3), rgba(168,75,40,0.1));
+        }
+        @media (max-width: 768px) {
+            .phase-connector:not(:last-child)::after { display: none; }
+        }
+
+        /* Q&A chat bubbles */
+        .qa-question {
+            background: #F7F2EA;
+            border: 0.5px solid #E8E2D8;
+            border-radius: 12px 12px 12px 2px;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: #6B6560;
+            margin-bottom: 0.5rem;
+        }
+        .qa-answer {
+            background: rgba(200, 134, 10, 0.08);
+            border: 0.5px solid rgba(200, 134, 10, 0.2);
+            border-radius: 12px 12px 2px 12px;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: #1A1814;
+            margin-bottom: 1.25rem;
+            margin-left: 1.5rem;
+        }
+        .qa-label-user {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #B0AA9F;
+            margin-bottom: 0.25rem;
+        }
+        .qa-label-ai {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C8860A;
+            margin-bottom: 0.25rem;
+            margin-left: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden selection:bg-primary/20 selection:text-ink">
+
+    <app-header></app-header>
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block px-4 py-2 rounded-full bg-surface border border-border text-primary text-sm font-bold tracking-wide mb-6">
+                THE SAUZI PLAYBOOKS
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+                Stack-Specific Blueprints.<br />
+                <span class="text-primary">No Mystery.</span>
+            </h1>
+            <p class="text-xl text-ink-2 max-w-3xl mx-auto leading-relaxed">
+                These are the actual implementation paths we run for different client stacks. Pick the one that matches where your data lives today — and see exactly what we build in each phase.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stage Legend -->
+    <section class="pb-8 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-widest">
+                <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary">
+                    <span class="w-2 h-2 rounded-full bg-primary"></span> Stage A — Ready for AI Connection
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span> Stage B — Needs Structuring
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-500">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span> Stage C — Needs Foundation First
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playbooks -->
+    <section class="py-8 pb-32 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+
+
+            <!-- ============================================================ -->
+            <!-- PLAYBOOK A: Shopify + No Warehouse → Full Build              -->
+            <!-- ============================================================ -->
+            <div class="card rounded-3xl overflow-hidden shadow-warm-md">
+
+                <div class="bg-gradient-to-r from-red-500/10 to-transparent border-b border-border p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-surface border border-border text-ink-2">E-Commerce DTC Brand</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-red-500/10 border border-red-500/20 text-red-500">Stage C — Needs Foundation</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 border border-primary/20 text-primary">8–10 Weeks to AI Agents</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Playbook A: Shopify + No Warehouse → Full Build</h2>
+                    <p class="text-ink-2 text-sm md:text-base leading-relaxed max-w-3xl">
+                        Your store is in Shopify. Maybe Recharge for subscriptions, Mailchimp or Klaviyo for email. Your data lives across disconnected platforms with no single source of truth. Reports come from spreadsheets. There's no warehouse. We build one — and connect AI agents to it.
+                    </p>
+                </div>
+
+                <div class="p-6 md:p-8 space-y-8">
+
+                    <div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-3">Your Current Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Shopify</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Recharge</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Klaviyo / Mailchimp</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Google Ads</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Meta Ads</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Google Sheets (for now)</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary/70 mb-3">Sauzi Builds</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Snowflake Warehouse</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">ETL Pipelines (All Sources)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Unified Customer Model</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">LTV + Retention Layer</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">AI Agent Connection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">Implementation Phases</p>
+                        <div class="phase-steps">
+                            <div class="phase-connector pr-0 md:pr-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">1</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">Foundation</div>
+                                        <div class="text-xs text-ink-3">~4–5 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Stand up Snowflake; configure schemas and access</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Connect Shopify, Recharge, Klaviyo, ad platforms via ETL</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Standardize customer identity across all sources</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Validate data quality — clean before we structure</li>
+                                </ul>
+                            </div>
+                            <div class="phase-connector px-0 md:px-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary font-black text-sm flex-shrink-0">2</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-secondary">Structuring</div>
+                                        <div class="text-xs text-ink-3">~3 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Unified customer model: orders + subscriptions + email + ads</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> LTV, cohort retention, blended CAC models</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Semantic layer structured for natural language queries</li>
+                                </ul>
+                            </div>
+                            <div class="pl-0 md:pl-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">3</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">AI Connection</div>
+                                        <div class="text-xs text-ink-3">~1–2 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Connect Claude / Cowork to your structured warehouse</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Role-based access for marketing, merch, exec</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Go live — questions answered in seconds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What Your AI Agents Answer on Day One</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"What's our subscription churn rate this month, and which products have the highest churn?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"Subscription churn is 4.2% this month, up from 3.1%. The 'Monthly Bundle' SKU accounts for 38% of churned subscribers. Most cancellations happen at day 45 — just after the first renewal."</p>
+                            </div>
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"Which email campaign drove the most LTV-positive customers last quarter?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"The September 'Welcome Series' drove 847 customers with a 90-day LTV of $212 on average — 34% higher than your paid social cohort from the same period. Email acquisition is your most efficient channel by LTV."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="border-t border-border px-6 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-ink-3">This is your stack? Let's map out your exact implementation.</p>
+                    <a href="index.html#book-call" class="inline-block bg-ink hover:bg-ink/90 text-background text-sm font-bold py-3 px-8 rounded-xl shadow-warm-md hover:scale-105 transition-all whitespace-nowrap">
+                        Get My Data Readiness Map
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- ============================================================ -->
+            <!-- PLAYBOOK B: Existing Warehouse, Unstructured → Structure + Connect -->
+            <!-- ============================================================ -->
+            <div class="card rounded-3xl overflow-hidden shadow-warm-md">
+
+                <div class="bg-gradient-to-r from-primary/10 to-transparent border-b border-border p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-surface border border-border text-ink-2">Mid-Market DTC Brand</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 border border-amber-500/20 text-amber-600">Stage B — Needs Structuring</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 border border-primary/20 text-primary">5–6 Weeks to AI Agents</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Playbook B: Existing Warehouse, Unstructured → Structure + Connect</h2>
+                    <p class="text-ink-2 text-sm md:text-base leading-relaxed max-w-3xl">
+                        You've got a warehouse. Data is flowing. But your dbt models are inconsistent, there's no unified view of the customer, and AI queries return unreliable results. The warehouse is there — the structure isn't. We build the structure and connect the AI.
+                    </p>
+                </div>
+
+                <div class="p-6 md:p-8 space-y-8">
+
+                    <div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-3">Your Current Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Shopify</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Snowflake</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">dbt (inconsistent)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Fivetran</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Klaviyo</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Google &amp; Meta Ads</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary/70 mb-3">Sauzi Adds</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">dbt Model Repair</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Unified Customer Model</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">LTV Semantic Layer</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Ad Attribution Model</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">AI Agent Connection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">Implementation Phases</p>
+                        <div class="phase-steps">
+                            <div class="phase-connector pr-0 md:pr-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">1</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">Foundation (Repair)</div>
+                                        <div class="text-xs text-ink-3">~2 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Audit existing dbt models — fix broken refs and schema drift</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Connect any missing sources (Klaviyo, ad platforms)</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Standardize customer identity across all sources</li>
+                                </ul>
+                            </div>
+                            <div class="phase-connector px-0 md:px-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary font-black text-sm flex-shrink-0">2</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-secondary">Structuring</div>
+                                        <div class="text-xs text-ink-3">~2 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Unified customer model: orders + email + ad attribution</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> LTV, cohort, blended CAC, and Weeks of Cover models</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Semantic layer structured for natural language queries</li>
+                                </ul>
+                            </div>
+                            <div class="pl-0 md:pl-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">3</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">AI Connection</div>
+                                        <div class="text-xs text-ink-3">~1 week</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Connect AI tools to your structured Snowflake warehouse</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Role-based access for merch, marketing, exec</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Go live — questions answered in seconds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What Your AI Agents Answer on Day One</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"What's our blended CAC across Google and Meta this month vs. last month?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"Blended CAC is $38.40 this month, up from $31.20. Meta CAC rose 28% while Google held flat. The spike tracks to your Black Friday campaign — Meta Advantage+ drove volume but at higher cost."</p>
+                            </div>
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"Which customer cohort from last quarter has the highest 90-day LTV?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"The Oct cohort leads at $247 90-day LTV — acquired primarily through Meta Advantage+. The Aug cohort sits at $189. Oct also shows 22% higher repeat rate within 60 days."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="border-t border-border px-6 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-ink-3">This is your stack? Let's map out your exact implementation.</p>
+                    <a href="index.html#book-call" class="inline-block bg-ink hover:bg-ink/90 text-background text-sm font-bold py-3 px-8 rounded-xl shadow-warm-md hover:scale-105 transition-all whitespace-nowrap">
+                        Get My Data Readiness Map
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- ============================================================ -->
+            <!-- PLAYBOOK C: Multi-Source E-Commerce → Unified Layer + AI     -->
+            <!-- ============================================================ -->
+            <div class="card rounded-3xl overflow-hidden shadow-warm-md">
+
+                <div class="bg-gradient-to-r from-primary/10 to-transparent border-b border-border p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-surface border border-border text-ink-2">Omnichannel E-Commerce Brand</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-red-500/10 border border-red-500/20 text-red-500">Stage C — Needs Foundation</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 border border-primary/20 text-primary">10–12 Weeks to AI Agents</span>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Playbook C: Multi-Source E-Commerce → Unified Layer + AI</h2>
+                    <p class="text-ink-2 text-sm md:text-base leading-relaxed max-w-3xl">
+                        You're running Shopify for DTC, Recharge for subscriptions, Mailchimp for email, and Magento for wholesale. These platforms don't talk to each other. A customer who buys on both channels shows up as two different people. We unify everything, build the warehouse, structure it for AI, and connect the agents.
+                    </p>
+                </div>
+
+                <div class="p-6 md:p-8 space-y-8">
+
+                    <div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-3">Your Current Stack</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Shopify (DTC)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Recharge (Subscriptions)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Magento (Wholesale)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Mailchimp</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface border border-border text-ink-2">Google &amp; Meta Ads</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary/70 mb-3">Sauzi Builds</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Snowflake Warehouse</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Unified ETL (All Sources)</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Customer Identity Resolution</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">Cross-Channel Revenue Model</span>
+                                    <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 border border-primary/20 text-primary">AI Agent Connection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">Implementation Phases</p>
+                        <div class="phase-steps">
+                            <div class="phase-connector pr-0 md:pr-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">1</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">Foundation</div>
+                                        <div class="text-xs text-ink-3">~5–6 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Stand up Snowflake; connect all 5 sources via ETL</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Customer identity resolution across all channels</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Ad spend ingested and matched to channel and order</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Validate data quality before moving to structure</li>
+                                </ul>
+                            </div>
+                            <div class="phase-connector px-0 md:px-6 mb-6 md:mb-0">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-secondary font-black text-sm flex-shrink-0">2</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-secondary">Structuring</div>
+                                        <div class="text-xs text-ink-3">~4 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Unified customer model across DTC, subscription, and wholesale</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Cross-channel LTV, blended CAC, Weeks of Cover</li>
+                                    <li class="flex gap-2"><span class="text-secondary mt-0.5 flex-shrink-0">→</span> Semantic layer for marketing, merch, and ops teams</li>
+                                </ul>
+                            </div>
+                            <div class="pl-0 md:pl-6">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-black text-sm flex-shrink-0">3</div>
+                                    <div>
+                                        <div class="text-xs font-bold uppercase tracking-widest text-primary">AI Connection</div>
+                                        <div class="text-xs text-ink-3">~2 weeks</div>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2 text-sm text-ink-2">
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Marketing view: CAC, ROAS, channel attribution</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Merch view: inventory, Weeks of Cover, reorder alerts</li>
+                                    <li class="flex gap-2"><span class="text-primary mt-0.5 flex-shrink-0">→</span> Exec view: full unified P&amp;L, LTV, retention</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-ink-3 mb-4">What Your AI Agents Answer on Day One</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"What's the LTV difference between DTC customers and wholesale customers across their first 6 months?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"DTC customers average $318 6-month LTV vs. $204 for wholesale. Subscribers acquired via DTC convert to wholesale at 11% — and when they do, total 6-month LTV jumps to $490."</p>
+                            </div>
+                            <div class="bg-surface rounded-2xl p-5 border border-border">
+                                <p class="qa-label-user">You</p>
+                                <p class="qa-question">"Which SKUs are at risk of stockout across channels this week?"</p>
+                                <p class="qa-label-ai">AI Agent</p>
+                                <p class="qa-answer">"8 SKUs have under 2 weeks of cover across DTC and wholesale combined. The Signature Bundle (Medium) is your most at-risk — 0.8 weeks of cover with a 40% sell-through rate last week. Recommend reorder or channel rebalancing."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="border-t border-border px-6 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-ink-3">This is your stack? Let's map out your exact implementation.</p>
+                    <a href="index.html#book-call" class="inline-block bg-ink hover:bg-ink/90 text-background text-sm font-bold py-3 px-8 rounded-xl shadow-warm-md hover:scale-105 transition-all whitespace-nowrap">
+                        Get My Data Readiness Map
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-6">Don't see your exact stack?</h2>
+            <p class="text-ink-2 text-xl mb-10 leading-relaxed">
+                We've worked with dozens of stack combinations. Tell us what you're running and we'll map out exactly which phase you're in and what it takes to get AI agents live on your data.
+            </p>
+            <a href="index.html#book-call"
+                class="inline-block bg-ink hover:bg-ink/90 text-background text-lg font-bold py-5 px-12 rounded-2xl shadow-warm-md hover:scale-105 transition-all">
+                Get My Data Readiness Map
+            </a>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <script>
+        const observerOptions = { threshold: 0.05 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-6');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

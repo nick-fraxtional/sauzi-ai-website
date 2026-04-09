@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monday Metrics: CLTV | Sauzi.ai Blog</title>
+    <meta name="description"
+        content="Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard, but because the data behind it is a mess.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #6B6560;
+        }
+        .prose h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1A1814;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            margin-bottom: 2rem;
+            color: #6B6560;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #C8860A;
+            font-weight: bold;
+        }
+        .prose strong {
+            color: #1A1814;
+            font-weight: 600;
+        }
+        .prose hr {
+            border-color: #E8E2D8;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <!-- Web Components -->
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <app-header></app-header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <a href="blog.html"
+            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                <span>Data Engineering</span>
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span>3 Min Read</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Monday Metrics: CLTV</h1>
+            <p class="text-xl text-ink-2 font-medium leading-relaxed">Why Customer Lifetime Value might be the most
+                important metric most companies get wrong.</p>
+        </header>
+
+        <div class="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 relative card p-2 shadow-warm-lg">
+            <img src="Brand Assets/blog/monday-metrics-cltv-banner.png" alt="CLTV Concept"
+                class="w-full h-full object-cover rounded-2xl">
+        </div>
+
+        <article class="prose prose-lg max-w-none text-lg">
+            <p>Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math
+                is hard. But because the data behind it is a mess.</p>
+
+            <h2>What it is:</h2>
+            <p>CLTV is the total revenue you can expect from a single customer over the entire relationship. It's the
+                foundation for answering questions like:</p>
+            <ul>
+                <li>How much can we spend to acquire a customer?</li>
+                <li>Which segments deserve more investment?</li>
+                <li>Is our business actually healthy long-term?</li>
+            </ul>
+
+            <h2>The basic formula:</h2>
+            <p><strong>CLTV = Average Order Value × Purchase Frequency × Customer Lifespan</strong></p>
+
+            <p>Simple enough. But here's where it falls apart:</p>
+
+            <ul>
+                <li><strong>Average Order Value:</strong> Are you pulling gross or net revenue? Are refunds accounted
+                    for? Discounts? If finance and marketing are using different numbers, your AOV is already wrong.
+                </li>
+                <li><strong>Purchase Frequency:</strong> This requires clean customer identification. If the same
+                    customer exists as three different records in your database—congratulations, you just undercounted
+                    frequency by 3x.</li>
+                <li><strong>Customer Lifespan:</strong> When does a customer "start"? First purchase? Account creation?
+                    When do they "end"? Last activity? Formal churn? If you don't have clear definitions, your lifespan
+                    calculation is a guess.</li>
+            </ul>
+
+            <h2>The real problem</h2>
+            <p>Most companies don't have a CLTV problem. They have a data problem dressed up as a CLTV problem. They're
+                making million-dollar decisions on acquisition spend, retention programs, and customer segmentation
+                based on a number that's built on inconsistent definitions, duplicated records, and mismatched data
+                sources.</p>
+
+            <h2>How to fix it</h2>
+            <p>Before you trust your CLTV, audit the inputs.</p>
+            <ul>
+                <li>Do you have a single, deduplicated customer ID?</li>
+                <li>Is revenue tracked consistently across systems?</li>
+                <li>Are your definitions of "active" and "churned" documented and agreed upon?</li>
+                <li>Can you trace the calculation back to source data?</li>
+            </ul>
+
+            <p>If you can't confidently answer yes to all four, your CLTV isn't a metric—it's a hope.</p>
+
+            <hr class="my-10">
+
+            <p class="text-xl text-ink font-medium text-center"><em>Need help fixing your data foundations?</em></p>
+
+            <div class="mt-8 text-center flex justify-center">
+                <a href="index.html#book-call"
+                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">Request
+                    a Technical Audit</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>

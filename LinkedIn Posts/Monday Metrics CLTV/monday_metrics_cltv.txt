@@ -1,0 +1,28 @@
+𝗠𝗢𝗡𝗗𝗔𝗬 𝗠𝗘𝗧𝗥𝗜𝗖𝗦: 𝗖𝗟𝗧𝗩
+Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard. But because the data behind it is a mess.
+
+𝗪𝗵𝗮𝘁 𝗶𝘁 𝗶𝘀: 
+CLTV is the total revenue you can expect from a single customer over the entire relationship. It's the foundation for answering questions like:
+→ How much can we spend to acquire a customer?
+→ Which segments deserve more investment?
+→ Is our business actually healthy long-term?
+
+𝗧𝗵𝗲 𝗯𝗮𝘀𝗶𝗰 𝗳𝗼𝗿𝗺𝘂𝗹𝗮: 
+CLTV = Average Order Value × Purchase Frequency × Customer Lifespan
+
+Simple enough. But here's where it falls apart:
+→𝗔𝘃𝗲𝗿𝗮𝗴𝗲 𝗢𝗿𝗱𝗲𝗿 𝗩𝗮𝗹𝘂𝗲 Are you pulling gross or net revenue? Are refunds accounted for? Discounts? If finance and marketing are using different numbers, your AOV is already wrong.
+→𝗣𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗙𝗿𝗲𝗾𝘂𝗲𝗻𝗰𝘆 This requires clean customer identification. If the same customer exists as three different records in your database—congratulations, you just undercounted frequency by 3x.
+→𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗟𝗶𝗳𝗲𝘀𝗽𝗮𝗻 When does a customer "start"? First purchase? Account creation? When do they "end"? Last activity? Formal churn? If you don't have clear definitions, your lifespan calculation is a guess.
+
+𝗧𝗵𝗲 𝗿𝗲𝗮𝗹 𝗽𝗿𝗼𝗯𝗹𝗲𝗺: Most companies don't have a CLTV problem. They have a data problem dressed up as a CLTV problem. They're making million-dollar decisions on acquisition spend, retention programs, and customer segmentation based on a number that's built on inconsistent definitions, duplicated records, and mismatched data sources.
+
+𝗛𝗼𝘄 𝘁𝗼 𝗳𝗶𝘅 𝗶𝘁: Before you trust your CLTV, audit the inputs.
+✓ Do you have a single, deduplicated customer ID?
+✓ Is revenue tracked consistently across systems?
+✓ Are your definitions of "active" and "churned" documented and agreed upon?
+✓ Can you trace the calculation back to source data?
+
+If you can't confidently answer yes to all four, your CLTV isn't a metric—it's a hope.
+
+𝗪𝗵𝗮𝘁 𝗺𝗲𝘁𝗿𝗶𝗰 𝘀𝗵𝗼𝘂𝗹𝗱 𝘄𝗲 𝗯𝗿𝗲𝗮𝗸 𝗱𝗼𝘄𝗻 𝗻𝗲𝘅𝘁 𝘄𝗲𝗲𝗸? 👇

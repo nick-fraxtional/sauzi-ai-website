@@ -1,0 +1,26 @@
+𝗪𝗲’𝗿𝗲 𝗴𝗼𝗶𝗻𝗴 𝗮𝗹𝗹 𝗶𝗻 𝗼𝗻 𝗔𝗜 𝗱𝗮𝘁𝗮 𝗮𝗻𝗮𝗹𝘆𝘀𝘁𝘀.
+
+For the last year, we’ve been helping companies fix broken pipelines, clean messy data, and build scalable infrastructure. Good work. Important work.
+
+But we kept seeing the same thing: companies would get their data right and then… go back to dashboards. Back to BI tools. Back to submitting tickets and waiting for someone to build a report.
+
+That’s not where this is going.
+
+The companies that will win over the next 5 years won’t have bigger data teams. They won’t have more dashboards. They’ll have 𝗔𝗜 𝗱𝗮𝘁𝗮 𝗮𝗻𝗮𝗹𝘆𝘀𝘁𝘀 𝘀𝗶𝘁𝘁𝗶𝗻𝗴 𝗼𝗻 𝘁𝗼𝗽 𝗼𝗳 𝘁𝗵𝗲𝗶𝗿 𝗱𝗮𝘁𝗮—answering questions in seconds, surfacing anomalies automatically, and working 24/7 without a ticket queue.
+
+𝗛𝗲𝗿𝗲’𝘀 𝗵𝗼𝘄 𝗶𝘁 𝘄𝗼𝗿𝗸𝘀:
+Every company starts somewhere different. Some already have a clean data warehouse—they’re ready for AI today. Others have a warehouse but the data is a mess: duplicates, broken schemas, metrics that don’t match. And some don’t have a warehouse at all.
+
+We meet you wherever you are:
+
+1️⃣ 𝗣𝗵𝗮𝘀𝗲 𝟭: 𝗙𝗼𝘂𝗻𝗱𝗮𝘁𝗶𝗼𝗻 — Audit your data, fix what’s broken, build what’s missing.
+2️⃣ 𝗣𝗵𝗮𝘀𝗲 𝟮: 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗶𝗻𝗴 — Prep your data so AI can actually understand it. This is the step most companies skip—and the reason most AI projects fail.
+3️⃣ 𝗣𝗵𝗮𝘀𝗲 𝟯: 𝗗𝗲𝗽𝗹𝗼𝘆𝗺𝗲𝗻𝘁 — AI data analysts go live. 
+
+Your team asks questions in plain English. Gets answers in seconds. No tickets. No waiting.
+
+The old model: 10-person data team, $1M+/yr in salaries, and reports that still take a week.
+
+The new model: 1 strategic lead + AI agents that never sleep.
+
+Starting now: Fraxtional only deploys AI data analysts — And we think it’s how every company will operate going forward to be successful. The question is: will yours?
