@@ -4,14 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sauzi.ai | AI Data Implementation for the AI Agent Era</title>
-    <meta name="description"
-        content="Sauzi.ai implements the data infrastructure that makes AI agents work. We configure your warehouse, model your data, and connect the AI tools — so your team gets answers in seconds, not requests in a ticket queue.">
-    <meta property="og:title" content="Sauzi.ai | AI Data Implementation for the AI Agent Era">
-    <meta property="og:description" content="Sauzi.ai implements the data infrastructure that makes AI agents work. Configure your warehouse, model your data, and connect AI tools — answers in seconds.">
-    <meta property="og:image" content="https://sauzi.ai/Brand Assets/og-image.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sauzi.ai">
+    <title>[IDEATION] Hero Redesign — Menu Concept | Sauzi.ai</title>
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Google Fonts: Lora + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,8 +69,8 @@
             }
         }
     </script>
-    <!-- Web Components -->
-    <script src="components.js"></script>
+    <!-- Web Components (one level up) -->
+    <script src="../components.js"></script>
     <style type="text/tailwindcss">
         @layer utilities {
             .text-balance { text-wrap: balance; }
@@ -97,6 +91,17 @@
                 background: #C8860A;
                 margin-bottom: 1.25rem;
             }
+            /* Menu-style course list */
+            .course-row {
+                display: grid;
+                grid-template-columns: 3rem 1fr;
+                align-items: baseline;
+                gap: 0.5rem;
+                padding: 1rem 0;
+            }
+            .course-row + .course-row {
+                border-top: 1px solid #F0EBE1;
+            }
         }
         body {
             background-color: #FDFAF5;
@@ -107,6 +112,7 @@
         ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
 
+        /* Decorative page texture */
         .hero-texture {
             background-image: radial-gradient(circle at 20% 50%, rgba(200,134,10,0.04) 0%, transparent 50%),
                               radial-gradient(circle at 80% 20%, rgba(168,75,40,0.04) 0%, transparent 40%);
@@ -116,16 +122,24 @@
 
 <body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
 
+    <!-- Design preview banner -->
+    <div class="fixed top-0 left-0 right-0 z-[9999] bg-ink text-background text-xs font-bold text-center py-2 tracking-widest uppercase">
+        Page Ideation — Hero Menu Concept &nbsp;·&nbsp; <a href="../index.html" class="underline opacity-60 hover:opacity-100">View Current Live Page →</a>
+    </div>
+
     <!-- Global Navigation -->
     <app-header></app-header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col justify-center hero-texture overflow-hidden">
+    <!-- ============================================================
+         HERO — MENU CONCEPT
+         Split layout: left = copy (menu-style), right = menu card SVG
+    ============================================================ -->
+    <section class="relative min-h-screen flex flex-col justify-center hero-texture overflow-hidden pt-10">
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center min-h-[calc(100vh-5rem)] py-24 lg:pt-28 lg:pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center min-h-[calc(100vh-5rem)] py-24 lg:py-0">
 
-                <!-- LEFT: Menu-style copy -->
+                <!-- ── LEFT: Menu-style copy ── -->
                 <div class="flex flex-col justify-center animate-fade-in-up">
 
                     <!-- Open sign / label -->
@@ -139,14 +153,14 @@
                         <span class="text-[10px] font-bold text-ink-3 tracking-widest">TAKING CLIENTS NOW</span>
                     </div>
 
-                    <!-- Headline -->
+                    <!-- Headline — reads like a menu title -->
                     <h1 class="font-serif font-semibold tracking-tight leading-[1.08] mb-8">
                         <span class="block text-5xl sm:text-6xl xl:text-7xl text-ink">Data, prepared</span>
                         <span class="block text-5xl sm:text-6xl xl:text-7xl text-ink">for the</span>
                         <span class="block text-5xl sm:text-6xl xl:text-7xl text-primary italic">AI agent era.</span>
                     </h1>
 
-                    <!-- Subheadline -->
+                    <!-- Menu description — single, precise sentence -->
                     <p class="text-lg md:text-xl text-ink-2 leading-relaxed mb-10 max-w-md">
                         We configure your warehouse, model your data, and connect the AI tools. Your team asks questions in plain English. The AI answers — in seconds, not ticket-queue weeks.
                     </p>
@@ -157,7 +171,7 @@
                             class="inline-block bg-ink text-background hover:bg-ink/90 font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-warm-md text-base">
                             Get My Data Readiness Map
                         </a>
-                        <a href="how-it-works.html"
+                        <a href="../how-it-works.html"
                             class="inline-flex items-center gap-2 border border-ink-3 text-ink-2 hover:border-primary hover:text-primary font-bold py-4 px-10 rounded-xl transition-all duration-300 text-base">
                             See How It Works
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -168,14 +182,15 @@
 
                 </div>
 
-                <!-- RIGHT: Menu card illustration -->
+                <!-- ── RIGHT: Menu card illustration ── -->
                 <div class="hidden lg:flex items-center justify-center animate-fade-in" style="animation-delay: 0.3s; opacity: 0;">
                     <div class="relative w-full max-w-[480px]">
+                        <!-- Subtle ambient glow behind card -->
                         <div class="absolute inset-0 -m-8 bg-primary/5 rounded-[3rem] blur-3xl"></div>
                         <img
-                            src="page-ideation/hero-menu.svg"
+                            src="hero-menu.svg"
                             alt="The Sauzi Data Implementation Menu — three courses: Foundation, Structuring, AI Connection"
-                            class="relative w-full h-auto"
+                            class="relative w-full h-auto drop-shadow-xl"
                             style="filter: drop-shadow(0 20px 40px rgba(26,24,20,0.12));"
                         >
                     </div>
@@ -184,7 +199,7 @@
             </div>
         </div>
 
-        <!-- Trusted By / Social Proof -->
+        <!-- Trusted By / Social Proof — below the split -->
         <div class="relative z-10 w-full border-t border-border-soft pb-12 pt-10 mt-auto">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p class="text-[10px] font-bold uppercase tracking-[0.2em] mb-8 text-center text-ink-3">
@@ -193,31 +208,35 @@
                 <div class="relative w-full" style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
                     <div class="flex w-max animate-marquee gap-24 items-center">
                         <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
                         </div>
                         <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
                         </div>
                         <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
+                            <img src="../Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ============================================================
+         Everything below is unchanged from the live homepage
+    ============================================================ -->
 
     <!-- Services Section -->
     <section id="services" class="py-32 relative">
@@ -234,8 +253,7 @@
                     <div class="flex items-center gap-2 text-primary font-bold">
                         <span>Scroll for more</span>
                         <svg class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
                         </svg>
                     </div>
                 </div>
@@ -244,11 +262,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Phase 1 -->
                 <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
                     <h3 class="font-serif text-2xl font-bold mb-4">Phase 1: Foundation</h3>
@@ -256,25 +272,17 @@
                         We connect your data sources, build or repair your pipelines, and get clean data flowing into your warehouse. You can't deploy AI on a leaky pipe — so we fix the pipe first.
                     </p>
                     <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> ETL/ELT Pipeline Buildout
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Pipeline Repair &amp; Optimization
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Warehouse Setup &amp; Migration
-                        </li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> ETL/ELT Pipeline Buildout</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Pipeline Repair &amp; Optimization</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Warehouse Setup &amp; Migration</li>
                     </ul>
                 </div>
 
                 <!-- Phase 2 -->
                 <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group border-primary/20">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 text-secondary group-hover:scale-110 group-hover:bg-secondary group-hover:text-background transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 text-secondary group-hover:scale-110 group-hover:bg-secondary group-hover:text-background transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
                     </div>
                     <h3 class="font-serif text-2xl font-bold mb-4">Phase 2: Structuring</h3>
@@ -282,25 +290,17 @@
                         We configure your warehouse with the dimension and fact tables AI agents need to reason about your business. This is the step most implementations skip — and why most AI projects fail.
                     </p>
                     <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Semantic Layer Modeling
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> AI-Ready Data Structuring
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Medallion Architecture Design
-                        </li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Semantic Layer Modeling</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> AI-Ready Data Structuring</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Medallion Architecture Design</li>
                     </ul>
                 </div>
 
                 <!-- Phase 3 -->
                 <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
                     <h3 class="font-serif text-2xl font-bold mb-4">Phase 3: AI Connection</h3>
@@ -308,15 +308,9 @@
                         We connect your clean, structured warehouse to the AI tools that query it. Your team asks questions in plain English. The AI answers. Insights stop waiting in a ticket queue.
                     </p>
                     <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Claude / Cowork Connection
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Natural Language Query Interface
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Automated Anomaly Detection
-                        </li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Claude / Cowork Connection</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Natural Language Query Interface</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Automated Anomaly Detection</li>
                     </ul>
                 </div>
             </div>
@@ -326,49 +320,29 @@
     <!-- Comparison Section -->
     <section class="py-24 bg-surface relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center">The Old Hire vs. <span
-                    class="text-primary">The Sauzi Model.</span></h2>
+            <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center">The Old Hire vs. <span class="text-primary">The Sauzi Model.</span></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                <!-- Vertical Line -->
                 <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2"></div>
 
                 <!-- Old Model -->
                 <div class="space-y-8 p-6">
                     <div class="flex items-center gap-3 text-ink-3 font-bold uppercase tracking-widest text-sm">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         The Old Hire
                     </div>
-
-                    <div
-                        class="card p-8 rounded-2xl opacity-60 grayscale hover:opacity-100 transition-all cursor-default">
+                    <div class="card p-8 rounded-2xl opacity-60 grayscale hover:opacity-100 transition-all cursor-default">
                         <div class="text-3xl font-bold mb-2">$1,000,000+ / Year</div>
                         <p class="text-ink-2 text-sm mb-6">Analyst team. Reports still take a week.</p>
                         <ul class="space-y-4 text-ink-2">
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Analysts still waiting on data engineers</li>
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Dashboards answering last week's questions</li>
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Headcount that doesn't scale down</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg> Analysts still waiting on data engineers</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg> Dashboards answering last week's questions</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg> Headcount that doesn't scale down</li>
                         </ul>
                         <div class="mt-8 pt-6 border-t border-ink/5">
-                            <a href="why-sauzi.html"
-                                class="block w-full text-center py-3 rounded-lg bg-ink/5 text-ink-3 font-bold text-sm hover:bg-ink/10 transition-all">
-                                Why the old model is broken
-                            </a>
+                            <a href="../why-sauzi.html" class="block w-full text-center py-3 rounded-lg bg-ink/5 text-ink-3 font-bold text-sm hover:bg-ink/10 transition-all">Why the old model is broken</a>
                         </div>
                     </div>
                 </div>
@@ -377,31 +351,17 @@
                 <div class="space-y-8 p-6">
                     <div class="flex items-center gap-3 text-primary font-bold uppercase tracking-widest text-sm">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         The Sauzi Model
                     </div>
-
                     <div class="card border-primary/40 bg-surface-amber p-8 rounded-2xl shadow-warm-md">
                         <div class="text-3xl font-bold mb-2">Implementation Once. AI Agents Forever.</div>
                         <p class="text-primary text-sm mb-6">Ask your data anything. Get answers instantly. No ticket queue, no analyst bottleneck.</p>
                         <ul class="space-y-4 text-ink">
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> Warehouse configured and AI-connected</li>
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> Questions answered in plain English, instantly</li>
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> 10x the insight without 10x the team</li>
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Warehouse configured and AI-connected</li>
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Questions answered in plain English, instantly</li>
+                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 10x the insight without 10x the team</li>
                         </ul>
                     </div>
                 </div>
@@ -412,11 +372,9 @@
     <!-- Booking Form Section -->
     <section id="book-call" class="py-32 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="card rounded-[2.5rem] p-8 md:p-16 border-primary/20 shadow-warm-lg text-center overflow-hidden relative">
+            <div class="card rounded-[2.5rem] p-8 md:p-16 border-primary/20 shadow-warm-lg text-center overflow-hidden relative">
 
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-6">Ready to Make Your Data <span class="text-primary">AI-Ready?</span>
-                </h2>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-6">Ready to Make Your Data <span class="text-primary">AI-Ready?</span></h2>
                 <p class="text-ink-2 text-lg mb-12">Tell us what ingredients you're working with — we'll map out exactly what needs to be built, and what your team unlocks when we're done.</p>
 
                 <div id="form-container">
@@ -424,48 +382,33 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-ink-2 mb-2">Full Name</label>
-                                <input type="text" name="fullName" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="John Doe">
+                                <input type="text" name="fullName" required class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all" placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-ink-2 mb-2">Email Address</label>
-                                <input type="email" name="email" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="john@company.com">
+                                <input type="email" name="email" required class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all" placeholder="john@company.com">
                             </div>
                         </div>
-
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-ink-2 mb-2">Role / Job Title</label>
-                                <input type="text" name="role" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="CTO, Founder, etc.">
+                                <input type="text" name="role" required class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all" placeholder="CTO, Founder, etc.">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-ink-2 mb-2">Company Name</label>
-                                <input type="text" name="company" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="Acme Corp">
+                                <input type="text" name="company" required class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all" placeholder="Acme Corp">
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-sm font-medium text-ink-2 mb-2">What industry are you in?</label>
-                            <input type="text" name="industry" required
-                                class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                placeholder="E.g. E-commerce, SaaS, Retail">
+                            <input type="text" name="industry" required class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all" placeholder="E.g. E-commerce, SaaS, Retail">
                         </div>
-
-                        <button type="submit" id="submit-btn"
-                            class="w-full bg-primary hover:bg-primary-mid text-background font-bold py-4 rounded-xl hover:shadow-warm-md hover:scale-[1.02] transition-all transform duration-300 flex justify-center items-center gap-2">
+                        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary-mid text-background font-bold py-4 rounded-xl hover:shadow-warm-md hover:scale-[1.02] transition-all transform duration-300 flex justify-center items-center gap-2">
                             <span>Get My Data Readiness Map</span>
                         </button>
                     </form>
                 </div>
 
-                <!-- Success Message (Hidden by default) -->
                 <div id="success-message" class="hidden max-w-lg mx-auto text-center py-10">
                     <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -473,9 +416,7 @@
                         </svg>
                     </div>
                     <h3 class="font-serif text-2xl font-bold text-ink mb-4">You're on the list.</h3>
-                    <p class="text-ink-2 leading-relaxed">
-                        Thanks for reaching out. A Sauzi data strategist will be in touch shortly to walk through your current stack and next steps.
-                    </p>
+                    <p class="text-ink-2 leading-relaxed">Thanks for reaching out. A Sauzi data strategist will be in touch shortly to walk through your current stack and next steps.</p>
                 </div>
 
                 <script>
@@ -483,31 +424,20 @@
                     const formContainer = document.getElementById('form-container');
                     const successMessage = document.getElementById('success-message');
                     const submitBtn = document.getElementById('submit-btn');
-
                     const WEBHOOK_URL = 'https://hook.us2.make.com/50v4vpsrkfcxljo1e017w0uv16s3323c';
-
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
-
                         const originalBtnText = submitBtn.innerHTML;
                         submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-background" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
                         submitBtn.disabled = true;
-
                         const formData = new FormData(form);
                         const data = { timestamp: new Date().toISOString() };
                         formData.forEach((value, key) => data[key] = value);
-
                         try {
-                            await fetch(WEBHOOK_URL, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(data)
-                            });
-
+                            await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
                             formContainer.classList.add('hidden');
                             successMessage.classList.remove('hidden');
                             successMessage.classList.add('animate-fade-in-up');
-
                         } catch (error) {
                             console.error('Error:', error);
                             alert('Something went wrong. Please try again.');
@@ -523,7 +453,6 @@
     <!-- Global Footer -->
     <app-footer></app-footer>
 
-    <!-- Scripts -->
     <script>
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
@@ -534,7 +463,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.card').forEach(el => {
             el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
             observer.observe(el);
