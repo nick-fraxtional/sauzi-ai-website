@@ -1,0 +1,98 @@
+<svg width="540" height="720" viewBox="0 0 540 720" xmlns="http://www.w3.org/2000/svg">
+  <!-- Drop shadow -->
+  <filter id="card-shadow" x="-5%" y="-3%" width="110%" height="110%">
+    <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#1A1814" flood-opacity="0.10"/>
+  </filter>
+
+  <!-- Card background -->
+  <rect width="540" height="720" rx="20" fill="#FDFAF5" filter="url(#card-shadow)"/>
+
+  <!-- Outer rule -->
+  <rect x="14" y="14" width="512" height="692" rx="14" fill="none" stroke="#E8E2D8" stroke-width="1"/>
+
+  <!-- Inner amber rule (dashed) -->
+  <rect x="26" y="26" width="488" height="668" rx="10" fill="none" stroke="#C8860A" stroke-width="0.6" stroke-dasharray="5 5" opacity="0.5"/>
+
+  <!-- Top ornament group -->
+  <!-- Left flourish -->
+  <line x1="80" y1="72" x2="196" y2="72" stroke="#E8E2D8" stroke-width="1"/>
+  <circle cx="196" cy="72" r="2.5" fill="#C8860A" opacity="0.7"/>
+  <!-- Right flourish -->
+  <line x1="344" y1="72" x2="460" y2="72" stroke="#E8E2D8" stroke-width="1"/>
+  <circle cx="344" cy="72" r="2.5" fill="#C8860A" opacity="0.7"/>
+  <!-- Center diamond -->
+  <polygon points="270,64 276,72 270,80 264,72" fill="#C8860A" opacity="0.85"/>
+
+  <!-- Establishment name -->
+  <text x="270" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="400" letter-spacing="5" fill="#B0AA9F" text-anchor="middle">SAUZI.AI</text>
+
+  <!-- Main menu title -->
+  <text x="270" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="600" fill="#1A1814" text-anchor="middle">The Data</text>
+  <text x="270" y="156" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="600" fill="#1A1814" text-anchor="middle">Implementation</text>
+  <!-- Italic subtitle -->
+  <text x="270" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-style="italic" fill="#C8860A" text-anchor="middle">Menu</text>
+
+  <!-- Sub-rule below title -->
+  <line x1="90" y1="208" x2="450" y2="208" stroke="#E8E2D8" stroke-width="1"/>
+
+  <!-- Season note -->
+  <text x="270" y="232" font-family="Georgia, 'Times New Roman', serif" font-size="9.5" letter-spacing="3.5" fill="#B0AA9F" text-anchor="middle">THREE COURSES · SERVED IN ORDER</text>
+
+  <!-- ——— COURSE I ——— -->
+  <!-- Course label -->
+  <text x="66" y="275" font-family="Georgia, 'Times New Roman', serif" font-size="9" letter-spacing="3" fill="#C8860A" font-weight="600">COURSE  I</text>
+  <!-- Course name -->
+  <text x="66" y="304" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="600" fill="#1A1814">Foundation</text>
+  <!-- Course description -->
+  <text x="66" y="328" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">Pipelines built. Warehouse configured.</text>
+  <text x="66" y="346" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">Clean data flowing before anything else.</text>
+  <!-- Tags -->
+  <rect x="66" y="358" width="68" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="100" y="372" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">ETL / ELT</text>
+  <rect x="144" y="358" width="76" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="182" y="372" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">SNOWFLAKE</text>
+  <rect x="230" y="358" width="52" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="256" y="372" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">dbt</text>
+
+  <!-- Divider -->
+  <line x1="66" y1="396" x2="474" y2="396" stroke="#F0EBE1" stroke-width="1"/>
+  <circle cx="270" cy="396" r="2" fill="#E8E2D8"/>
+
+  <!-- ——— COURSE II ——— -->
+  <text x="66" y="424" font-family="Georgia, 'Times New Roman', serif" font-size="9" letter-spacing="3" fill="#A84B28" font-weight="600">COURSE  II</text>
+  <text x="66" y="453" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="600" fill="#1A1814">Structuring</text>
+  <text x="66" y="477" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">Semantic layer modeled. Dim &amp; fact tables</text>
+  <text x="66" y="495" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">so AI knows how your business works.</text>
+  <!-- Tags -->
+  <rect x="66" y="507" width="100" height="20" rx="4" fill="#FDF5E6" stroke="#A84B28" stroke-width="0.5" opacity="0.8"/>
+  <text x="116" y="521" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#A84B28" text-anchor="middle" letter-spacing="1">SEMANTIC LAYER</text>
+  <rect x="176" y="507" width="110" height="20" rx="4" fill="#FDF5E6" stroke="#A84B28" stroke-width="0.5" opacity="0.8"/>
+  <text x="231" y="521" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#A84B28" text-anchor="middle" letter-spacing="1">MEDALLION ARCH.</text>
+
+  <!-- Divider -->
+  <line x1="66" y1="545" x2="474" y2="545" stroke="#F0EBE1" stroke-width="1"/>
+  <circle cx="270" cy="545" r="2" fill="#E8E2D8"/>
+
+  <!-- ——— COURSE III ——— -->
+  <text x="66" y="573" font-family="Georgia, 'Times New Roman', serif" font-size="9" letter-spacing="3" fill="#C8860A" font-weight="600">COURSE  III</text>
+  <text x="66" y="602" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="600" fill="#1A1814">AI Connection</text>
+  <text x="66" y="626" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">Agents connected. Ask in plain English.</text>
+  <text x="66" y="644" font-family="Georgia, 'Times New Roman', serif" font-size="12.5" fill="#6B6560">Answers in seconds. No ticket queue.</text>
+  <!-- Tags -->
+  <rect x="66" y="656" width="56" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="94" y="670" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">CLAUDE</text>
+  <rect x="132" y="656" width="66" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="165" y="670" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">COWORK</text>
+  <rect x="208" y="656" width="100" height="20" rx="4" fill="#FDF5E6" stroke="#C8860A" stroke-width="0.5" opacity="0.8"/>
+  <text x="258" y="670" font-family="Georgia, 'Times New Roman', serif" font-size="9" fill="#C8860A" text-anchor="middle" letter-spacing="1">NATURAL LANG.</text>
+
+  <!-- Bottom rule -->
+  <line x1="90" y1="695" x2="450" y2="695" stroke="#E8E2D8" stroke-width="1"/>
+  <!-- Bottom ornament -->
+  <circle cx="196" cy="695" r="2.5" fill="#C8860A" opacity="0.7"/>
+  <circle cx="344" cy="695" r="2.5" fill="#C8860A" opacity="0.7"/>
+  <polygon points="270,687 276,695 270,703 264,695" fill="#C8860A" opacity="0.85"/>
+
+  <!-- Footer caption -->
+  <text x="270" y="712" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-style="italic" fill="#B0AA9F" text-anchor="middle">Served to your exact specifications.</text>
+</svg>

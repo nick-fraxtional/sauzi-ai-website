@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" width="700" height="450">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDFAF5"/>
+      <stop offset="100%" stop-color="#F7F2EA"/>
+    </linearGradient>
+    <linearGradient id="barAmber" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#C8860A"/>
+      <stop offset="100%" stop-color="#E8A020"/>
+    </linearGradient>
+    <linearGradient id="barTerra" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#A84B28"/>
+      <stop offset="100%" stop-color="#C8860A"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#1A1814" flood-opacity="0.07"/>
+    </filter>
+    <marker id="arrowTransform" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 Z" fill="#C8860A"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="450" fill="#FDFAF5"/>
+
+  <!-- LEFT: RECIPE CARD -->
+  <rect x="32" y="62" width="248" height="316" rx="10" fill="#1A1814" opacity="0.06"/>
+  <rect x="28" y="58" width="248" height="316" rx="10" fill="url(#cardBg)" filter="url(#cardShadow)" stroke="#B0AA9F" stroke-width="1"/>
+  <!-- Card header stripe -->
+  <rect x="28" y="58" width="248" height="44" rx="10" fill="#C8860A" opacity="0.92"/>
+  <rect x="28" y="88" width="248" height="14" fill="#C8860A" opacity="0.92"/>
+  <line x1="28" y1="80" x2="276" y2="80" stroke="#E8A020" stroke-width="0.75" opacity="0.4"/>
+  <!-- Fork silhouette -->
+  <line x1="98" y1="66" x2="98" y2="94" stroke="#FDFAF5" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>
+  <line x1="94" y1="66" x2="94" y2="76" stroke="#FDFAF5" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+  <line x1="102" y1="66" x2="102" y2="76" stroke="#FDFAF5" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+  <!-- Knife -->
+  <line x1="112" y1="66" x2="112" y2="94" stroke="#FDFAF5" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M112,66 Q118,70 112,78" fill="none" stroke="#FDFAF5" stroke-width="1.5" opacity="0.6"/>
+  <!-- Card header text -->
+  <text x="152" y="84" text-anchor="middle" font-family="Lora, serif" font-size="13" font-weight="700" fill="#FDFAF5" letter-spacing="0.5">Recipe for Insight</text>
+  <!-- Question text -->
+  <text x="48" y="124" font-family="Lora, serif" font-size="11" fill="#1A1814" font-style="italic" opacity="0.9">What was our top-selling</text>
+  <text x="48" y="140" font-family="Lora, serif" font-size="11" fill="#1A1814" font-style="italic" opacity="0.9">category last quarter, and</text>
+  <text x="48" y="156" font-family="Lora, serif" font-size="11" fill="#1A1814" font-style="italic" opacity="0.9">how did margins compare</text>
+  <text x="48" y="172" font-family="Lora, serif" font-size="11" fill="#1A1814" font-style="italic" opacity="0.9">to the prior year?</text>
+  <line x1="48" y1="186" x2="256" y2="186" stroke="#B0AA9F" stroke-width="0.75" stroke-dasharray="4 3" opacity="0.6"/>
+  <!-- Ingredients label -->
+  <text x="48" y="204" font-family="Inter, sans-serif" font-size="9" fill="#C8860A" letter-spacing="1.5" font-weight="700">INGREDIENTS</text>
+  <!-- Ingredient dots -->
+  <circle cx="56" cy="220" r="3" fill="#C8860A" opacity="0.7"/>
+  <text x="66" y="224" font-family="Inter, sans-serif" font-size="10" fill="#6B6560">Sales data</text>
+  <circle cx="56" cy="238" r="3" fill="#C8860A" opacity="0.7"/>
+  <text x="66" y="242" font-family="Inter, sans-serif" font-size="10" fill="#6B6560">Margin metrics</text>
+  <circle cx="56" cy="256" r="3" fill="#A84B28" opacity="0.7"/>
+  <text x="66" y="260" font-family="Inter, sans-serif" font-size="10" fill="#6B6560">Year-over-year</text>
+  <circle cx="56" cy="274" r="3" fill="#A84B28" opacity="0.7"/>
+  <text x="66" y="278" font-family="Inter, sans-serif" font-size="10" fill="#6B6560">Category breakdown</text>
+  <line x1="48" y1="292" x2="256" y2="292" stroke="#B0AA9F" stroke-width="0.75" stroke-dasharray="4 3" opacity="0.4"/>
+  <!-- Card ruled lines -->
+  <line x1="48" y1="308" x2="256" y2="308" stroke="#B0AA9F" stroke-width="0.5" opacity="0.3"/>
+  <line x1="48" y1="320" x2="256" y2="320" stroke="#B0AA9F" stroke-width="0.5" opacity="0.25"/>
+  <line x1="48" y1="332" x2="256" y2="332" stroke="#B0AA9F" stroke-width="0.5" opacity="0.2"/>
+  <line x1="48" y1="344" x2="256" y2="344" stroke="#B0AA9F" stroke-width="0.5" opacity="0.15"/>
+  <text x="152" y="356" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#B0AA9F" letter-spacing="1">ASK SAUZI</text>
+
+  <!-- CENTER: TRANSFORM ARROW -->
+  <line x1="302" y1="225" x2="394" y2="225" stroke="#C8860A" stroke-width="3" marker-end="url(#arrowTransform)" stroke-linecap="round"/>
+  <circle cx="348" cy="225" r="16" fill="#F7F2EA" stroke="#C8860A" stroke-width="1.5"/>
+  <!-- Lightning spark -->
+  <path d="M344,216 L340,225 L346,225 L342,234 L352,222 L346,222 Z" fill="#C8860A" opacity="0.9"/>
+  <text x="348" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#6B6560" letter-spacing="1.2">AI</text>
+
+  <!-- RIGHT: BAR CHART -->
+  <rect x="420" y="58" width="248" height="316" rx="10" fill="#F7F2EA" stroke="#B0AA9F" stroke-width="1" opacity="0.9"/>
+  <text x="544" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1A1814" letter-spacing="0.3">Category Performance</text>
+  <line x1="440" y1="100" x2="648" y2="100" stroke="#B0AA9F" stroke-width="0.75" opacity="0.5"/>
+  <!-- Axes -->
+  <line x1="468" y1="110" x2="468" y2="298" stroke="#B0AA9F" stroke-width="1" opacity="0.6"/>
+  <line x1="468" y1="298" x2="648" y2="298" stroke="#B0AA9F" stroke-width="1" opacity="0.6"/>
+  <!-- Y-axis labels -->
+  <text x="462" y="114" text-anchor="end" font-family="Inter, sans-serif" font-size="8" fill="#B0AA9F">100</text>
+  <text x="462" y="160" text-anchor="end" font-family="Inter, sans-serif" font-size="8" fill="#B0AA9F">75</text>
+  <text x="462" y="207" text-anchor="end" font-family="Inter, sans-serif" font-size="8" fill="#B0AA9F">50</text>
+  <text x="462" y="253" text-anchor="end" font-family="Inter, sans-serif" font-size="8" fill="#B0AA9F">25</text>
+  <!-- Grid lines -->
+  <line x1="468" y1="157" x2="648" y2="157" stroke="#B0AA9F" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+  <line x1="468" y1="204" x2="648" y2="204" stroke="#B0AA9F" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+  <line x1="468" y1="251" x2="648" y2="251" stroke="#B0AA9F" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+  <!-- Bars: current year (amber) + prior year (terracotta) -->
+  <rect x="484" y="122" width="22" height="176" rx="3" fill="url(#barAmber)" opacity="0.92"/>
+  <rect x="508" y="168" width="14" height="130" rx="2" fill="#A84B28" opacity="0.55"/>
+  <rect x="536" y="158" width="22" height="140" rx="3" fill="url(#barAmber)" opacity="0.85"/>
+  <rect x="560" y="192" width="14" height="106" rx="2" fill="#A84B28" opacity="0.5"/>
+  <rect x="584" y="198" width="22" height="100" rx="3" fill="url(#barAmber)" opacity="0.75"/>
+  <rect x="608" y="224" width="14" height="74" rx="2" fill="#A84B28" opacity="0.45"/>
+  <!-- X-axis labels -->
+  <text x="502" y="312" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#6B6560">Entrees</text>
+  <text x="551" y="312" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#6B6560">Sides</text>
+  <text x="599" y="312" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#6B6560">Desserts</text>
+  <!-- Legend -->
+  <rect x="440" y="323" width="10" height="10" rx="2" fill="#C8860A" opacity="0.85"/>
+  <text x="454" y="332" font-family="Inter, sans-serif" font-size="9" fill="#6B6560">This Year</text>
+  <rect x="520" y="323" width="10" height="10" rx="2" fill="#A84B28" opacity="0.55"/>
+  <text x="534" y="332" font-family="Inter, sans-serif" font-size="9" fill="#6B6560">Prior Year</text>
+  <!-- Callout badge on top bar -->
+  <rect x="484" y="108" width="38" height="18" rx="4" fill="#C8860A" opacity="0.95"/>
+  <text x="503" y="121" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#FDFAF5">+24%</text>
+
+  <!-- BOTTOM CAPTION -->
+  <text x="350" y="420" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#B0AA9F" letter-spacing="1">ASK ANYTHING — GET INSTANT ANSWERS</text>
+</svg>
