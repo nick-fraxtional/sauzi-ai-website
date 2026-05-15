@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sauzi Tickets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#FDFAF5',
+            surface: '#F7F2EA',
+            primary: '#C8860A',
+            'primary-mid': '#E8A020',
+            secondary: '#A84B28',
+            ink: '#1A1814',
+            'ink-2': '#6B6560',
+            'ink-3': '#B0AA9F',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base { body { @apply bg-background text-ink font-sans; } }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
+
+  <!-- Header -->
+  <header class="shrink-0 bg-ink text-white px-5 py-3 flex items-center gap-4 z-10 shadow-md">
+    <div class="flex items-center gap-2 shrink-0">
+      <span class="font-serif text-lg font-semibold text-primary-mid tracking-wide">Sauzi</span>
+      <span class="text-white/30 text-sm">/</span>
+      <span class="text-sm font-medium text-white/80">Tickets</span>
+    </div>
+    <div id="header-summary" class="flex gap-2 flex-wrap ml-1">
+      <!-- injected by JS -->
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-60 shrink-0 bg-surface border-r border-ink/10 flex flex-col overflow-y-auto">
+      <div class="px-4 pt-4 pb-2">
+        <p class="text-[10px] font-semibold text-ink-3 uppercase tracking-widest mb-2">Projects</p>
+        <button id="btn-all"
+          onclick="selectProject('all')"
+          class="w-full text-left text-sm px-3 py-2 rounded-lg font-medium transition-colors duration-100">
+          All Projects
+        </button>
+      </div>
+      <div id="project-list" class="px-3 pb-4 flex flex-col gap-2">
+        <!-- injected by JS -->
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+
+      <!-- Filter bar -->
+      <div class="shrink-0 bg-background border-b border-ink/10 px-5 py-2.5 flex items-center gap-2.5 flex-wrap">
+        <select id="filter-page" onchange="applyFilters()"
+          class="text-xs border border-ink/20 rounded-lg px-2.5 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer">
+          <option value="all">All Pages</option>
+          <option value="index.html">Home (index.html)</option>
+          <option value="how-it-works.html">How It Works</option>
+          <option value="playbooks.html">Playbooks</option>
+          <option value="why-sauzi.html">Why Sauzi</option>
+        </select>
+        <select id="filter-status" onchange="applyFilters()"
+          class="text-xs border border-ink/20 rounded-lg px-2.5 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer">
+          <option value="all">All Statuses</option>
+          <option value="open">Open</option>
+          <option value="in-progress">In Progress</option>
+          <option value="in-review">In Review</option>
+          <option value="done">Done</option>
+        </select>
+        <input id="filter-search" type="text" placeholder="Search…" oninput="applyFilters()"
+          class="text-xs border border-ink/20 rounded-lg px-2.5 py-1.5 bg-white text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 w-44">
+        <span id="filter-count" class="text-xs text-ink-3 ml-auto"></span>
+      </div>
+
+      <!-- Ticket list -->
+      <div id="ticket-list" class="flex-1 overflow-y-auto px-5 py-4 space-y-2.5">
+        <p class="text-sm text-ink-3 py-8 text-center">Loading…</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // ── State ────────────────────────────────────────────────────────────
+    const state = {
+      data: null,
+      selectedProject: 'all',
+      filterPage: 'all',
+      filterStatus: 'all',
+      filterSearch: '',
+      openCards: new Set(),
+    };
+
+    // ── Data ─────────────────────────────────────────────────────────────
+    async function loadData() {
+      const res = await fetch('/tickets.json?_=' + Date.now());
+      state.data = await res.json();
+      render();
+    }
+
+    // ── API ──────────────────────────────────────────────────────────────
+    async function patchTicketStatus(id, status) {
+      await fetch(`/api/tickets/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      state.openCards.add(id);
+      await loadData();
+    }
+
+    async function patchProjectStatus(id, status) {
+      await fetch(`/api/projects/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      await loadData();
+    }
+
+    async function addFeedback(id, note) {
+      if (!note.trim()) return;
+      await fetch(`/api/tickets/${id}/feedback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ note }),
+      });
+      state.openCards.add(id);
+      await loadData();
+    }
+
+    // ── Filters ──────────────────────────────────────────────────────────
+    function applyFilters() {
+      state.filterPage   = document.getElementById('filter-page').value;
+      state.filterStatus = document.getElementById('filter-status').value;
+      state.filterSearch = document.getElementById('filter-search').value.toLowerCase();
+      renderTickets();
+    }
+
+    function selectProject(id) {
+      state.selectedProject = id;
+      renderSidebar();
+      renderTickets();
+    }
+
+    function getFilteredTickets() {
+      if (!state.data) return [];
+      return state.data.tickets.filter(t => {
+        if (state.selectedProject !== 'all' && t.project_id !== state.selectedProject) return false;
+        if (state.filterPage   !== 'all'   && t.page   !== state.filterPage)           return false;
+        if (state.filterStatus !== 'all'   && t.status !== state.filterStatus)         return false;
+        if (state.filterSearch) {
+          const hay = [t.title, t.rationale, t.section, t.current, t.recommended].join(' ').toLowerCase();
+          if (!hay.includes(state.filterSearch)) return false;
+        }
+        return true;
+      });
+    }
+
+    // ── Render ───────────────────────────────────────────────────────────
+    function render() {
+      renderHeader();
+      renderSidebar();
+      renderTickets();
+    }
+
+    // Helpers
+    function esc(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function fmtDate(iso) {
+      if (!iso) return '';
+      try {
+        return new Date(iso).toLocaleString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric',
+          hour: '2-digit', minute: '2-digit',
+        });
+      } catch { return iso; }
+    }
+
+    const STATUS_STYLE = {
+      'open':        { pill: 'bg-gray-100 text-gray-600',       sel: 'bg-gray-50  text-gray-700  border-gray-200'  },
+      'in-progress': { pill: 'bg-amber-100 text-amber-700',     sel: 'bg-amber-50 text-amber-800 border-amber-200' },
+      'in-review':   { pill: 'bg-blue-100  text-blue-700',      sel: 'bg-blue-50  text-blue-800  border-blue-200'  },
+      'done':        { pill: 'bg-green-100 text-green-700',     sel: 'bg-green-50 text-green-800 border-green-200' },
+    };
+    const statusStyle = s => STATUS_STYLE[s] || STATUS_STYLE['open'];
+
+    const PAGE_BADGE = {
+      'index.html':        { label: 'Home',         cls: 'bg-amber-100  text-amber-800'  },
+      'how-it-works.html': { label: 'How It Works', cls: 'bg-red-100    text-red-800'    },
+      'playbooks.html':    { label: 'Playbooks',    cls: 'bg-indigo-100 text-indigo-800' },
+      'why-sauzi.html':    { label: 'Why Sauzi',    cls: 'bg-emerald-100 text-emerald-800' },
+    };
+    function pageBadge(page) {
+      const { label, cls } = PAGE_BADGE[page] || { label: page, cls: 'bg-gray-100 text-gray-700' };
+      return `<span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${cls} shrink-0">${label}</span>`;
+    }
+
+    function statusPill(status, label) {
+      const { pill } = statusStyle(status);
+      return `<span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${pill}">${label || status}</span>`;
+    }
+
+    function statusSelect(ticket, context) {
+      const { sel } = statusStyle(ticket.status);
+      const statuses = ['open', 'in-progress', 'in-review', 'done'];
+      const opts = statuses.map(s =>
+        `<option value="${s}" ${s === ticket.status ? 'selected' : ''}>${s.replace('-', ' ')}</option>`
+      ).join('');
+      if (context === 'sidebar') {
+        return `<select
+          onchange="patchProjectStatus('${ticket.id}', this.value)"
+          onclick="event.stopPropagation()"
+          class="text-[10px] font-medium px-1.5 py-0.5 rounded border cursor-pointer focus:outline-none ${sel}">${opts}</select>`;
+      }
+      return `<select
+        onchange="patchTicketStatus('${ticket.id}', this.value)"
+        onclick="event.stopPropagation()"
+        class="text-xs font-medium px-2 py-1 rounded-lg border cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/20 shrink-0 ${sel}">${opts}</select>`;
+    }
+
+    // Header
+    function renderHeader() {
+      const tickets = state.data?.tickets || [];
+      const counts = { open: 0, 'in-progress': 0, 'in-review': 0, done: 0 };
+      tickets.forEach(t => { if (t.status in counts) counts[t.status]++; });
+      const labels = { open: 'Open', 'in-progress': 'In Progress', 'in-review': 'In Review', done: 'Done' };
+      document.getElementById('header-summary').innerHTML = Object.entries(counts).map(([s, n]) => {
+        const { pill } = statusStyle(s);
+        return `<span class="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full ${pill}">
+          <strong>${n}</strong> ${labels[s]}
+        </span>`;
+      }).join('');
+    }
+
+    // Sidebar
+    function renderSidebar() {
+      const allBtn = document.getElementById('btn-all');
+      allBtn.className = 'w-full text-left text-sm px-3 py-2 rounded-lg font-medium transition-colors duration-100 ' +
+        (state.selectedProject === 'all' ? 'bg-primary text-white' : 'text-ink hover:bg-ink/5 cursor-pointer');
+
+      const projects = state.data?.projects || [];
+      const tickets  = state.data?.tickets  || [];
+
+      document.getElementById('project-list').innerHTML = projects.map(p => {
+        const pt    = tickets.filter(t => t.project_id === p.id);
+        const done  = pt.filter(t => t.status === 'done').length;
+        const total = pt.length;
+        const pct   = total ? Math.round(done / total * 100) : 0;
+        const isSel = state.selectedProject === p.id;
+
+        const projStatusOpts = ['open', 'in-progress', 'in-review', 'done'];
+        const opts = projStatusOpts.map(s =>
+          `<option value="${s}" ${s === p.status ? 'selected' : ''}>${s.replace('-', ' ')}</option>`
+        ).join('');
+        const { sel } = statusStyle(p.status);
+
+        return `
+        <div onclick="selectProject('${p.id}')"
+          class="rounded-xl px-3 py-3 cursor-pointer border transition-all duration-100 ${isSel ? 'border-primary bg-primary/5' : 'border-transparent hover:bg-ink/5'}">
+          <div class="flex items-start justify-between gap-1.5 mb-1.5">
+            <p class="text-xs font-semibold text-ink leading-tight flex-1">${esc(p.title)}</p>
+            <select onchange="patchProjectStatus('${p.id}', this.value)" onclick="event.stopPropagation()"
+              class="text-[10px] font-medium px-1.5 py-0.5 rounded border cursor-pointer focus:outline-none shrink-0 ${sel}">${opts}</select>
+          </div>
+          <p class="text-[11px] text-ink-2 leading-snug mb-2.5">${esc(p.summary)}</p>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-ink/10 rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%"></div>
+            </div>
+            <span class="text-[10px] text-ink-3 shrink-0">${done}/${total} done</span>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // Tickets
+    function renderTickets() {
+      const tickets = getFilteredTickets();
+      const el = document.getElementById('ticket-list');
+      document.getElementById('filter-count').textContent =
+        `${tickets.length} ticket${tickets.length !== 1 ? 's' : ''}`;
+
+      if (tickets.length === 0) {
+        el.innerHTML = `<div class="py-16 text-center text-ink-3">
+          <p class="text-base font-medium mb-1">No tickets match</p>
+          <p class="text-sm">Adjust your filters to see results.</p>
+        </div>`;
+        return;
+      }
+
+      el.innerHTML = tickets.map(t => {
+        const isOpen = state.openCards.has(t.id);
+        const isDone = t.status === 'done';
+
+        const feedbackHtml = (t.feedback?.length
+          ? t.feedback.map(f => `
+            <div class="border-l-2 border-ink/10 pl-3 py-1">
+              <p class="text-[10px] text-ink-3 mb-0.5">${esc(fmtDate(f.date))}</p>
+              <p class="text-xs text-ink leading-relaxed">${esc(f.note)}</p>
+            </div>`).join('')
+          : `<p class="text-xs text-ink-3 italic">No feedback yet.</p>`
+        );
+
+        return `
+        <div class="bg-white rounded-xl border border-ink/10 shadow-sm overflow-hidden transition-opacity ${isDone ? 'opacity-60' : ''}">
+
+          <!-- Card header -->
+          <div onclick="toggleCard('${t.id}')"
+            class="flex items-center gap-2.5 px-4 py-3 cursor-pointer hover:bg-surface/60 transition-colors select-none">
+            <span class="text-[10px] font-mono text-ink-3 shrink-0 w-10">${esc(t.id)}</span>
+            <span class="text-sm font-medium text-ink flex-1 min-w-0 truncate">${esc(t.title)}</span>
+            <div class="flex items-center gap-2 shrink-0">
+              ${pageBadge(t.page)}
+              ${statusSelect(t)}
+              <span class="text-[10px] font-medium text-ink-3 tabular-nums">−${t.words_cut}w</span>
+              <svg class="w-3.5 h-3.5 text-ink-3 transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </div>
+
+          ${isOpen ? `
+          <!-- Expanded body -->
+          <div class="border-t border-ink/10 px-4 py-4 flex flex-col gap-4">
+
+            <!-- Copy comparison -->
+            <div class="grid grid-cols-1 gap-2.5">
+              <div>
+                <p class="text-[10px] font-semibold text-ink-3 uppercase tracking-widest mb-1.5">Current</p>
+                <div class="border-l-4 border-red-300 bg-red-50 rounded-r-lg px-3 py-2">
+                  <p class="text-sm text-ink-2 leading-relaxed">${esc(t.current)}</p>
+                </div>
+              </div>
+              <div>
+                <p class="text-[10px] font-semibold text-ink-3 uppercase tracking-widest mb-1.5">Recommended</p>
+                <div class="border-l-4 border-green-400 bg-green-50 rounded-r-lg px-3 py-2">
+                  <p class="text-sm text-ink leading-relaxed">${esc(t.recommended)}</p>
+                </div>
+              </div>
+              <div>
+                <p class="text-[10px] font-semibold text-ink-3 uppercase tracking-widest mb-1.5">Rationale</p>
+                <p class="text-sm text-ink-2 leading-relaxed">${esc(t.rationale)}</p>
+              </div>
+            </div>
+
+            <p class="text-[10px] text-ink-3">
+              Source: <span class="font-medium">${esc(t.source)}</span> · Item #${t.audit_item} · Section: ${esc(t.section)}
+            </p>
+
+            <!-- Feedback -->
+            <div>
+              <p class="text-[10px] font-semibold text-ink-3 uppercase tracking-widest mb-2">Feedback</p>
+              <div class="flex flex-col gap-2 mb-3">${feedbackHtml}</div>
+              <div class="flex gap-2">
+                <textarea id="fb-${t.id}" rows="2" placeholder="Add a note…"
+                  class="flex-1 text-xs border border-ink/20 rounded-lg px-3 py-2 bg-background resize-none
+                         focus:outline-none focus:ring-2 focus:ring-primary/30 placeholder-ink-3"></textarea>
+                <button onclick="submitFeedback('${t.id}')"
+                  class="px-3 bg-primary text-white text-xs font-semibold rounded-lg
+                         hover:bg-primary/90 active:scale-95 transition-all self-end py-2 shrink-0">
+                  Add Note
+                </button>
+              </div>
+            </div>
+
+          </div>` : ''}
+        </div>`;
+      }).join('');
+    }
+
+    // ── Interactions ─────────────────────────────────────────────────────
+    function toggleCard(id) {
+      state.openCards.has(id) ? state.openCards.delete(id) : state.openCards.add(id);
+      renderTickets();
+    }
+
+    function submitFeedback(id) {
+      const el = document.getElementById(`fb-${id}`);
+      if (!el) return;
+      const note = el.value.trim();
+      if (!note) return;
+      el.value = '';
+      addFeedback(id, note);
+    }
+
+    // ── Boot ─────────────────────────────────────────────────────────────
+    loadData();
+  </script>
+</body>
+</html>

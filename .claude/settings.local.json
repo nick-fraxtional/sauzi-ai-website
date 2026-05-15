@@ -4,7 +4,19 @@
       "Bash(ls -la /mnt/c/Users/nhern/Documents/sauzi/sauzi-website/*.json)",
       "Bash(ls -la /mnt/c/Users/nhern/Documents/sauzi/sauzi-website/.[a-z]*)",
       "Bash(wc:*)",
-      "Bash(find /mnt/c/Users/nhern/Documents/sauzi/sauzi-website -type f -name \"*.html\" -exec head -1 {} \\\\;)"
+      "Bash(find /mnt/c/Users/nhern/Documents/sauzi/sauzi-website -type f -name \"*.html\" -exec head -1 {} \\\\;)",
+      "Bash(gh *)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('tickets.json'\\)\\); print\\(f'Projects: {len\\(d[\\\\\"projects\\\\\"]\\)}'\\); print\\(f'Tickets: {len\\(d[\\\\\"tickets\\\\\"]\\)}'\\); pages={}; [pages.update\\({t['page']: pages.get\\(t['page'],0\\)+1}\\) for t in d['tickets']]; [print\\(f'  {p}: {n}'\\) for p,n in sorted\\(pages.items\\(\\)\\)]\")",
+      "Bash(python -c \"import py_compile; py_compile.compile\\('serve.py'\\); print\\('serve.py: syntax OK'\\)\")",
+      "Skill(update-config)",
+      "Bash(python .claude/check-tickets.py)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('.claude/settings.json'\\)\\); h=d['hooks']['UserPromptSubmit'][0]['hooks'][0]; print\\('type:', h['type']\\); print\\('command:', h['command']\\); print\\('shell:', h['shell']\\); print\\('Valid.'\\)\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('tickets.json'\\)\\); t=next\\(x for x in d['tickets'] if x['id']=='T-002'\\); print\\('Status:', t['status']\\); print\\('Feedback:'\\); [print\\(' ', f['note']\\) for f in t['feedback']]\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('tickets.json', encoding='utf-8'\\)\\); t=next\\(x for x in d['tickets'] if x['id']=='T-002'\\); print\\('Status:', t['status']\\); [print\\(' ', f['note']\\) for f in t['feedback']]\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('tickets.json', encoding='utf-8'\\)\\); t=next\\(x for x in d['tickets'] if x['id']=='T-002'\\); print\\('Status:', t['status']\\); print\\('Completed:', t['completed_at']\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('tickets.json', encoding='utf-8'\\)\\); t=next\\(x for x in d['tickets'] if x['id']=='T-001'\\); print\\('Status:', t['status']\\); print\\('Feedback count:', len\\(t['feedback']\\)\\)\")",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

@@ -1,0 +1,804 @@
+{
+  "projects": [
+    {
+      "id": "P-001",
+      "title": "Copy Audit \u2014 May 2026",
+      "summary": "Tighten all site copy per copy-audit-2026-05-07.md. 34 items across 4 pages, ~462 words to cut. Focus: remove filler, collapse redundant mirror structures, cut forced culinary metaphors from functional copy.",
+      "source": "copy-audit-2026-05-07.md",
+      "created_at": "2026-05-07",
+      "status": "open"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "T-001",
+      "project_id": "P-001",
+      "title": "Services Section \u2014 Section Intro Body Copy",
+      "page": "index.html",
+      "section": "Services Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 1,
+      "current": "Every company starts somewhere different. Some have a clean warehouse ready for AI today. Others have messy pipelines. Some don't have a warehouse at all. Sauzi meets you wherever you are and gets you to the same place: AI agents working on your data, answering questions in seconds.",
+      "recommended": "Every company starts somewhere different. Sauzi meets you there and gets you to the same place: AI agents answering questions in seconds.",
+      "rationale": "The middle three sentences are examples that repeat the setup without adding information. The playbooks page handles those specifics.",
+      "words_cut": 27,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-07T16:00:18.777013+00:00",
+          "note": "Not seeing wording specifically highlighting that Sauzi meets you where you are at in your data journey. can you add that caveat to the wording?"
+        },
+        {
+          "date": "2026-05-07T16:10:00.000000+00:00",
+          "note": "Applied: 'Every company starts somewhere different in their data journey. Sauzi meets you where you are and gets you to the same place: AI agents answering questions in seconds.' \u2014 Added 'in their data journey' to the first sentence and kept 'where you are' explicit per feedback. Awaiting approval."
+        },
+        {
+          "date": "2026-05-07T18:21:34.362751+00:00",
+          "note": "Ok this is approved now"
+        }
+      ],
+      "completed_at": "2026-05-07T18:30:00.000000+00:00"
+    },
+    {
+      "id": "T-002",
+      "project_id": "P-001",
+      "title": "Phase 2: Structuring \u2014 Card Body Copy",
+      "page": "index.html",
+      "section": "Phase 2: Structuring Card",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 2,
+      "current": "We configure your warehouse with the dimension and fact tables AI agents need to reason about your business. This is the step most implementations skip \u2014 and why most AI projects fail.",
+      "recommended": "We build the dimension and fact tables AI agents need to reason about your business. Most implementations skip this step \u2014 and fail because of it.",
+      "rationale": "'Configure your warehouse with' is roundabout. The cause-and-effect in the second sentence is sharper when tightened.",
+      "words_cut": 20,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-07T16:23:01.901229+00:00",
+          "note": "This is great. Approved."
+        }
+      ],
+      "completed_at": "2026-05-07T16:25:00.000000+00:00"
+    },
+    {
+      "id": "T-003",
+      "project_id": "P-001",
+      "title": "Phase 3: AI Connection \u2014 Card Body Copy",
+      "page": "index.html",
+      "section": "Phase 3: AI Connection Card",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 3,
+      "current": "We connect your clean, structured warehouse to the AI tools that query it. Your team asks questions in plain English. The AI answers. Insights stop waiting in a ticket queue.",
+      "recommended": "Connect your structured warehouse to AI tools. Your team asks questions in plain English and gets answers in seconds \u2014 no ticket queue.",
+      "rationale": "'The AI answers.' is a fragment that restates what was just said. The last two sentences collapse cleanly into one.",
+      "words_cut": 13,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-07T18:56:08.261742+00:00",
+          "note": "Approved"
+        }
+      ],
+      "completed_at": "2026-05-07T19:00:00.000000+00:00"
+    },
+    {
+      "id": "T-004",
+      "project_id": "P-001",
+      "title": "Comparison Section \u2014 Sauzi Model Card Subtext",
+      "page": "index.html",
+      "section": "Comparison Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 4,
+      "current": "Ask your data anything. Get answers instantly. No ticket queue, no analyst bottleneck.",
+      "recommended": "Ask your data anything. Get answers instantly. No tickets, no bottleneck.",
+      "rationale": "'Analyst bottleneck' is implied by 'bottleneck.'",
+      "words_cut": 5,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-08T15:21:05.539837+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-005",
+      "project_id": "P-001",
+      "title": "Booking Form Section \u2014 Body Copy",
+      "page": "index.html",
+      "section": "Booking Form Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 5,
+      "current": "Tell us what ingredients you're working with \u2014 we'll map out exactly what needs to be built, and what your team unlocks when we're done.",
+      "recommended": "Tell us what you're working with. We'll map out exactly what needs to be built and what your team unlocks.",
+      "rationale": "'Ingredients' is a forced culinary metaphor in functional form copy. 'When we're done' is understood.",
+      "words_cut": 8,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T13:48:50.356083+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-006",
+      "project_id": "P-001",
+      "title": "Success Message Body Copy",
+      "page": "index.html",
+      "section": "Success Message",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 6,
+      "current": "Thanks for reaching out. A Sauzi data strategist will be in touch shortly to walk through your current stack and next steps.",
+      "recommended": "A Sauzi strategist will be in touch shortly to review your stack and next steps.",
+      "rationale": "'Thanks for reaching out' is filler \u2014 the success icon already signals that. 'Data strategist' is wordier without adding meaning.",
+      "words_cut": 8,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-08T15:21:37.454541+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-007",
+      "project_id": "P-001",
+      "title": "Hero Body Copy",
+      "page": "how-it-works.html",
+      "section": "Hero",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 7,
+      "current": "Most data consultants hand you a dashboard and disappear. Sauzi works differently \u2014 we show you exactly what we're building and why. No black boxes. No mystery ingredients.",
+      "recommended": "Most data consultants hand you a dashboard and disappear. Sauzi shows you exactly what we're building and why. No black boxes.",
+      "rationale": "'Works differently' is filler. 'No mystery ingredients' repeats 'No black boxes' and feels like a strained metaphor.",
+      "words_cut": 14,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-08T15:21:51.970903+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-008",
+      "project_id": "P-001",
+      "title": "Two Ingredients Section \u2014 Headline",
+      "page": "how-it-works.html",
+      "section": "Two Ingredients Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 8,
+      "current": "The Two Ingredients of Every Sauzi Implementation",
+      "recommended": "Two Ingredients. Every Sauzi Implementation.",
+      "rationale": "'The' and 'of' pad a headline without adding meaning.",
+      "words_cut": 3,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-08T15:22:27.689511+00:00",
+          "note": "I prefer the current - no change to make."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-009",
+      "project_id": "P-001",
+      "title": "Two Ingredients Section \u2014 Body Copy",
+      "page": "how-it-works.html",
+      "section": "Two Ingredients Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 9,
+      "current": "Think of it like a great meal: the right ingredients, prepared properly, in the right order. Skip either one and the whole thing falls flat.",
+      "recommended": "The right ingredients, prepared in the right order. Skip either one and the whole thing falls flat.",
+      "rationale": "'Think of it like a great meal' is throat-clearing. The analogy lands faster without the setup.",
+      "words_cut": 11,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-08T15:22:42.458344+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-010",
+      "project_id": "P-001",
+      "title": "Ingredient 1 \u2014 Warehouse Configuration Body Copy",
+      "page": "how-it-works.html",
+      "section": "Ingredient 1",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 10,
+      "current": "We configure dimension and fact tables so AI agents can reason about your business data the way a skilled analyst would. The structure we build is the 'menu' \u2014 it tells the AI exactly what data exists, how it relates, and what questions it can answer. Without this structure, the AI is guessing.",
+      "recommended": "We configure dimension and fact tables so AI agents can reason about your business data. This structure tells the AI what data exists, how it relates, and what questions it can answer. Without it, the AI is guessing.",
+      "rationale": "'The way a skilled analyst would' is a comparison that doesn't serve the reader. The menu metaphor interrupts the explanation and then has to define itself.",
+      "words_cut": 21,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-12T14:13:23.613226+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-011",
+      "project_id": "P-001",
+      "title": "Ingredient 2 \u2014 AI Tool Connection Body Copy",
+      "page": "how-it-works.html",
+      "section": "Ingredient 2",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 11,
+      "current": "We connect your structured warehouse to the AI tools \u2014 Claude Code, Cowork, and others \u2014 that query it. Once the connection is live, your team can ask questions in plain English and get real answers backed by your actual data. Not a guess. Not a hallucination. Your numbers.",
+      "recommended": "We connect your structured warehouse to Claude Code, Cowork, and other AI tools. Once live, your team asks questions in plain English and gets answers backed by your actual data \u2014 not hallucinations.",
+      "rationale": "The parenthetical interrupts the sentence. 'Real answers backed by your actual data' followed by 'Not a guess. Not a hallucination. Your numbers.' is redundant.",
+      "words_cut": 20,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-12T14:13:40.685057+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-14T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-012",
+      "project_id": "P-001",
+      "title": "Phase 1 Description Body Copy",
+      "page": "how-it-works.html",
+      "section": "Phase 1",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 12,
+      "current": "For companies without a warehouse or with messy, unreliable data. We connect your data sources \u2014 Shopify, Recharge, Magento, Mailchimp, and others \u2014 build the ETL/ELT pipelines that move data cleanly, and configure your warehouse so everything flows reliably. You can't deploy AI on a leaky pipe. We fix the pipe first.",
+      "recommended": "For companies without a warehouse or with unreliable data. We connect your sources, build the ETL/ELT pipelines, and configure your warehouse. You can't deploy AI on a leaky pipe \u2014 so we fix the pipe first.",
+      "rationale": "The inline source list is already shown in the Source Connections card below \u2014 redundant here. 'Move data cleanly' and 'flows reliably' say the same thing.",
+      "words_cut": 17,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:04:51.695436+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-013",
+      "project_id": "P-001",
+      "title": "Phase 2 Description Body Copy",
+      "page": "how-it-works.html",
+      "section": "Phase 2",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 13,
+      "current": "This is the step that separates AI implementations that actually work from ones that don't. We configure the dimension and fact tables \u2014 the semantic layer \u2014 that tells AI agents how your business data is organized. Without this, AI doesn't understand the difference between a customer, an order, a subscription, and a product. With it, it does.",
+      "recommended": "This is the step that separates working AI implementations from ones that don't. We build the dimension and fact tables \u2014 the semantic layer \u2014 that tells AI agents how your data is organized. Without it, AI can't distinguish a customer from an order.",
+      "rationale": "'Actually work' \u00e2\u2020\u2019 'working.' The mirror structure ('Without this... With it, it does.') repeats the setup for minimal payoff \u2014 the negative alone makes the point.",
+      "words_cut": 25,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:05:07.912406+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-014",
+      "project_id": "P-001",
+      "title": "Phase 3 Description Body Copy",
+      "page": "how-it-works.html",
+      "section": "Phase 3",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 14,
+      "current": "We connect your clean, structured warehouse to the AI tools that query it. Your team asks questions in plain English \u2014 'What's our repeat purchase rate this month vs. last month?' \u2014 and gets accurate, data-backed answers in seconds. Insights stop waiting in a ticket queue. This is the destination.",
+      "recommended": "We connect your structured warehouse to the AI tools that query it. Your team asks questions in plain English \u2014 'What's our repeat purchase rate this month vs. last month?' \u2014 and gets answers in seconds.",
+      "rationale": "'Clean' is filler at Phase 3. 'Accurate, data-backed' is redundant. 'Insights stop waiting in a ticket queue. This is the destination.' both belong on the homepage, not buried in a phase detail block.",
+      "words_cut": 18,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:05:22.777170+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-015",
+      "project_id": "P-001",
+      "title": "What Makes This Different \u2014 Section Body Copy",
+      "page": "how-it-works.html",
+      "section": "What Makes This Different",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 15,
+      "current": "The process matters. Here's how Sauzi actually works \u2014 not how consultants say they work.",
+      "recommended": "The process matters. Here's how Sauzi actually works \u2014 not how consultants claim to.",
+      "rationale": "'Say they work' is flat; 'claim to' is sharper and shorter.",
+      "words_cut": 5,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:06:54.013504+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-016",
+      "project_id": "P-001",
+      "title": "We document what we build \u2014 Card Body Copy",
+      "page": "how-it-works.html",
+      "section": "Differentiator Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 16,
+      "current": "Every implementation comes with clear documentation of the data model, pipelines, and connections. Your team will always know what's running and why \u2014 not just us.",
+      "recommended": "Every implementation includes full documentation of the data model, pipelines, and connections. Your team will always know what's running and why.",
+      "rationale": "'Clear' is weak filler; 'full' is more specific. 'Not just us' is implicit from the sentence before it.",
+      "words_cut": 11,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:07:04.138616+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-017",
+      "project_id": "P-001",
+      "title": "We work with your existing tools \u2014 Card Body Copy",
+      "page": "how-it-works.html",
+      "section": "Differentiator Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 17,
+      "current": "We configure Snowflake, or your warehouse of choice. We connect to Claude, Cowork, or whatever AI tooling makes sense. No rip-and-replace. No forcing you onto a platform you don't want.",
+      "recommended": "We configure your warehouse of choice and connect the AI tooling that fits your team. No rip-and-replace. No platform lock-in.",
+      "rationale": "Listing tools by name here is redundant with other sections. 'No forcing you onto a platform you don't want' = 10 words for 'No platform lock-in.'",
+      "words_cut": 12,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:07:19.103587+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-018",
+      "project_id": "P-001",
+      "title": "We meet you where your data is \u2014 Card Body Copy",
+      "page": "how-it-works.html",
+      "section": "Differentiator Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 18,
+      "current": "Different clients need different meals. Some need a full kitchen built from scratch. Some just need the right seasoning on what already exists. We scope the work to what you actually need \u2014 not a generic package.",
+      "recommended": "Some clients need a full build from scratch. Others just need better structure on what already exists. We scope accordingly.",
+      "rationale": "'Different clients need different meals' is a forced culinary metaphor. Kitchen/seasoning analogies slow down a functional card. 'Not a generic package' is restated by 'We scope accordingly.'",
+      "words_cut": 28,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:07:30.276012+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-019",
+      "project_id": "P-001",
+      "title": "CTA Section \u2014 Headline",
+      "page": "how-it-works.html",
+      "section": "CTA Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 19,
+      "current": "Ready to see what this looks like for your stack?",
+      "recommended": "Want to see this applied to your stack?",
+      "rationale": "'Ready to see' is a filler qualifier.",
+      "words_cut": 5,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:07:51.260613+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-020",
+      "project_id": "P-001",
+      "title": "CTA Section \u2014 Body Copy",
+      "page": "how-it-works.html",
+      "section": "CTA Section",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 20,
+      "current": "Tell us where your data stands today. We'll map out the exact phases, timeline, and what your team gets when we're done.",
+      "recommended": "Tell us where your data stands. We'll map the exact phases, timeline, and what your team gets.",
+      "rationale": "'Today' is redundant. 'Map out' \u00e2\u2020\u2019 'map.' 'When we're done' is implied.",
+      "words_cut": 9,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:08:01.144983+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-021",
+      "project_id": "P-001",
+      "title": "Hero Body Copy",
+      "page": "playbooks.html",
+      "section": "Hero",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 21,
+      "current": "These are the actual implementation paths we run for different client stacks. Pick the one that matches where your data lives today \u2014 and see exactly what we build in each phase.",
+      "recommended": "These are the implementation paths we run for different client stacks. Pick the one that matches your data setup and see exactly what we build.",
+      "rationale": "'Actual' is filler. 'Where your data lives today' \u00e2\u2020\u2019 'your data setup.' The em-dash creates an unnecessary pause.",
+      "words_cut": 11,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:08:28.024824+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-022",
+      "project_id": "P-001",
+      "title": "Playbook A \u2014 Header Body Copy",
+      "page": "playbooks.html",
+      "section": "Playbook A",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 22,
+      "current": "Your store is in Shopify. Maybe Recharge for subscriptions, Mailchimp or Klaviyo for email. Your data lives across disconnected platforms with no single source of truth. Reports come from spreadsheets. There's no warehouse. We build one \u2014 and connect AI agents to it.",
+      "recommended": "Your data is split across Shopify, Recharge, and your email platform \u2014 no single source of truth. Reports live in spreadsheets. There's no warehouse. We build one and connect AI agents to it.",
+      "rationale": "The opening three sentences make slow work of a simple setup. The em-dash before 'and connect' is unnecessary.",
+      "words_cut": 15,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:08:42.777947+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-023",
+      "project_id": "P-001",
+      "title": "Playbook B \u2014 Header Body Copy",
+      "page": "playbooks.html",
+      "section": "Playbook B",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 23,
+      "current": "You've got a warehouse. Data is flowing. But your dbt models are inconsistent, there's no unified view of the customer, and AI queries return unreliable results. The warehouse is there \u2014 the structure isn't. We build the structure and connect the AI.",
+      "recommended": "You have a warehouse and data is flowing \u2014 but your dbt models are inconsistent, there's no unified customer view, and AI queries are unreliable. We build the structure and connect the AI.",
+      "rationale": "The original breaks into 5 choppy sentences including a fragment. 'The warehouse is there \u2014 the structure isn't' repeats what was just said.",
+      "words_cut": 17,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:11:00.101299+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-024",
+      "project_id": "P-001",
+      "title": "Playbook C \u2014 Header Body Copy",
+      "page": "playbooks.html",
+      "section": "Playbook C",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 24,
+      "current": "You're running Shopify for DTC, Recharge for subscriptions, Mailchimp for email, and Magento for wholesale. These platforms don't talk to each other. A customer who buys on both channels shows up as two different people. We unify everything, build the warehouse, structure it for AI, and connect the agents.",
+      "recommended": "You're running Shopify, Recharge, Mailchimp, and Magento \u2014 and they don't talk to each other. A customer who buys on two channels shows up as two different people. We unify everything, build the warehouse, and connect the AI agents.",
+      "rationale": "Labeling each tool's function is unnecessary \u2014 the stack tags below handle this. 'Structure it for AI' is implied.",
+      "words_cut": 20,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:11:34.864247+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-025",
+      "project_id": "P-001",
+      "title": "Bottom CTA \u2014 Body Copy",
+      "page": "playbooks.html",
+      "section": "Bottom CTA",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 25,
+      "current": "We've worked with dozens of stack combinations. Tell us what you're running and we'll map out exactly which phase you're in and what it takes to get AI agents live on your data.",
+      "recommended": "We've worked with dozens of stack combinations. Tell us what you're running and we'll map exactly which phase you're in \u2014 and how to get live.",
+      "rationale": "'What it takes to get AI agents live on your data' \u00e2\u2020\u2019 'how to get live.'",
+      "words_cut": 9,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:11:47.569715+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-026",
+      "project_id": "P-001",
+      "title": "Hero Body Copy",
+      "page": "why-sauzi.html",
+      "section": "Hero",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 26,
+      "current": "The old model was: hire analysts, build dashboards, wait for reports. The new model is: implement once, run AI agents forever. Sauzi gets you there \u2014 and shows every step of the work.",
+      "recommended": "The old model: hire analysts, build dashboards, wait for reports. The new model: implement once, run AI agents forever. Sauzi gets you there.",
+      "rationale": "'Was:' and 'is:' are more natural as colons without the verb. 'And shows every step of the work' weakly trails the hero \u2014 the No Black Boxes card handles this.",
+      "words_cut": 9,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:12:17.118491+00:00",
+          "note": "I prefer the current copy."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-027",
+      "project_id": "P-001",
+      "title": "What Sets Us Apart \u2014 Section Body Copy",
+      "page": "why-sauzi.html",
+      "section": "What Sets Us Apart",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 27,
+      "current": "These aren't marketing lines. They're the actual principles that shape how every Sauzi engagement runs.",
+      "recommended": "These aren't marketing lines. They're the principles that shape how every Sauzi engagement runs.",
+      "rationale": "'Actual' is a filler intensifier \u2014 removing it makes the sentence stronger.",
+      "words_cut": 6,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:12:33.709009+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-028",
+      "project_id": "P-001",
+      "title": "No Black Boxes \u2014 Card Body Copy",
+      "page": "why-sauzi.html",
+      "section": "What Sets Us Apart Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 28,
+      "current": "We don't just deliver results \u2014 we show you how they were built. Every pipeline, every data model, every AI connection is documented and explained. You'll always know what's running and why. If something breaks down the road, you'll understand exactly where to look.",
+      "recommended": "We don't just deliver results \u2014 we show you how they were built. Every pipeline, data model, and AI connection is documented. You'll always know what's running and why.",
+      "rationale": "The last sentence ('If something breaks down the road...') is a defensive clause that undercuts confidence. The preceding sentences make the point completely.",
+      "words_cut": 19,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:12:45.596523+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-029",
+      "project_id": "P-001",
+      "title": "Right-Sized for Every Business \u2014 Card Body Copy",
+      "page": "why-sauzi.html",
+      "section": "What Sets Us Apart Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 29,
+      "current": "One client might need a full Snowflake setup, ETL from 10 data sources, and a custom AI agent layer. Another might just need their existing warehouse properly structured for AI queries. We build what you need \u2014 not a generic product that's 80% irrelevant to your situation.",
+      "recommended": "One client needs a full build from scratch. Another just needs their existing warehouse structured for AI. We build what you need \u2014 not a generic product that's 80% irrelevant to your situation.",
+      "rationale": "'Might need' hedges unnecessarily. Trimming the first example to 'a full build from scratch' is accurate at card-copy scale.",
+      "words_cut": 13,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:30:55.203499+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T16:08:45.710716+00:00"
+    },
+    {
+      "id": "T-030",
+      "project_id": "P-001",
+      "title": "We Stay in the Problem \u2014 Card Body Copy",
+      "page": "why-sauzi.html",
+      "section": "What Sets Us Apart Cards",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 30,
+      "current": "We don't hand off work and disappear. We work embedded in your data strategy \u2014 partnering with your team until the implementation is solid, the AI agents are running, and your team knows exactly how to use what we built.",
+      "recommended": "We don't hand off work and disappear. We stay embedded until the implementation is solid, the AI agents are running, and your team knows how to use what we built.",
+      "rationale": "'We work embedded in your data strategy \u2014 partnering with your team' is roundabout. 'We stay embedded' says the same thing in 3 words.",
+      "words_cut": 17,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:31:15.180798+00:00",
+          "note": "I prefer current copy."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-031",
+      "project_id": "P-001",
+      "title": "Who We Work With \u2014 First Paragraph",
+      "page": "why-sauzi.html",
+      "section": "Who We Work With",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 31,
+      "current": "We work with growing e-commerce and DTC brands that have data but aren't getting answers from it fast enough. If you're running on Shopify, Recharge, or similar platforms \u2014 and your data lives in spreadsheets, disconnected tools, or a warehouse that nobody's fully set up \u2014 that's exactly where we start.",
+      "recommended": "We work with e-commerce and DTC brands that have data but aren't getting answers fast enough. If your data lives in spreadsheets, disconnected tools, or an unfinished warehouse \u2014 that's exactly where we start.",
+      "rationale": "'Growing' is filler. 'Running on Shopify, Recharge, or similar platforms' is already covered by the bulleted list below. 'That nobody's fully set up' \u00e2\u2020\u2019 'unfinished.'",
+      "words_cut": 24,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:31:31.579254+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-032",
+      "project_id": "P-001",
+      "title": "Who We Work With \u2014 Second Paragraph",
+      "page": "why-sauzi.html",
+      "section": "Who We Work With",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 32,
+      "current": "You don't need a data team before you call us. You need to want one \u2014 or want the advantage that comes from not needing one.",
+      "recommended": "You don't need a data team before you call us. You just need to want the advantage of one.",
+      "rationale": "'You need to want one \u2014 or want the advantage that comes from not needing one' is a tongue-twister that tries to be clever and lands awkward.",
+      "words_cut": 12,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:31:49.336371+00:00",
+          "note": "Approved."
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-033",
+      "project_id": "P-001",
+      "title": "Companies with an existing warehouse \u2014 List Item Description",
+      "page": "why-sauzi.html",
+      "section": "Who We Work With",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 33,
+      "current": "Data is flowing but the structure isn't there yet. AI tools have been tried but the results aren't reliable.",
+      "recommended": "Data is flowing but the structure isn't there. AI queries return unreliable results.",
+      "rationale": "'Yet' implies temporary progress \u2014 use only intentionally. 'AI tools have been tried but' is passive compared to 'AI queries return.'",
+      "words_cut": 5,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:32:17.453684+00:00",
+          "note": "I prefer the current copy"
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    },
+    {
+      "id": "T-034",
+      "project_id": "P-001",
+      "title": "Final CTA \u2014 Body Copy",
+      "page": "why-sauzi.html",
+      "section": "Final CTA",
+      "status": "done",
+      "priority": "medium",
+      "source": "copy-audit-2026-05-07.md",
+      "audit_item": 34,
+      "current": "We'll map out exactly what your stack needs, which phase you're starting in, and what your team unlocks when the implementation is done.",
+      "recommended": "We'll map exactly what your stack needs, which phase you're starting in, and what your team unlocks.",
+      "rationale": "'Out' after 'map' is unnecessary. 'When the implementation is done' is implied.",
+      "words_cut": 9,
+      "created_at": "2026-05-07",
+      "feedback": [
+        {
+          "date": "2026-05-15T14:32:35.994178+00:00",
+          "note": "Approved"
+        }
+      ],
+      "completed_at": "2026-05-15T00:00:00.000000+00:00"
+    }
+  ]
+}

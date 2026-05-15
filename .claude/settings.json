@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/check-tickets.py",
+            "shell": "powershell"
+          }
+        ]
+      }
+    ]
+  }
+}
