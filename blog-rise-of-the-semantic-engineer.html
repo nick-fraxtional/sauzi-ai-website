@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of the Semantic Engineer | Sauzi.ai Blog</title>
+    <meta name="description"
+        content="Agents now write the pipelines, models, and dashboards. What they can't write is what your data means. The data role is shifting from writing SQL to defining meaning.">
+    <meta property="og:title" content="The Rise of the Semantic Engineer | Sauzi.ai Blog">
+    <meta property="og:description" content="Agents now write the pipelines, models, and dashboards. What they can't write is what your data means. The data role is shifting from writing SQL to defining meaning.">
+    <meta property="og:image" content="https://sauzi.ai/Brand Assets/og-image.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sauzi.ai/blog-rise-of-the-semantic-engineer.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#FDFAF5',
+                        surface: '#F7F2EA',
+                        'surface-amber': '#FDF5E6',
+                        primary: '#C8860A',
+                        'primary-mid': '#E8A020',
+                        secondary: '#A84B28',
+                        ink: '#1A1814',
+                        'ink-2': '#6B6560',
+                        'ink-3': '#B0AA9F',
+                        border: '#E8E2D8',
+                        'border-soft': '#F0EBE1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
+                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card {
+                background: #F7F2EA;
+                border: 0.5px solid #E8E2D8;
+                border-radius: 1.25rem;
+            }
+        }
+        body {
+            background-color: #FDFAF5;
+            color: #1A1814;
+        }
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #6B6560;
+        }
+        .prose h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1A1814;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            margin-bottom: 2rem;
+            color: #6B6560;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .prose li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #C8860A;
+            font-weight: bold;
+        }
+        .prose strong {
+            color: #1A1814;
+            font-weight: 600;
+        }
+        .prose hr {
+            border-color: #E8E2D8;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FDFAF5; }
+        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
+    </style>
+    <!-- Web Components -->
+    <script src="components.js"></script>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <app-header></app-header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <a href="blog.html"
+            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                <span>Data Teams</span>
+                <span class="w-1 h-1 rounded-full bg-secondary"></span>
+                <span>5 Min Read</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">The Data Hire You
+                Needed in 2020 Isn't the One You Need Now</h1>
+            <p class="text-xl text-ink-2 font-medium leading-relaxed">Agents write the pipelines, the models, and the
+                dashboards. What they can't write is what your data means. Meet the role taking its place: the semantic
+                engineer.</p>
+        </header>
+
+        <div class="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 relative card p-2 shadow-warm-lg">
+            <img src="Brand Assets/blog/rise-of-the-semantic-engineer-banner.png"
+                alt="One person at a desk defining data relationships on a whiteboard while AI agents handle pipelines and dashboards in the background, illustrating the shift from writing SQL to defining meaning."
+                class="w-full h-full object-cover rounded-2xl">
+        </div>
+
+        <article class="prose prose-lg max-w-none text-lg">
+            <p><strong>The data hire you needed in 2020 isn't the one you need now.</strong></p>
+
+            <p>Two pieces published recently — one from dbt, one from dltHub — landed on the same shift from different
+                angles. Agents now write the pipelines, the models, and the dashboards. The part that used to be the job
+                — translating a request into working SQL — is increasingly something a machine does in seconds. What the
+                machine <em>can't</em> do is tell you what your data means. And that, it turns out, is the part that
+                always mattered most.</p>
+
+            <p>dltHub gave the emerging role a name: the <strong>semantic engineer</strong>. dbt described the same
+                person from the inside — the analytics engineer of 2026 as a system designer, a governance owner, and a
+                provider of context to AI. Different labels, one shift.</p>
+
+            <h2>The Old Model Is Giving Way</h2>
+
+            <p>Walk into a data org five years ago and you saw the old model in full swing: a 10–15 person team,
+                hand-building pipelines, clearing a queue of tickets, every dashboard a multi-week wait. It worked. It
+                was also slow, expensive, and built on the assumption that humans would do all the building.</p>
+
+            <p>The new model looks different:</p>
+
+            <ul>
+                <li><strong>A few strategic people, not fifteen.</strong> The team shrinks, and what each person can do
+                    climbs with it.</li>
+                <li><strong>AI does the building.</strong> Pipelines, transformations, first-draft models — generated,
+                    not hand-typed.</li>
+                <li><strong>Humans decide what "good" looks like.</strong> What a metric means, what counts as correct,
+                    what the agent is and isn't allowed to do.</li>
+                <li><strong>Governance becomes the job, not the afterthought.</strong> When agents act on your data,
+                    someone has to own the rules they act within.</li>
+            </ul>
+
+            <h2>The Most Valuable Skill Just Changed</h2>
+
+            <p>For a decade, the question in a data interview was some version of "can you write the query." That skill
+                hasn't become worthless, but it has become abundant — a model can produce it on demand. The scarce skill
+                now is the one no agent can fake: <strong>do you actually know what the data represents?</strong></p>
+
+            <p>Does a "customer" include the ones who returned everything and never came back? Does "revenue" net out
+                discounts and refunds the way finance reports it? When a subscription pauses, is it still active? The
+                person who can answer those questions — and encode the answers into a structured layer the AI reasons
+                over — is the person who makes everything downstream trustworthy. The SQL was never the hard part. The
+                meaning was.</p>
+
+            <h2>This Is a Promotion, Not a Threat</h2>
+
+            <p>It's easy to read "AI writes the pipelines now" as bad news for data people. We read it the opposite way.
+                The work that's disappearing is the work nobody actually enjoyed — the ticket queue, the ad-hoc report
+                grind, the hundredth slightly-different dashboard. What's left is the high-value part: designing the
+                system, defining the meaning, owning the governance, and pointing AI at a foundation solid enough to
+                trust.</p>
+
+            <p>That's not a smaller job. It's a bigger one, done by fewer people, with far more riding on each decision.
+                The teams that see it as a promotion — and build the skill to match — are the ones who'll come out ahead.</p>
+
+            <hr class="my-10">
+
+            <p class="text-xl text-ink font-medium text-center"><em>If AI handled the building, what would you want your
+                    best data person spending their time on instead?</em></p>
+
+            <div class="mt-8 text-center flex justify-center">
+                <a href="why-sauzi.html"
+                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">See
+                    The Sauzi Advantage</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Global Footer -->
+    <app-footer></app-footer>
+
+</body>
+
+</html>
