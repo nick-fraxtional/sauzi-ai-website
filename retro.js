@@ -623,6 +623,8 @@
      BLOG — save-file select
   ========================================================= */
   const POSTS = [
+    { title: 'FEWER ANALYSTS. MORE STEWARDS.', tag: 'WAREHOUSE ONE', date: '2026.08.19', read: '4 MIN', file: 'blog-fewer-analysts-more-stewards.html',
+      body: "The playbook used to be: hire analysts, build dashboards, wait for reports. It's collapsing — not because AI is trendy, but because the bottleneck was never the dashboard. It was the queue behind it." },
     { title: "WE'RE GOING ALL IN ON AI DATA ANALYSTS", tag: 'AI STRATEGY', date: '2026.08.04', read: '4 MIN', file: 'blog-ai-data-analysts.html',
       body: 'For the past year, Sauzi has been in the trenches: fixing broken pipelines, cleaning messy data, building scalable infrastructure for fast-moving companies. Good work. Important work.' },
     { title: 'PLANNING AN AI PROJECT? ASK THESE 5 QUESTIONS FIRST.', tag: 'AI READINESS', date: '2026.07.22', read: '4 MIN', file: 'blog-planning-ai-project.html',
