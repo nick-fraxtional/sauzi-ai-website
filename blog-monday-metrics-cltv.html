@@ -1,204 +1,96 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monday Metrics: CLTV | Sauzi.ai Blog</title>
-    <meta name="description"
-        content="Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard, but because the data behind it is a mess.">
-    <meta property="og:title" content="Monday Metrics: CLTV | Sauzi.ai Blog">
-    <meta property="og:description" content="Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard, but because the data behind it is a mess.">
-    <meta property="og:image" content="https://sauzi.ai/Brand Assets/og-image.png">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sauzi.ai/blog-monday-metrics-cltv.html">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#FDFAF5',
-                        surface: '#F7F2EA',
-                        'surface-amber': '#FDF5E6',
-                        primary: '#C8860A',
-                        'primary-mid': '#E8A020',
-                        secondary: '#A84B28',
-                        ink: '#1A1814',
-                        'ink-2': '#6B6560',
-                        'ink-3': '#B0AA9F',
-                        border: '#E8E2D8',
-                        'border-soft': '#F0EBE1',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Lora', 'Georgia', 'serif'],
-                    },
-                    boxShadow: {
-                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
-                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .card {
-                background: #F7F2EA;
-                border: 0.5px solid #E8E2D8;
-                border-radius: 1.25rem;
-            }
-        }
-        body {
-            background-color: #FDFAF5;
-            color: #1A1814;
-        }
-        .prose p {
-            margin-bottom: 1.5rem;
-            line-height: 1.75;
-            color: #6B6560;
-        }
-        .prose h2 {
-            font-family: 'Lora', Georgia, serif;
-            font-size: 1.875rem;
-            font-weight: 600;
-            color: #1A1814;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-        }
-        .prose ul {
-            margin-bottom: 2rem;
-            color: #6B6560;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        .prose li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #C8860A;
-            font-weight: bold;
-        }
-        .prose strong {
-            color: #1A1814;
-            font-weight: 600;
-        }
-        .prose hr {
-            border-color: #E8E2D8;
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #FDFAF5; }
-        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
-    </style>
-    <!-- Web Components -->
-    <script src="components.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | Monday Metrics: CLTV</title>
+<meta name="description" content="Why Customer Lifetime Value might be the most important metric most companies get wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
 </head>
+<body>
+<retro-header active="blog.html" tag="FILE 07 LOADED"></retro-header>
 
-<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+<main class="rt-wrap rt-page">
+  <div class="rt-card" style="padding:44px 40px 20px">
+    <div style="display:flex;align-items:center;gap:10px;font:400 11px var(--disp);color:var(--muted);margin-bottom:30px;flex-wrap:wrap">
+      <a href="blog.html" style="color:var(--rust);text-decoration:none">◀ FIELD NOTES</a><span>/</span><span>FILE 07</span><span>/</span><span>DATA ENGINEERING</span>
+    </div>
 
-    <!-- Global Navigation -->
-    <app-header></app-header>
-
-    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-
-        <a href="blog.html"
-            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
-            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Blog
-        </a>
-
-        <header class="mb-12">
-            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
-                <span>Data Engineering</span>
-                <span class="w-1 h-1 rounded-full bg-secondary"></span>
-                <span>3 Min Read</span>
-            </div>
-            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Monday Metrics: CLTV</h1>
-            <p class="text-xl text-ink-2 font-medium leading-relaxed">Why Customer Lifetime Value might be the most
-                important metric most companies get wrong.</p>
-        </header>
-
-        <div class="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 relative card p-2 shadow-warm-lg">
-            <img src="Brand Assets/blog/monday-metrics-cltv-banner.png" alt="CLTV Concept"
-                class="w-full h-full object-cover rounded-2xl">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start" class="post-cols">
+      <article style="min-width:0">
+        <div style="display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap">
+          <span class="rt-tag">DATA ENGINEERING</span>
+          <span class="rt-tag rt-tag--grey">2026.05.14</span>
+          <span class="rt-tag rt-tag--grey">3 MIN</span>
         </div>
 
-        <article class="prose prose-lg max-w-none text-lg">
-            <p>Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math
-                is hard. But because the data behind it is a mess.</p>
+        <h1 class="rt-h1" style="font-size:clamp(24px,4vw,38px)">MONDAY METRICS: CLTV</h1>
 
-            <h2>What it is:</h2>
-            <p>CLTV is the total revenue you can expect from a single customer over the entire relationship. It's the
-                foundation for answering questions like:</p>
-            <ul>
-                <li>How much can we spend to acquire a customer?</li>
-                <li>Which segments deserve more investment?</li>
-                <li>Is our business actually healthy long-term?</li>
-            </ul>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin-bottom:34px;flex-wrap:wrap">
+          <img class="pixel" src="brand/data-rally-mark.png" alt="" style="height:26px;width:26px">
+          <span style="font:400 12px var(--disp);color:var(--ink)">SAUZI TEAM</span>
+          <span style="font:400 15px var(--text);color:var(--muted)">Why Customer Lifetime Value might be the most important metric most companies get wrong.</span>
+        </div>
 
-            <h2>The basic formula:</h2>
-            <p><strong>CLTV = Average Order Value × Purchase Frequency × Customer Lifespan</strong></p>
+        <div style="max-width:740px">
+          <p class="rt-p" style="font-size:19px">Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard. But because the data behind it is a mess.</p>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHAT IT IS:</h2>
+          <p class="rt-p" style="font-size:19px">CLTV is the total revenue you can expect from a single customer over the entire relationship. It's the foundation for answering questions like:</p>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">How much can we spend to acquire a customer?</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Which segments deserve more investment?</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Is our business actually healthy long-term?</span></div>
+          </div>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">THE BASIC FORMULA:</h2>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">CLTV = Average Order Value × Purchase Frequency × Customer Lifespan</b></p>
+          <p class="rt-p" style="font-size:19px">Simple enough. But here's where it falls apart:</p>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Average Order Value:</b> Are you pulling gross or net revenue? Are refunds accounted for? Discounts? If finance and marketing are using different numbers, your AOV is already wrong.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Purchase Frequency:</b> This requires clean customer identification. If the same customer exists as three different records in your database—congratulations, you just undercounted frequency by 3x.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Customer Lifespan:</b> When does a customer "start"? First purchase? Account creation? When do they "end"? Last activity? Formal churn? If you don't have clear definitions, your lifespan calculation is a guess.</span></div>
+          </div>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">THE REAL PROBLEM</h2>
+          <p class="rt-p" style="font-size:19px">Most companies don't have a CLTV problem. They have a data problem dressed up as a CLTV problem. They're making million-dollar decisions on acquisition spend, retention programs, and customer segmentation based on a number that's built on inconsistent definitions, duplicated records, and mismatched data sources.</p>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">HOW TO FIX IT</h2>
+          <p class="rt-p" style="font-size:19px">Before you trust your CLTV, audit the inputs.</p>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Do you have a single, deduplicated customer ID?</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Is revenue tracked consistently across systems?</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Are your definitions of "active" and "churned" documented and agreed upon?</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Can you trace the calculation back to source data?</span></div>
+          </div>
+          <p class="rt-p" style="font-size:19px">If you can't confidently answer yes to all four, your CLTV isn't a metric—it's a hope.</p>
+        </div>
 
-            <p>Simple enough. But here's where it falls apart:</p>
+        <div style="border:4px solid var(--ink);background:var(--panel-2);padding:30px 32px;margin-top:24px;box-shadow:6px 6px 0 var(--rust);max-width:740px">
+          <div style="font:700 20px var(--disp);color:var(--ink);margin-bottom:12px">WANT TO KNOW WHICH STEP YOU'RE ON?</div>
+          <p style="font:400 18px/1.7 var(--text);color:var(--body);margin:0 0 22px">Run the readiness scan. It takes about a minute and tells you which phase you start in.</p>
+          <a href="readiness-map.html" class="rt-btn">▶ GET MY DATA READINESS MAP</a>
+        </div>
+      </article>
 
-            <ul>
-                <li><strong>Average Order Value:</strong> Are you pulling gross or net revenue? Are refunds accounted
-                    for? Discounts? If finance and marketing are using different numbers, your AOV is already wrong.
-                </li>
-                <li><strong>Purchase Frequency:</strong> This requires clean customer identification. If the same
-                    customer exists as three different records in your database—congratulations, you just undercounted
-                    frequency by 3x.</li>
-                <li><strong>Customer Lifespan:</strong> When does a customer "start"? First purchase? Account creation?
-                    When do they "end"? Last activity? Formal churn? If you don't have clear definitions, your lifespan
-                    calculation is a guess.</li>
-            </ul>
+      <aside style="min-width:0">
+        <div class="rt-panel rt-panel--tint">
+          <div class="rt-panel__hd" style="font-size:10px">RELATED FILES</div>
+          <div style="padding:14px 16px 16px">
+            <a href="blog-monday-metrics-retention.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">MONDAY METRICS</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">MONDAY METRICS: RETENTION RATE</div></a>
+            <a href="blog-monday-metrics-weeks-of-cover.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">MONDAY METRICS</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">MONDAY METRICS: WEEKS OF COVER</div></a>
+          </div>
+        </div>
+        <a href="blog.html" class="rt-btn rt-btn--ghost rt-btn--block" style="margin-top:22px">◀ ALL FIELD NOTES</a>
+      </aside>
+    </div>
 
-            <h2>The real problem</h2>
-            <p>Most companies don't have a CLTV problem. They have a data problem dressed up as a CLTV problem. They're
-                making million-dollar decisions on acquisition spend, retention programs, and customer segmentation
-                based on a number that's built on inconsistent definitions, duplicated records, and mismatched data
-                sources.</p>
+    <retro-footer hint="<span>◀ PREV FILE</span><span>A: SHARE</span><span>NEXT FILE ▶</span>"></retro-footer>
+  </div>
+</main>
 
-            <h2>How to fix it</h2>
-            <p>Before you trust your CLTV, audit the inputs.</p>
-            <ul>
-                <li>Do you have a single, deduplicated customer ID?</li>
-                <li>Is revenue tracked consistently across systems?</li>
-                <li>Are your definitions of "active" and "churned" documented and agreed upon?</li>
-                <li>Can you trace the calculation back to source data?</li>
-            </ul>
-
-            <p>If you can't confidently answer yes to all four, your CLTV isn't a metric—it's a hope.</p>
-
-            <hr class="my-10">
-
-            <p class="text-xl text-ink font-medium text-center"><em>Need help fixing your data foundations?</em></p>
-
-            <div class="mt-8 text-center flex justify-center">
-                <a href="index.html#book-call"
-                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">Request
-                    a Technical Audit</a>
-            </div>
-
-        </article>
-
-    </main>
-
-    <!-- Global Footer -->
-    <app-footer></app-footer>
-
+<style>
+@media (max-width:900px){ .post-cols{ grid-template-columns:1fr !important; } }
+</style>
 </body>
-
 </html>

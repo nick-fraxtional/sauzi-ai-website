@@ -1,198 +1,92 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monday Metrics: Weeks of Cover | Sauzi.ai Blog</title>
-    <meta name="description"
-        content="If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting — and most companies get it wrong.">
-    <meta property="og:title" content="Monday Metrics: Weeks of Cover | Sauzi.ai Blog">
-    <meta property="og:description" content="If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting — and most companies get it wrong.">
-    <meta property="og:image" content="https://sauzi.ai/Brand Assets/og-image.png">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sauzi.ai/blog-monday-metrics-weeks-of-cover.html">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#FDFAF5',
-                        surface: '#F7F2EA',
-                        'surface-amber': '#FDF5E6',
-                        primary: '#C8860A',
-                        'primary-mid': '#E8A020',
-                        secondary: '#A84B28',
-                        ink: '#1A1814',
-                        'ink-2': '#6B6560',
-                        'ink-3': '#B0AA9F',
-                        border: '#E8E2D8',
-                        'border-soft': '#F0EBE1',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Lora', 'Georgia', 'serif'],
-                    },
-                    boxShadow: {
-                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
-                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .card {
-                background: #F7F2EA;
-                border: 0.5px solid #E8E2D8;
-                border-radius: 1.25rem;
-            }
-        }
-        body {
-            background-color: #FDFAF5;
-            color: #1A1814;
-        }
-        .prose p {
-            margin-bottom: 1.5rem;
-            line-height: 1.75;
-            color: #6B6560;
-        }
-        .prose h2 {
-            font-family: 'Lora', Georgia, serif;
-            font-size: 1.875rem;
-            font-weight: 600;
-            color: #1A1814;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-        }
-        .prose ul {
-            margin-bottom: 2rem;
-            color: #6B6560;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        .prose li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #C8860A;
-            font-weight: bold;
-        }
-        .prose strong {
-            color: #1A1814;
-            font-weight: 600;
-        }
-        .prose hr {
-            border-color: #E8E2D8;
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #FDFAF5; }
-        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
-    </style>
-    <script src="components.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | Monday Metrics: Weeks of Cover</title>
+<meta name="description" content="The early warning system for stockouts and overstocking — and why your number is probably already wrong by the time you see it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
 </head>
+<body>
+<retro-header active="blog.html" tag="FILE 08 LOADED"></retro-header>
 
-<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+<main class="rt-wrap rt-page">
+  <div class="rt-card" style="padding:44px 40px 20px">
+    <div style="display:flex;align-items:center;gap:10px;font:400 11px var(--disp);color:var(--muted);margin-bottom:30px;flex-wrap:wrap">
+      <a href="blog.html" style="color:var(--rust);text-decoration:none">◀ FIELD NOTES</a><span>/</span><span>FILE 08</span><span>/</span><span>MONDAY METRICS</span>
+    </div>
 
-    <app-header></app-header>
-
-    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-
-        <a href="blog.html"
-            class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:text-ink transition-colors mb-10">
-            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Blog
-        </a>
-
-        <header class="mb-12">
-            <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary mb-6">
-                <span>Monday Metrics</span>
-                <span class="w-1 h-1 rounded-full bg-secondary"></span>
-                <span>3 Min Read</span>
-            </div>
-            <h1 class="font-serif text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-8">Monday Metrics: Weeks of Cover</h1>
-            <p class="text-xl text-ink-2 font-medium leading-relaxed">The early warning system for stockouts and overstocking — and why your number is probably already wrong by the time you see it.</p>
-        </header>
-
-        <!-- Hero Image — displayed at natural width for full infographic readability -->
-        <div class="rounded-3xl overflow-hidden mb-16 card p-3 shadow-warm-lg max-w-2xl mx-auto">
-            <img src="LinkedIn Posts/Weeks of Cover/weeks_of_cover.jpeg"
-                alt="Monday Metrics: Weeks of Cover — Inventory Heatmap Dashboard"
-                class="w-full h-auto rounded-2xl block">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start" class="post-cols">
+      <article style="min-width:0">
+        <div style="display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap">
+          <span class="rt-tag">MONDAY METRICS</span>
+          <span class="rt-tag rt-tag--grey">2026.04.30</span>
+          <span class="rt-tag rt-tag--grey">3 MIN</span>
         </div>
 
-        <article class="prose prose-lg max-w-none text-lg">
+        <h1 class="rt-h1" style="font-size:clamp(24px,4vw,38px)">MONDAY METRICS: WEEKS OF COVER</h1>
 
-            <p>If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting. Get it right and you never run out of your best-sellers. Get it wrong and you're either sitting on dead inventory or turning away customers during your biggest sales periods.</p>
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin-bottom:34px;flex-wrap:wrap">
+          <img class="pixel" src="brand/data-rally-mark.png" alt="" style="height:26px;width:26px">
+          <span style="font:400 12px var(--disp);color:var(--ink)">SAUZI TEAM</span>
+          <span style="font:400 15px var(--text);color:var(--muted)">The early warning system for stockouts and overstocking — and why your number is probably already wrong by the time you see it.</span>
+        </div>
 
-            <p>The formula looks simple. The execution almost always isn't.</p>
+        <div style="max-width:740px">
+          <p class="rt-p" style="font-size:19px">If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting. Get it right and you never run out of your best-sellers. Get it wrong and you're either sitting on dead inventory or turning away customers during your biggest sales periods.</p>
+          <p class="rt-p" style="font-size:19px">The formula looks simple. The execution almost always isn't.</p>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHAT IT IS</h2>
+          <p class="rt-p" style="font-size:19px">Weeks of Cover (WoC) tells you how many weeks your current inventory will last at the current rate of sales.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">WoC = Current Inventory ÷ Average Weekly Sell-Through</b></p>
+          <p class="rt-p" style="font-size:19px">A number above your reorder lead time means you're covered. A number below it means you're at risk of a stockout. Simple in theory — but here's where it falls apart in practice.</p>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">FOUR WAYS WOC BREAKS DOWN</h2>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">1. Inventory lag.</b> If your warehouse counts update weekly — or worse, monthly — your WoC is already stale by the time it hits your dashboard. A product that shows "6 weeks of cover" on Monday might have 3.5 by Friday after a weekend sales spike. Real-time inventory sync isn't a nice-to-have. It's the baseline requirement for this metric to mean anything.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">2. Demand averaging.</b> A flat average weekly sell-through ignores seasonality entirely. Your "6 weeks of cover" in January means nothing if February demand spikes 3x because of Valentine's Day or a promotional event. At minimum, use a trailing 4-week weighted average. Better yet, layer in seasonal adjustment factors.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">3. SKU granularity.</b> Measuring WoC at the category level is where most companies go wrong. One hot SKU can mask ten dead ones. You think "Apparel" has 6 weeks of cover — but your best-selling jacket has 0.8 weeks and your slowest polo has 40. Stockouts and overstock exist in the same category simultaneously, and a blended number hides both.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">4. The heatmap tells the story.</b> When you visualize WoC across categories and time — a grid of SKUs by month, colored from green (healthy) to red (critical) — you can see trouble coming months before it hits. Red cells aren't just data points. They're revenue at risk. The heatmap turns a spreadsheet metric into a decision-making tool.</p>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHAT GOOD LOOKS LIKE</h2>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">WoC calculated at the <b style="color:var(--ink)">SKU level</b>, not category</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Inventory refreshed <b style="color:var(--ink)">daily or in real-time</b>, not weekly</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Demand averages use a <b style="color:var(--ink)">weighted trailing window</b> with seasonal adjustment</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">WoC threshold alerts set at the <b style="color:var(--ink)">reorder lead time + buffer</b></span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)">Heatmap visualization surfaced automatically — no manual refresh needed</span></div>
+          </div>
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">THE REAL PROBLEM</h2>
+          <p class="rt-p" style="font-size:19px">Most companies know they need to track Weeks of Cover. The problem isn't the formula. The problem is that the inputs — inventory counts and sell-through rates — are sitting in three different systems that don't talk to each other, updating at different frequencies, with no single source of truth.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">If your inventory data isn't clean and real-time, your Weeks of Cover is a guess, not a strategy.</b></p>
+          <p class="rt-p" style="font-size:19px">And an AI data analyst sitting on broken inventory data doesn't give you better answers. It gives you faster wrong ones. The foundation has to be right first.</p>
+        </div>
 
-            <h2>What It Is</h2>
+        <div style="border:4px solid var(--ink);background:var(--panel-2);padding:30px 32px;margin-top:24px;box-shadow:6px 6px 0 var(--rust);max-width:740px">
+          <div style="font:700 20px var(--disp);color:var(--ink);margin-bottom:12px">WANT TO KNOW WHICH STEP YOU'RE ON?</div>
+          <p style="font:400 18px/1.7 var(--text);color:var(--body);margin:0 0 22px">Run the readiness scan. It takes about a minute and tells you which phase you start in.</p>
+          <a href="readiness-map.html" class="rt-btn">▶ GET MY DATA READINESS MAP</a>
+        </div>
+      </article>
 
-            <p>Weeks of Cover (WoC) tells you how many weeks your current inventory will last at the current rate of sales.</p>
+      <aside style="min-width:0">
+        <div class="rt-panel rt-panel--tint">
+          <div class="rt-panel__hd" style="font-size:10px">RELATED FILES</div>
+          <div style="padding:14px 16px 16px">
+            <a href="blog-monday-metrics-cltv.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">DATA ENGINEERING</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">MONDAY METRICS: CLTV</div></a>
+            <a href="blog-ai-data-analysts.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">AI STRATEGY</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">WE'RE GOING ALL IN ON AI DATA ANALYSTS</div></a>
+          </div>
+        </div>
+        <a href="blog.html" class="rt-btn rt-btn--ghost rt-btn--block" style="margin-top:22px">◀ ALL FIELD NOTES</a>
+      </aside>
+    </div>
 
-            <p><strong>WoC = Current Inventory ÷ Average Weekly Sell-Through</strong></p>
+    <retro-footer hint="<span>◀ PREV FILE</span><span>A: SHARE</span><span>NEXT FILE ▶</span>"></retro-footer>
+  </div>
+</main>
 
-            <p>A number above your reorder lead time means you're covered. A number below it means you're at risk of a stockout. Simple in theory — but here's where it falls apart in practice.</p>
-
-            <h2>Four Ways WoC Breaks Down</h2>
-
-            <p><strong>1. Inventory lag.</strong> If your warehouse counts update weekly — or worse, monthly — your WoC is already stale by the time it hits your dashboard. A product that shows "6 weeks of cover" on Monday might have 3.5 by Friday after a weekend sales spike. Real-time inventory sync isn't a nice-to-have. It's the baseline requirement for this metric to mean anything.</p>
-
-            <p><strong>2. Demand averaging.</strong> A flat average weekly sell-through ignores seasonality entirely. Your "6 weeks of cover" in January means nothing if February demand spikes 3x because of Valentine's Day or a promotional event. At minimum, use a trailing 4-week weighted average. Better yet, layer in seasonal adjustment factors.</p>
-
-            <p><strong>3. SKU granularity.</strong> Measuring WoC at the category level is where most companies go wrong. One hot SKU can mask ten dead ones. You think "Apparel" has 6 weeks of cover — but your best-selling jacket has 0.8 weeks and your slowest polo has 40. Stockouts and overstock exist in the same category simultaneously, and a blended number hides both.</p>
-
-            <p><strong>4. The heatmap tells the story.</strong> When you visualize WoC across categories and time — a grid of SKUs by month, colored from green (healthy) to red (critical) — you can see trouble coming months before it hits. Red cells aren't just data points. They're revenue at risk. The heatmap turns a spreadsheet metric into a decision-making tool.</p>
-
-            <h2>What Good Looks Like</h2>
-
-            <ul>
-                <li>WoC calculated at the <strong>SKU level</strong>, not category</li>
-                <li>Inventory refreshed <strong>daily or in real-time</strong>, not weekly</li>
-                <li>Demand averages use a <strong>weighted trailing window</strong> with seasonal adjustment</li>
-                <li>WoC threshold alerts set at the <strong>reorder lead time + buffer</strong></li>
-                <li>Heatmap visualization surfaced automatically — no manual refresh needed</li>
-            </ul>
-
-            <h2>The Real Problem</h2>
-
-            <p>Most companies know they need to track Weeks of Cover. The problem isn't the formula. The problem is that the inputs — inventory counts and sell-through rates — are sitting in three different systems that don't talk to each other, updating at different frequencies, with no single source of truth.</p>
-
-            <p><strong>If your inventory data isn't clean and real-time, your Weeks of Cover is a guess, not a strategy.</strong></p>
-
-            <p>And an AI data analyst sitting on broken inventory data doesn't give you better answers. It gives you faster wrong ones. The foundation has to be right first.</p>
-
-            <hr class="my-10">
-
-            <p class="text-xl text-ink font-medium text-center"><em>Want to know if your inventory data is reliable enough to act on?</em></p>
-
-            <div class="mt-8 text-center flex justify-center">
-                <a href="index.html#book-call"
-                    class="bg-ink hover:bg-ink/90 text-background px-8 py-4 rounded-xl font-bold transition-colors">
-                    Get My AI Analyst Roadmap
-                </a>
-            </div>
-
-        </article>
-
-    </main>
-
-    <app-footer></app-footer>
-
+<style>
+@media (max-width:900px){ .post-cols{ grid-template-columns:1fr !important; } }
+</style>
 </body>
-
 </html>

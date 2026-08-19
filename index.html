@@ -1,545 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sauzi.ai | AI Data Implementation for the AI Agent Era</title>
-    <meta name="description"
-        content="Sauzi.ai implements the data infrastructure that makes AI agents work. We configure your warehouse, model your data, and connect the AI tools — so your team gets answers in seconds, not requests in a ticket queue.">
-    <meta property="og:title" content="Sauzi.ai | AI Data Implementation for the AI Agent Era">
-    <meta property="og:description" content="Sauzi.ai implements the data infrastructure that makes AI agents work. Configure your warehouse, model your data, and connect AI tools — answers in seconds.">
-    <meta property="og:image" content="https://sauzi.ai/Brand Assets/og-image.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sauzi.ai">
-
-    <!-- Google Fonts: Lora + Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#FDFAF5',
-                        surface: '#F7F2EA',
-                        'surface-amber': '#FDF5E6',
-                        primary: '#C8860A',
-                        'primary-mid': '#E8A020',
-                        secondary: '#A84B28',
-                        ink: '#1A1814',
-                        'ink-2': '#6B6560',
-                        'ink-3': '#B0AA9F',
-                        border: '#E8E2D8',
-                        'border-soft': '#F0EBE1',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Lora', 'Georgia', 'serif'],
-                        heading: ['Lora', 'Georgia', 'serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'warm': '0 1px 3px rgba(26, 24, 20, 0.06), 0 1px 2px rgba(26, 24, 20, 0.04)',
-                        'warm-md': '0 4px 12px rgba(26, 24, 20, 0.08)',
-                        'warm-lg': '0 8px 32px rgba(26, 24, 20, 0.10)',
-                        'amber-glow': '0 0 20px rgba(200, 134, 10, 0.15)',
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'marquee': 'marquee 25s linear infinite',
-                        'fade-in': 'fadeIn 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Web Components -->
-    <script src="components.js"></script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-balance { text-wrap: balance; }
-            .card {
-                background: #F7F2EA;
-                border: 0.5px solid #E8E2D8;
-                border-radius: 1.25rem;
-            }
-            .card-hover:hover {
-                background: #FDF5E6;
-                border-color: #C8860A;
-                box-shadow: 0 4px 12px rgba(26, 24, 20, 0.08);
-            }
-            .amber-bar {
-                display: block;
-                width: 2rem;
-                height: 2px;
-                background: #C8860A;
-                margin-bottom: 1.25rem;
-            }
-        }
-        body {
-            background-color: #FDFAF5;
-            color: #1A1814;
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #FDFAF5; }
-        ::-webkit-scrollbar-thumb { background: #E8E2D8; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #B0AA9F; }
-
-        .hero-texture {
-            background-image: radial-gradient(circle at 20% 50%, rgba(200,134,10,0.04) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(168,75,40,0.04) 0%, transparent 40%);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | Data, Prepared for the AI Agent Era</title>
+<meta name="description" content="Sauzi.ai configures your warehouse, models your data, and connects the AI tools — so your team asks questions in plain English and gets answers in seconds, not ticket-queue weeks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
 </head>
+<body>
+<retro-header active="index.html" tag="● TAKING CLIENTS"></retro-header>
 
-<body class="font-sans antialiased selection:bg-primary/20 selection:text-ink overflow-x-hidden">
+<main class="rt-wrap rt-page">
+  <div class="rt-card" style="padding:0">
+    <div style="padding:52px 40px 34px;display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
 
-    <!-- Global Navigation -->
-    <app-header></app-header>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col justify-center hero-texture overflow-hidden">
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center min-h-[calc(100vh-5rem)] py-24 lg:pt-28 lg:pb-16">
-
-                <!-- LEFT: Menu-style copy -->
-                <div class="flex flex-col justify-center animate-fade-in-up">
-
-                    <!-- Open sign / label -->
-                    <div class="flex items-center gap-3 mb-10">
-                        <span class="block h-px w-8 bg-primary flex-shrink-0"></span>
-                        <span class="text-[11px] font-bold tracking-[0.22em] uppercase text-primary">The Kitchen Is Open</span>
-                        <span class="relative flex h-2 w-2 flex-shrink-0">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        <span class="text-[10px] font-bold text-ink-3 tracking-widest">TAKING CLIENTS NOW</span>
-                    </div>
-
-                    <!-- Headline -->
-                    <h1 class="font-serif font-semibold tracking-tight leading-[1.08] mb-8">
-                        <span class="block text-5xl sm:text-6xl xl:text-7xl text-ink">Data, prepared</span>
-                        <span class="block text-5xl sm:text-6xl xl:text-7xl text-ink">for the</span>
-                        <span class="block text-5xl sm:text-6xl xl:text-7xl text-primary italic">AI agent era.</span>
-                    </h1>
-
-                    <!-- Subheadline -->
-                    <p class="text-lg md:text-xl text-ink-2 leading-relaxed mb-10 max-w-md">
-                        We configure your warehouse, model your data, and connect the AI tools. Your team asks questions in plain English. The AI answers — in seconds, not ticket-queue weeks.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-col sm:flex-row items-start gap-4">
-                        <a href="#book-call"
-                            class="inline-block bg-ink text-background hover:bg-ink/90 font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-warm-md text-base">
-                            Get My Data Readiness Map
-                        </a>
-                        <a href="how-it-works.html"
-                            class="inline-flex items-center gap-2 border border-ink-3 text-ink-2 hover:border-primary hover:text-primary font-bold py-4 px-10 rounded-xl transition-all duration-300 text-base">
-                            See How It Works
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT: Menu card illustration -->
-                <div class="hidden lg:flex items-center justify-center animate-fade-in" style="animation-delay: 0.3s; opacity: 0;">
-                    <div class="relative w-full max-w-[480px]">
-                        <div class="absolute inset-0 -m-8 bg-primary/5 rounded-[3rem] blur-3xl"></div>
-                        <img
-                            src="page-ideation/hero-menu.svg"
-                            alt="The Sauzi Data Implementation Menu — three courses: Foundation, Structuring, AI Connection"
-                            class="relative w-full h-auto"
-                            style="filter: drop-shadow(0 20px 40px rgba(26,24,20,0.12));"
-                        >
-                    </div>
-                </div>
-
-            </div>
+      <!-- Left: pitch -->
+      <div style="flex:1 1 380px;min-width:0">
+        <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:22px">
+          <img class="pixel bob" src="brand/query-ranger-full-body.png" alt="Query Ranger" style="height:104px;width:auto">
+          <div style="font:400 12px var(--disp);color:var(--muted);letter-spacing:1px;padding-bottom:8px">PLAYER 1 — QUERY RANGER ANSWERS</div>
         </div>
-
-        <!-- Trusted By / Social Proof -->
-        <div class="relative z-10 w-full border-t border-border-soft pb-12 pt-10 mt-auto">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] mb-8 text-center text-ink-3">
-                    Data expertise from teams at
-                </p>
-                <div class="relative w-full" style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
-                    <div class="flex w-max animate-marquee gap-24 items-center">
-                        <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                        </div>
-                        <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                        </div>
-                        <div class="flex gap-24 items-center">
-                            <img src="Brand Assets/boxycharm-logo.svg" alt="Boxycharm" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/chewy-logo.png" alt="Chewy" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/gamestop-logo.png" alt="GameStop" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/jlo-beauty.png" alt="JLo Beauty" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                            <img src="Brand Assets/reflex-ai.png" alt="Reflex AI" class="w-36 h-14 object-contain grayscale opacity-50 hover:opacity-80 transition-opacity">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h1 style="font:700 clamp(30px,5vw,52px)/1.24 var(--disp);color:var(--ink);margin:0 0 26px;text-shadow:5px 5px 0 var(--amber)">DATA,<br>PREPARED<br>FOR THE AI<br>AGENT ERA.</h1>
+        <p style="font:400 18px/1.75 var(--text);color:var(--body);margin:0 0 30px;max-width:460px">We configure your warehouse, model your data, and connect the AI tools. Your team asks questions in plain English. The AI answers — in seconds, not ticket-queue weeks.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px">
+          <a href="readiness-map.html" class="rt-btn">▶ GET MY DATA READINESS MAP</a>
+          <a href="how-it-works.html" class="rt-btn rt-btn--ghost">SEE HOW IT WORKS</a>
         </div>
-    </section>
+      </div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="max-w-2xl">
-                    <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-4">
-                        <span class="text-primary">Three Phases.</span>
-                        One Destination: AI Agents on Your Data.
-                    </h2>
-                    <p class="text-ink-2 text-lg">Every company starts somewhere different in their data journey. Sauzi meets you where you are and gets you to the same place: AI agents answering questions in seconds.</p>
-                </div>
-                <div class="hidden md:block pb-2">
-                    <div class="flex items-center gap-2 text-primary font-bold">
-                        <span>Scroll for more</span>
-                        <svg class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
-                        </svg>
-                    </div>
-                </div>
+      <!-- Right: Pong console -->
+      <div style="flex:1 1 560px;max-width:600px;min-width:0">
+        <div style="border:4px solid var(--ink);background:var(--cream);box-shadow:6px 6px 0 var(--rust)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--ink);color:var(--cream);font:400 12px var(--disp);gap:8px">
+            <span style="display:flex;align-items:center;gap:9px"><img class="pixel" src="brand/query-ranger-emblem.png" alt="" style="height:26px;width:26px">1P — QUERY RANGER</span>
+            <span style="color:var(--amber)">VS</span>
+            <span>2P — TOUGH DATA QUESTIONS</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font:700 28px var(--disp);color:var(--ink);border-bottom:3px solid var(--muted)">
+            <span id="pong-answers">00</span>
+            <span style="display:flex;flex-direction:column;align-items:center;gap:7px">
+              <span id="pong-mode" style="font:400 11px var(--disp);color:var(--muted)">READY</span>
+              <span id="pong-reset" style="cursor:pointer;font:400 10px var(--disp);color:var(--ink);border:2px solid var(--ink);padding:4px 8px">RESET 00-00</span>
+            </span>
+            <span id="pong-tickets">00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 16px 10px;font:400 10px var(--disp);color:var(--muted)">
+            <span>ANSWERS RETURNED</span><span>QUESTIONS UNANSWERED</span>
+          </div>
+          <div style="position:relative">
+            <canvas id="pong" style="display:block;width:100%;height:auto;image-rendering:pixelated"></canvas>
+            <div id="pong-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:rgba(25,24,22,.74)">
+              <div style="font:400 11px var(--disp);color:var(--amber);letter-spacing:2px;text-align:center">QUERY RANGER &nbsp;VS&nbsp; TOUGH DATA QUESTIONS</div>
+              <div id="pong-start" class="bob" style="cursor:pointer;background:var(--amber);color:var(--ink);padding:18px 26px;font:700 15px var(--disp);box-shadow:5px 5px 0 var(--rust)">▶ START ASKING QUESTIONS</div>
+              <div style="font:400 10px var(--disp);color:var(--cream);opacity:.8">MOUSE MOVES YOUR PADDLE</div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Phase 1 -->
-                <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold mb-4">Phase 1: Foundation</h3>
-                    <p class="text-ink-2 leading-relaxed mb-6">
-                        We connect your data sources, build or repair your pipelines, and get clean data flowing into your warehouse. You can't deploy AI on a leaky pipe — so we fix the pipe first.
-                    </p>
-                    <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> ETL/ELT Pipeline Buildout
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Pipeline Repair &amp; Optimization
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Warehouse Setup &amp; Migration
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Phase 2 -->
-                <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group border-primary/20">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 text-secondary group-hover:scale-110 group-hover:bg-secondary group-hover:text-background transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold mb-4">Phase 2: Structuring</h3>
-                    <p class="text-ink-2 leading-relaxed mb-6">
-                        We build the dimension and fact tables AI agents need to reason about your business. Most implementations skip this step — and fail because of it.
-                    </p>
-                    <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Semantic Layer Modeling
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> AI-Ready Data Structuring
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-secondary flex-shrink-0"></div> Medallion Architecture Design
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="card card-hover p-10 rounded-3xl transition-all duration-500 group">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-background transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold mb-4">Phase 3: AI Connection</h3>
-                    <p class="text-ink-2 leading-relaxed mb-6">
-                        Connect your structured warehouse to AI tools. Your team asks questions in plain English and gets answers in seconds — no ticket queue.
-                    </p>
-                    <ul class="space-y-3 text-sm text-ink-2">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Claude / Cowork Connection
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Natural Language Query Interface
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1 h-1 rounded-full bg-primary flex-shrink-0"></div> Automated Anomaly Detection
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          </div>
+          <div style="border-top:3px solid var(--muted);padding:12px 16px;background:var(--panel-2)">
+            <div style="font:400 11px var(--disp);color:var(--muted);margin-bottom:8px">SERVE ▸ <span id="pong-question">WHAT'S OUR REPEAT PURCHASE RATE BY CHANNEL?</span></div>
+            <div id="pong-feed" style="font:400 15px/1.6 var(--text);color:var(--ink);min-height:76px">&gt; Press start. Every question your team can't answer today becomes a rally.</div>
+          </div>
         </div>
-    </section>
+        <div id="pong-hint" style="text-align:center;font:400 11px var(--disp);color:var(--muted);margin-top:12px">PRESS START TO PLAY AS QUERY RANGER</div>
+      </div>
+    </div>
 
-    <!-- Comparison Section -->
-    <section class="py-24 bg-surface relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-16 text-center">The Old Hire vs. <span
-                    class="text-primary">The Sauzi Model.</span></h2>
+    <!-- High scores -->
+    <div style="margin:8px 40px 0;border-top:3px solid var(--muted);padding:28px 0 8px">
+      <div style="font:400 12px var(--disp);color:var(--muted);margin-bottom:18px">HIGH SCORES — DATA EXPERTISE FROM TEAMS AT</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">1UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">BOXYCHARM</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">2UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">CHEWY</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">3UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">GAMESTOP</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">4UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">JLO BEAUTY</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">5UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">REFLEX AI</div></div>
+      </div>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                <!-- Vertical Line -->
-                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2"></div>
-
-                <!-- Old Model -->
-                <div class="space-y-8 p-6">
-                    <div class="flex items-center gap-3 text-ink-3 font-bold uppercase tracking-widest text-sm">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        The Old Hire
-                    </div>
-
-                    <div
-                        class="card p-8 rounded-2xl opacity-60 grayscale hover:opacity-100 transition-all cursor-default">
-                        <div class="text-3xl font-bold mb-2">$1,000,000+ / Year</div>
-                        <p class="text-ink-2 text-sm mb-6">Analyst team. Reports still take a week.</p>
-                        <ul class="space-y-4 text-ink-2">
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Analysts still waiting on data engineers</li>
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Dashboards answering last week's questions</li>
-                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-ink-3 flex-shrink-0" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg> Headcount that doesn't scale down</li>
-                        </ul>
-                        <div class="mt-8 pt-6 border-t border-ink/5">
-                            <a href="why-sauzi.html"
-                                class="block w-full text-center py-3 rounded-lg bg-ink/5 text-ink-3 font-bold text-sm hover:bg-ink/10 transition-all">
-                                Why the old model is broken
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sauzi Model -->
-                <div class="space-y-8 p-6">
-                    <div class="flex items-center gap-3 text-primary font-bold uppercase tracking-widest text-sm">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        The Sauzi Model
-                    </div>
-
-                    <div class="card border-primary/40 bg-surface-amber p-8 rounded-2xl shadow-warm-md">
-                        <div class="text-3xl font-bold mb-2">Implementation Once. AI Agents Forever.</div>
-                        <p class="text-primary text-sm mb-6">Ask your data anything. Get answers instantly. No tickets, no bottleneck.</p>
-                        <ul class="space-y-4 text-ink">
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> Warehouse configured and AI-connected</li>
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> Questions answered in plain English, instantly</li>
-                            <li class="flex items-center gap-3 font-medium"><svg class="w-5 h-5 text-primary flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg> 10x the insight without 10x the team</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Form Section -->
-    <section id="book-call" class="py-32 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="card rounded-[2.5rem] p-8 md:p-16 border-primary/20 shadow-warm-lg text-center overflow-hidden relative">
-
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-6">Ready to Make Your Data <span class="text-primary">AI-Ready?</span>
-                </h2>
-                <p class="text-ink-2 text-lg mb-12">Tell us what you're working with. We'll map out exactly what needs to be built and what your team unlocks.</p>
-
-                <div id="form-container">
-                    <form id="contact-form" class="space-y-6 max-w-lg mx-auto text-left">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-ink-2 mb-2">Full Name</label>
-                                <input type="text" name="fullName" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="John Doe">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-ink-2 mb-2">Email Address</label>
-                                <input type="email" name="email" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="john@company.com">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-ink-2 mb-2">Role / Job Title</label>
-                                <input type="text" name="role" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="CTO, Founder, etc.">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-ink-2 mb-2">Company Name</label>
-                                <input type="text" name="company" required
-                                    class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                    placeholder="Acme Corp">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-ink-2 mb-2">What industry are you in?</label>
-                            <input type="text" name="industry" required
-                                class="w-full bg-surface border border-border rounded-lg px-4 py-3 text-ink placeholder-ink-3 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
-                                placeholder="E.g. E-commerce, SaaS, Retail">
-                        </div>
-
-                        <button type="submit" id="submit-btn"
-                            class="w-full bg-primary hover:bg-primary-mid text-background font-bold py-4 rounded-xl hover:shadow-warm-md hover:scale-[1.02] transition-all transform duration-300 flex justify-center items-center gap-2">
-                            <span>Get My Data Readiness Map</span>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Success Message (Hidden by default) -->
-                <div id="success-message" class="hidden max-w-lg mx-auto text-center py-10">
-                    <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold text-ink mb-4">You're on the list.</h3>
-                    <p class="text-ink-2 leading-relaxed">
-                        A Sauzi strategist will be in touch shortly to review your stack and next steps.
-                    </p>
-                </div>
-
-                <script>
-                    const form = document.getElementById('contact-form');
-                    const formContainer = document.getElementById('form-container');
-                    const successMessage = document.getElementById('success-message');
-                    const submitBtn = document.getElementById('submit-btn');
-
-                    const WEBHOOK_URL = 'https://hook.us2.make.com/50v4vpsrkfcxljo1e017w0uv16s3323c';
-
-                    form.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-
-                        const originalBtnText = submitBtn.innerHTML;
-                        submitBtn.innerHTML = '<svg class="animate-spin h-5 w-5 text-background" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
-                        submitBtn.disabled = true;
-
-                        const formData = new FormData(form);
-                        const data = { timestamp: new Date().toISOString() };
-                        formData.forEach((value, key) => data[key] = value);
-
-                        try {
-                            await fetch(WEBHOOK_URL, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(data)
-                            });
-
-                            formContainer.classList.add('hidden');
-                            successMessage.classList.remove('hidden');
-                            successMessage.classList.add('animate-fade-in-up');
-
-                        } catch (error) {
-                            console.error('Error:', error);
-                            alert('Something went wrong. Please try again.');
-                            submitBtn.innerHTML = originalBtnText;
-                            submitBtn.disabled = false;
-                        }
-                    });
-                </script>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Footer -->
-    <app-footer></app-footer>
-
-    <!-- Scripts -->
-    <script>
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.card').forEach(el => {
-            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-            observer.observe(el);
-        });
-    </script>
+    <retro-footer hint="<span>◀▶ SELECT</span><span>A: START</span><span>B: BACK</span>"></retro-footer>
+  </div>
+</main>
 </body>
-
 </html>
