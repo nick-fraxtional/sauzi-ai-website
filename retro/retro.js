@@ -477,7 +477,45 @@
       st.src = st.src.includes(i) ? st.src.filter(x => x !== i) : [...st.src, i];
       renderSrcs(); renderCard();
     });
-    el('f-submit').addEventListener('click', () => { if (ready()) { st.submitted = true; renderCard(); showState(); } });
+    // Same Make webhook the classic index.html form posts to. Keys map to
+    // the existing Make scenario (fullName/email/role/company/industry); the
+    // extra retro fields are included so no captured info is dropped.
+    const WEBHOOK_URL = 'https://hook.us2.make.com/50v4vpsrkfcxljo1e017w0uv16s3323c';
+    let submitting = false;
+    async function submitForm() {
+      if (!ready() || submitting) return;
+      submitting = true;
+      const btn = el('f-submit');
+      btn.textContent = 'SENDING…';
+      btn.style.background = 'var(--muted)';
+      const payload = {
+        timestamp: new Date().toISOString(),
+        fullName: st.name.trim(),
+        email: st.email.trim(),
+        company: st.co.trim(),
+        role: '',
+        industry: '',
+        stage: st.stage === null ? '' : FORM_STAGES[st.stage].card,
+        dataSources: st.src.map(i => RM_SOURCES[i]).join(', '),
+        firstQuestion: st.q.trim(),
+        source: 'retro/form.html'
+      };
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        st.submitted = true; renderCard(); showState();
+      } catch (e) {
+        console.error('Form submit failed:', e);
+        btn.textContent = 'SUBMIT FAILED — RETRY';
+        btn.style.background = 'var(--rust)';
+      } finally {
+        submitting = false;
+      }
+    }
+    el('f-submit').addEventListener('click', submitForm);
     const editBtn = el('f-edit');
     if (editBtn) editBtn.addEventListener('click', () => { st.submitted = false; showState(); });
     renderStages(); renderSrcs(); renderCard(); showState();
