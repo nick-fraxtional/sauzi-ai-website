@@ -45,7 +45,13 @@
   class RetroHeader extends HTMLElement {
     connectedCallback() {
       const active = (this.getAttribute('active') || '').toLowerCase();
-      const tag = this.getAttribute('tag') || 'TAKING CLIENTS';
+      const tagRaw = this.getAttribute('tag') || 'TAKING CLIENTS';
+      // A leading "●" marks an availability status: render a blinking amber
+      // dot + label (shown on desktop AND mobile). Plain tags stay text-only.
+      const statusMatch = tagRaw.match(/^\s*●\s*(.*)$/);
+      const tagHtml = statusMatch
+        ? `<span class="rt-nav__status"><span class="rt-nav__dot" aria-hidden="true"></span>${statusMatch[1]}</span>`
+        : `<span class="rt-nav__tag">${tagRaw}</span>`;
       const links = NAV.map(([href, label]) => {
         const on = href === active ? ' is-active' : '';
         return `<a href="${href}" class="rt-nav__link${on}">${label}</a>`;
@@ -55,7 +61,7 @@
         <a href="index.html"><img class="rt-nav__logo" src="brand/data-rally-lockup-reverse.png" alt="sauzi.ai"></a>
         <button class="rt-nav__burger" aria-label="Menu">▣</button>
         <div class="rt-nav__links">${links}</div>
-        <span class="rt-nav__tag">${tag}</span>
+        ${tagHtml}
       </nav>`;
       const burger = $('.rt-nav__burger', this);
       const menu = $('.rt-nav__links', this);
