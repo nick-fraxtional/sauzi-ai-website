@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | How It Works — Select Your Level</title>
+<meta name="description" content="Every company starts somewhere different in their data journey. Foundation, structuring, AI connection — Sauzi meets you where you are and gets you to agents answering questions in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
+</head>
+<body>
+<retro-header active="how-it-works.html" tag="WORLD 1 — 3 LEVELS"></retro-header>
+
+<main class="rt-wrap rt-page" id="levels">
+  <div class="rt-card" style="padding:44px 40px 20px">
+
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:34px;flex-wrap:wrap">
+      <div style="flex:1 1 420px;min-width:0">
+        <h2 class="rt-h2">SELECT YOUR LEVEL</h2>
+        <p class="rt-lead" style="margin:0">Every company starts somewhere different in their data journey. Sauzi meets you where you are and gets you to the same place: AI agents answering questions in seconds.</p>
+      </div>
+      <img class="pixel" src="brand/data-sentinel-full-body.png" alt="Data Sentinel" style="height:150px;width:auto;flex:none">
+    </div>
+
+    <!-- World map -->
+    <div style="position:relative;border:4px solid var(--ink);background:var(--panel-2);padding:38px 40px 34px;box-shadow:6px 6px 0 var(--rust)">
+      <div style="position:absolute;left:40px;right:40px;top:96px;border-top:5px dotted var(--muted)"></div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:34px">
+        <div class="lvl-node is-on" data-level="1"><span class="lvl-ind">▼</span><div class="lvl-box">1</div>
+          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">FOUNDATION</div>
+          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">PIPES &amp; WAREHOUSE</div></div>
+        <div class="lvl-node" data-level="2"><span class="lvl-ind">▼</span><div class="lvl-box">2</div>
+          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">STRUCTURING</div>
+          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">MODELS &amp; SEMANTICS</div></div>
+        <div class="lvl-node" data-level="3"><span class="lvl-ind">▼</span><div class="lvl-box">3</div>
+          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">AI CONNECTION</div>
+          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">AGENTS ONLINE</div></div>
+      </div>
+    </div>
+
+    <!-- Level info -->
+    <div class="rt-panel rt-panel--shadow" style="margin-top:30px;background:var(--cream)">
+      <div class="rt-panel__hd"><span>LEVEL <span id="lvl-num">1</span> INFO</span><span class="amber" id="lvl-status">START HERE</span></div>
+      <div style="padding:28px 30px 30px">
+        <h3 class="rt-h3" id="lvl-name">PHASE 1: FOUNDATION</h3>
+        <p class="rt-p" id="lvl-body" style="max-width:900px"></p>
+        <div class="rt-grid-2">
+          <div>
+            <div class="rt-label" style="margin-bottom:12px">OBJECTIVES</div>
+            <div id="lvl-items"></div>
+          </div>
+          <div>
+            <div class="rt-label" style="margin-bottom:12px">EQUIPMENT</div>
+            <div id="lvl-tools" style="display:flex;flex-wrap:wrap;gap:9px"></div>
+            <div style="margin-top:26px;border:3px solid var(--muted);padding:16px;background:var(--panel-2)">
+              <div class="rt-label" style="margin-bottom:9px">CLEAR CONDITION</div>
+              <div style="font:400 16px/1.6 var(--text);color:var(--ink)" id="lvl-clear"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+          <a href="playbooks.html" class="rt-btn">▶ SEE THE PLAYBOOKS</a>
+          <a href="readiness-map.html" class="rt-btn rt-btn--ghost">BOOK A CALL</a>
+        </div>
+      </div>
+    </div>
+
+    <retro-footer hint="<span>◀▶ SELECT LEVEL</span><span>A: ENTER</span><span>B: MAP</span>"></retro-footer>
+  </div>
+
+  <!-- Bonus study: Tetris — you can't skip a row -->
+  <div class="rt-card" style="padding:32px 40px 22px;margin-top:34px">
+    <h2 class="rt-h2" style="font-size:24px">STACK MODE — YOU CAN'T SKIP A ROW.</h2>
+    <p class="rt-p" style="max-width:900px">Sources, pipelines, warehouse, models, agents. Each layer only holds if the one under it is complete. Most implementations drop the agent layer onto empty space. Click the well to fast-drop.</p>
+    <div style="display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap">
+      <div style="border:4px solid var(--ink);box-shadow:5px 5px 0 var(--rust)">
+        <div class="rt-panel__hd" style="padding:9px 11px;font-size:10px"><span>LAYERS</span><span class="amber"><span id="tet-layer">00</span>/05</span></div>
+        <canvas id="tetris" style="display:block;width:220px;height:264px;image-rendering:pixelated;cursor:pointer"></canvas>
+      </div>
+      <div style="flex:1 1 260px;min-width:0">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+          <img class="pixel" src="brand/data-sentinel-emblem.png" alt="" style="height:22px;width:22px">
+          <span class="rt-label">STACK — TOP DOWN</span>
+        </div>
+        <div id="tet-legend"></div>
+      </div>
+    </div>
+    <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 16px;margin-top:20px">
+      <div class="rt-label" style="margin-bottom:7px">STATUS</div>
+      <div style="font:400 16px/1.6 var(--text);color:var(--ink);min-height:52px" id="tet-msg"></div>
+    </div>
+    <retro-footer hint="<span>◀▶ MOVE</span><span>A: DROP</span><span>B: HOLD</span>"></retro-footer>
+  </div>
+</main>
+
+<style>
+.tet-leg { display:flex; gap:10px; padding:9px 0; border-bottom:2px dotted var(--muted-2); }
+#lvl-items > div { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:2px dotted var(--muted-2); }
+</style>
+</body>
+</html>

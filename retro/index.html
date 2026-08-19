@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | Data, Prepared for the AI Agent Era</title>
+<meta name="description" content="Sauzi.ai configures your warehouse, models your data, and connects the AI tools — so your team asks questions in plain English and gets answers in seconds, not ticket-queue weeks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
+</head>
+<body>
+<retro-header active="index.html" tag="● TAKING CLIENTS"></retro-header>
+
+<main class="rt-wrap rt-page">
+  <div class="rt-card" style="padding:0">
+    <div style="padding:52px 40px 34px;display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+
+      <!-- Left: pitch -->
+      <div style="flex:1 1 380px;min-width:0">
+        <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:22px">
+          <img class="pixel bob" src="brand/query-ranger-full-body.png" alt="Query Ranger" style="height:104px;width:auto">
+          <div style="font:400 12px var(--disp);color:var(--muted);letter-spacing:1px;padding-bottom:8px">PLAYER 1 — QUERY RANGER ANSWERS</div>
+        </div>
+        <h1 style="font:700 clamp(30px,5vw,52px)/1.24 var(--disp);color:var(--ink);margin:0 0 26px;text-shadow:5px 5px 0 var(--amber)">DATA,<br>PREPARED<br>FOR THE AI<br>AGENT ERA.</h1>
+        <p style="font:400 18px/1.75 var(--text);color:var(--body);margin:0 0 30px;max-width:460px">We configure your warehouse, model your data, and connect the AI tools. Your team asks questions in plain English. The AI answers — in seconds, not ticket-queue weeks.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px">
+          <a href="readiness-map.html" class="rt-btn">▶ GET MY DATA READINESS MAP</a>
+          <a href="how-it-works.html" class="rt-btn rt-btn--ghost">SEE HOW IT WORKS</a>
+        </div>
+      </div>
+
+      <!-- Right: Pong console -->
+      <div style="flex:1 1 560px;max-width:600px;min-width:0">
+        <div style="border:4px solid var(--ink);background:var(--cream);box-shadow:6px 6px 0 var(--rust)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--ink);color:var(--cream);font:400 12px var(--disp);gap:8px">
+            <span style="display:flex;align-items:center;gap:9px"><img class="pixel" src="brand/query-ranger-emblem.png" alt="" style="height:26px;width:26px">1P — QUERY RANGER</span>
+            <span style="color:var(--amber)">VS</span>
+            <span>2P — TOUGH DATA QUESTIONS</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font:700 28px var(--disp);color:var(--ink);border-bottom:3px solid var(--muted)">
+            <span id="pong-answers">00</span>
+            <span style="display:flex;flex-direction:column;align-items:center;gap:7px">
+              <span id="pong-mode" style="font:400 11px var(--disp);color:var(--muted)">READY</span>
+              <span id="pong-reset" style="cursor:pointer;font:400 10px var(--disp);color:var(--ink);border:2px solid var(--ink);padding:4px 8px">RESET 00-00</span>
+            </span>
+            <span id="pong-tickets">00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 16px 10px;font:400 10px var(--disp);color:var(--muted)">
+            <span>ANSWERS RETURNED</span><span>QUESTIONS UNANSWERED</span>
+          </div>
+          <div style="position:relative">
+            <canvas id="pong" style="display:block;width:100%;height:auto;image-rendering:pixelated"></canvas>
+            <div id="pong-overlay" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:rgba(25,24,22,.74)">
+              <div style="font:400 11px var(--disp);color:var(--amber);letter-spacing:2px;text-align:center">QUERY RANGER &nbsp;VS&nbsp; TOUGH DATA QUESTIONS</div>
+              <div id="pong-start" class="bob" style="cursor:pointer;background:var(--amber);color:var(--ink);padding:18px 26px;font:700 15px var(--disp);box-shadow:5px 5px 0 var(--rust)">▶ START ASKING QUESTIONS</div>
+              <div style="font:400 10px var(--disp);color:var(--cream);opacity:.8">MOUSE MOVES YOUR PADDLE</div>
+            </div>
+          </div>
+          <div style="border-top:3px solid var(--muted);padding:12px 16px;background:var(--panel-2)">
+            <div style="font:400 11px var(--disp);color:var(--muted);margin-bottom:8px">SERVE ▸ <span id="pong-question">WHAT'S OUR REPEAT PURCHASE RATE BY CHANNEL?</span></div>
+            <div id="pong-feed" style="font:400 15px/1.6 var(--text);color:var(--ink);min-height:76px">&gt; Press start. Every question your team can't answer today becomes a rally.</div>
+          </div>
+        </div>
+        <div id="pong-hint" style="text-align:center;font:400 11px var(--disp);color:var(--muted);margin-top:12px">PRESS START TO PLAY AS QUERY RANGER</div>
+      </div>
+    </div>
+
+    <!-- High scores -->
+    <div style="margin:8px 40px 0;border-top:3px solid var(--muted);padding:28px 0 8px">
+      <div style="font:400 12px var(--disp);color:var(--muted);margin-bottom:18px">HIGH SCORES — DATA EXPERTISE FROM TEAMS AT</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">1UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">BOXYCHARM</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">2UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">CHEWY</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">3UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">GAMESTOP</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">4UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">JLO BEAUTY</div></div>
+        <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 12px"><div style="font:700 12px var(--disp);color:var(--ink)">5UP</div><div style="font:400 16px var(--text);color:var(--body);margin-top:6px">REFLEX AI</div></div>
+      </div>
+    </div>
+
+    <retro-footer hint="<span>◀▶ SELECT</span><span>A: START</span><span>B: BACK</span>"></retro-footer>
+  </div>
+</main>
+</body>
+</html>
