@@ -579,16 +579,22 @@
      BLOG — save-file select
   ========================================================= */
   const POSTS = [
-    { title: 'MOST AI DATA PROJECTS FAIL AT STEP TWO', tag: 'STRUCTURING', date: '2026.08.04', read: '6 MIN', file: 'blog-post.html',
-      body: 'Teams connect the pipelines, stand up the warehouse, point an AI tool at it, and get confident wrong answers. The missing step is structuring: the dimension and fact tables an agent needs to reason about the business. Most implementations skip it, and fail because of it.' },
-    { title: 'WHAT A SEMANTIC LAYER ACTUALLY IS', tag: 'FOUNDATIONS', date: '2026.07.22', read: '8 MIN', file: 'blog-post.html',
-      body: 'If two people in your company can compute revenue two different ways, an AI agent can compute it five. A semantic layer is where a metric gets one definition that every query — human or agent — has to go through.' },
-    { title: 'ONE CUSTOMER, TWO RECORDS', tag: 'PLAYBOOK C', date: '2026.07.09', read: '5 MIN', file: 'blog-post.html',
-      body: 'A buyer who orders on Shopify and again on Magento shows up as two different people. Every downstream number — repeat rate, CLTV, churn — inherits that error. Identity resolution comes before analysis.' },
-    { title: 'THE $1M ANALYST TEAM VS. THE IMPLEMENTATION', tag: 'ECONOMICS', date: '2026.06.28', read: '7 MIN', file: 'blog-post.html',
-      body: 'The old model was hire analysts, build dashboards, wait for reports. Compare the fully loaded annual cost of that team against implementing the infrastructure once and running agents on it.' },
-    { title: 'YOU CANNOT DEPLOY AI ON A LEAKY PIPE', tag: 'PHASE 1', date: '2026.06.11', read: '4 MIN', file: 'blog-post.html',
-      body: 'Before anything else: is data actually arriving, on schedule, complete? Pipeline repair is unglamorous and it is the highest-leverage work in most stacks.' }
+    { title: "WE'RE GOING ALL IN ON AI DATA ANALYSTS", tag: 'AI STRATEGY', date: '2026.08.04', read: '4 MIN', file: 'blog-ai-data-analysts.html',
+      body: 'For the past year, Sauzi has been in the trenches: fixing broken pipelines, cleaning messy data, building scalable infrastructure for fast-moving companies. Good work. Important work.' },
+    { title: 'PLANNING AN AI PROJECT? ASK THESE 5 QUESTIONS FIRST.', tag: 'AI READINESS', date: '2026.07.22', read: '4 MIN', file: 'blog-planning-ai-project.html',
+      body: 'Every executive wants to implement AI right now. The pressure from the board is real, and the competitive landscape demands it. But before you invest in shiny new AI tooling, ask five questions first.' },
+    { title: 'DATA TEAMS LOOK VERY DIFFERENT THAN THEY DID 5 YEARS AGO', tag: 'TEAM BUILDING', date: '2026.07.09', read: '4 MIN', file: 'blog-data-teams.html',
+      body: 'The modern data team has fundamentally transformed in just a half-decade. The roles, the tooling, and the expectations have all moved.' },
+    { title: "THE DATA TEAM OF 2030 WON'T LOOK LIKE THE DATA TEAM OF 2020", tag: 'DATA STRATEGY', date: '2026.06.25', read: '4 MIN', file: 'blog-data-team-impact.html',
+      body: "The data team of 2030 won't look like the data team of 2020. Fewer dashboard builders, more people designing the systems AI agents run on." },
+    { title: "CULTURE TAKES TIME. DATA DOESN'T HAVE TO.", tag: 'DATA STRATEGY', date: '2026.06.11', read: '3 MIN', file: 'blog-ai-data-culture.html',
+      body: '90% of companies say data and culture are the biggest barriers to AI. Culture takes years — but the data barrier you can start clearing this quarter.' },
+    { title: 'MONDAY METRICS: RETENTION RATE', tag: 'MONDAY METRICS', date: '2026.05.28', read: '3 MIN', file: 'blog-monday-metrics-retention.html',
+      body: "Retention is the metric that separates growing companies from leaky buckets. But if you're only tracking a single retention number, you're missing the story entirely." },
+    { title: 'MONDAY METRICS: CLTV', tag: 'DATA ENGINEERING', date: '2026.05.14', read: '3 MIN', file: 'blog-monday-metrics-cltv.html',
+      body: 'Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard — because the data behind it is a mess.' },
+    { title: 'MONDAY METRICS: WEEKS OF COVER', tag: 'MONDAY METRICS', date: '2026.04.30', read: '3 MIN', file: 'blog-monday-metrics-weeks-of-cover.html',
+      body: "If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting. Get it right and you never run out of your best-sellers." }
   ];
   function initBlog() {
     const root = $('#blogindex'); if (!root) return;
