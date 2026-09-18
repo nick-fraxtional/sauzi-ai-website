@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauzi.ai | dbt Charts: Your Dashboards Just Became Code</title>
+<meta name="description" content="dbt Labs open-sourced dbt Charts, a YAML language for dashboards built for AI agents. What shipped, why it matters, and the one gap to plan around.">
+<meta property="og:title" content="dbt Charts: Your Dashboards Just Became Code">
+<meta property="og:description" content="dbt Labs open-sourced dbt Charts, a YAML language for dashboards built for AI agents. What shipped, why it matters, and the one gap to plan around.">
+<meta property="og:image" content="https://sauzi.ai/Brand%20Assets/blog/dbt-charts-banner.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sauzi.ai/blog-dbt-charts.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="retro.css">
+<script src="retro.js" defer></script>
+</head>
+<body>
+<retro-header active="blog.html" tag="FILE 01 LOADED"></retro-header>
+
+<main class="rt-wrap rt-page">
+  <div class="rt-card" style="padding:44px 40px 20px">
+    <div style="display:flex;align-items:center;gap:10px;font:400 11px var(--disp);color:var(--muted);margin-bottom:30px;flex-wrap:wrap">
+      <a href="blog.html" style="color:var(--rust);text-decoration:none">◀ FIELD NOTES</a><span>/</span><span>FILE 01</span><span>/</span><span>STACK WATCH</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start" class="post-cols">
+      <article style="min-width:0">
+        <div style="display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap">
+          <span class="rt-tag">STACK WATCH</span>
+          <span class="rt-tag rt-tag--grey">2026.09.17</span>
+          <span class="rt-tag rt-tag--grey">5 MIN</span>
+        </div>
+
+        <h1 class="rt-h1" style="font-size:clamp(24px,4vw,38px)">DBT CHARTS: YOUR DASHBOARDS JUST BECAME CODE</h1>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin-bottom:34px;flex-wrap:wrap">
+          <img class="pixel" src="brand/data-rally-mark.png" alt="" style="height:26px;width:26px">
+          <span style="font:400 12px var(--disp);color:var(--ink)">SAUZI TEAM</span>
+          <span style="font:400 15px var(--text);color:var(--muted)">dbt Labs just turned BI into a text file. Here is what that means for teams putting AI agents on their data.</span>
+        </div>
+
+        <div style="max-width:740px">
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">BI was the last black box in the modern data stack. dbt Labs just open-sourced a way to turn it into a text file.</b></p>
+          <p class="rt-p" style="font-size:19px">On September 14, dbt Labs released <b style="color:var(--ink)">dbt Charts</b>: an open-source language for building dashboards, plus a hosted platform at dbtCharts.com, now in public beta. The tagline is "Charts built for Chat." The headline is charts. The real story is who they're built for.</p>
+          <p class="rt-p" style="font-size:19px">Everything upstream of the dashboard already lives in code. Ingestion is config. Transformation is dbt models in git. Tests run in CI. Then you hit the BI tool and it all goes dark: logic buried in click-built tiles, definitions nobody can diff, and a dashboard graveyard nobody dares clean up. dbt Charts closes that gap.</p>
+
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHAT SHIPPED</h2>
+          <p class="rt-p" style="font-size:19px">The idea is simple. SQL says what data to show. A YAML wrapper says how to show it. One file holds a board's queries, charts, layout, and written commentary, with Jinja for variables and filters (the same pattern dbt users already know).</p>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">An open-source CLI:</b> <code style="font:400 16px var(--disp);color:var(--ink)">dct</code>, installed from the <code style="font:400 16px var(--disp);color:var(--ink)">dbt-charts</code> package. The language, renderer, and CLI are Apache 2.0, the same license as dbt.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Lives next to your models:</b> inside a dbt project, a <code style="font:400 16px var(--disp);color:var(--ink)">charts/</code> folder sits beside <code style="font:400 16px var(--disp);color:var(--ink)">models/</code>, queries use <code style="font:400 16px var(--disp);color:var(--ink)">ref()</code>, and <code style="font:400 16px var(--disp);color:var(--ink)">dct</code> reuses your existing <code style="font:400 16px var(--disp);color:var(--ink)">profiles.yml</code> for credentials.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Validation in CI:</b> <code style="font:400 16px var(--disp);color:var(--ink)">dct validate</code> checks board columns against your models. With <code style="font:400 16px var(--disp);color:var(--ink)">--warehouse</code> it runs the cheapest check each warehouse offers (a BigQuery dry run, EXPLAIN on Snowflake and Postgres) without scanning rows.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Impact analysis:</b> <code style="font:400 16px var(--disp);color:var(--ink)">dct impact &lt;column&gt;</code> lists every board that reads a column. Renaming a field stops being a guessing game.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Broad warehouse support:</b> Snowflake, BigQuery, Databricks, Redshift, Postgres, and more through dbt adapters, with DuckDB built in.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">A hosted platform in beta:</b> conversational analytics, a visual editor that writes back to the YAML, scheduled renders, and permissions where readers don't need a warehouse login. Free for up to 3 collaborators.</span></div>
+          </div>
+
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHY "BUILT FOR CHAT" IS THE RIGHT PITCH</h2>
+          <p class="rt-p" style="font-size:19px">dbt Labs puts the problem bluntly: AI agents make an unauditable mess of dashboards. We agree, and we'd go further. The problem isn't the agent. It's the medium.</p>
+          <p class="rt-p" style="font-size:19px">Ask an agent to build a dashboard in a click-ops BI tool and you get something that looks right and can't be reviewed. Ask it to write a YAML file and you get a pull request. You can read it, diff it, test it, and roll it back. That's the difference between an agent you supervise and an agent you hope about.</p>
+          <p class="rt-p" style="font-size:19px">This is the same principle we build on: <b style="color:var(--ink)">no black boxes.</b> Every pipeline, model, and connection documented so you always know what's running. dbt Charts extends that principle to the last layer of the stack, the one your executives actually look at.</p>
+          <p class="rt-p" style="font-size:19px">A few details show the team thought about how this works in practice. The CLI lints chart design, flagging things like bars too narrow to read or tables with too many columns. Query results are cached, so fifty people opening the same board run one query, not fifty. And the pricing page promises no per-query or per-row charges on the platform. For anyone who has watched a BI bill scale with curiosity, that matters.</p>
+
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">THE CATCH: METRICS STILL LIVE IN SQL</h2>
+          <p class="rt-p" style="font-size:19px">Here's the part worth reading twice. dbt Charts does not support the dbt Semantic Layer yet. It's on the roadmap (dbt Labs says a board will be able to use a metric "as the project defines it instead of restating its SQL"), but today every board query is SQL.</p>
+          <p class="rt-p" style="font-size:19px">That means an agent writing boards is also writing its own definition of revenue. And active customers. And churn. Give it a messy warehouse and it will produce clean, version-controlled, beautifully linted dashboards that disagree with each other.</p>
+          <p class="rt-p" style="font-size:19px"><b style="color:var(--ink)">Code-based dashboards make bad definitions reviewable. They don&rsquo;t make them correct.</b> That job still belongs to the layer underneath: dimension and fact tables that tell the agent what a customer, an order, or a subscription actually is. Structure is the step everyone skips, and it's the step this release depends on most.</p>
+          <p class="rt-p" style="font-size:19px">It's also worth remembering where this sits. dbt Charts is in beta and pre-1.0, and the public repo is a read-only mirror, so issues are welcome but outside pull requests are not. Expect things to move.</p>
+
+          <h2 class="rt-h3" style="font-size:20px;margin-top:30px">WHAT WE'D DO THIS WEEK</h2>
+          <p class="rt-p" style="font-size:19px">If you already run dbt, this is cheap to try and the downside is small:</p>
+          <div style="margin:6px 0 22px">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Pick one board, not ten:</b> rebuild a dashboard your team relies on as a dbt Charts file and see whether the YAML is easier to reason about than what you have.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Point it at marts, not staging:</b> boards should read from modeled, tested tables where the business logic already lives. Keep the SQL in the board thin.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Wire validation into CI:</b> <code style="font:400 16px var(--disp);color:var(--ink)">dbt parse &amp;&amp; dct validate charts/</code> catches a broken column before a stakeholder does.</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:2px dotted var(--muted-2)"><span style="color:var(--rust);font:700 13px var(--disp);margin-top:2px">▸</span><span style="font:400 17px/1.7 var(--text);color:var(--body)"><b style="color:var(--ink)">Keep definitions in one place:</b> until Semantic Layer support lands, put metric logic in your dbt models so every board (and every agent) reads the same answer.</span></div>
+          </div>
+          <p class="rt-p" style="font-size:19px">If you're not on dbt yet, the lesson is the same. The tools for letting agents build analytics are arriving fast. The foundation they need underneath is not arriving on its own.</p>
+          <p class="rt-p" style="font-size:19px">dbt Labs says they hope dbt Charts becomes the open standard for its layer of the stack, the way dbt did for transformation. It might. The question for your team is simpler: when an agent writes your next dashboard, will it be reading from definitions you trust?</p>
+        </div>
+
+        <div style="border:4px solid var(--ink);background:var(--panel-2);padding:30px 32px;margin-top:24px;box-shadow:6px 6px 0 var(--rust);max-width:740px">
+          <div style="font:700 20px var(--disp);color:var(--ink);margin-bottom:12px">IS YOUR FOUNDATION READY FOR AGENTS?</div>
+          <p style="font:400 18px/1.7 var(--text);color:var(--body);margin:0 0 22px">Run the readiness scan. It takes about a minute and tells you what has to be true before an agent touches your data.</p>
+          <a href="readiness-map.html" class="rt-btn">▶ GET MY DATA READINESS MAP</a>
+        </div>
+      </article>
+      <aside style="min-width:0">
+        <div class="rt-panel rt-panel--tint">
+          <div class="rt-panel__hd" style="font-size:10px">RELATED FILES</div>
+          <div style="padding:14px 16px 16px">
+            <a href="blog-fewer-analysts-more-stewards.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">WAREHOUSE ONE</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">FEWER ANALYSTS. MORE STEWARDS.</div></a>
+            <a href="blog-planning-ai-project.html" style="display:block;text-decoration:none;padding:10px 0;border-bottom:2px dotted var(--muted-2)"><div class="rt-label" style="margin-bottom:6px">AI READINESS</div><div style="font:700 12px/1.5 var(--disp);color:var(--ink)">PLANNING AN AI PROJECT? ASK THESE 5 QUESTIONS FIRST.</div></a>
+          </div>
+        </div>
+        <a href="blog.html" class="rt-btn rt-btn--ghost rt-btn--block" style="margin-top:22px">◀ ALL FIELD NOTES</a>
+      </aside>
+    </div>
+
+    <retro-footer hint="<span>◀ PREV FILE</span><span>A: SHARE</span><span>NEXT FILE ▶</span>"></retro-footer>
+  </div>
+</main>
+
+<style>
+@media (max-width:900px){ .post-cols{ grid-template-columns:1fr !important; } }
+</style>
+</body>
+</html>
