@@ -623,6 +623,8 @@
      BLOG — save-file select
   ========================================================= */
   const POSTS = [
+    { title: 'DBT CHARTS: YOUR DASHBOARDS JUST BECAME CODE', tag: 'STACK WATCH', date: '2026.09.17', read: '5 MIN', file: 'blog-dbt-charts.html',
+      body: "BI was the last black box in the modern data stack. dbt Labs just open-sourced a way to turn it into a text file. Here's what shipped, why it matters for AI agents, and the one gap to plan around." },
     { title: 'FEWER ANALYSTS. MORE STEWARDS.', tag: 'WAREHOUSE ONE', date: '2026.08.19', read: '4 MIN', file: 'blog-fewer-analysts-more-stewards.html',
       body: "The playbook used to be: hire analysts, build dashboards, wait for reports. It's collapsing — not because AI is trendy, but because the bottleneck was never the dashboard. It was the queue behind it." },
     { title: "WE'RE GOING ALL IN ON AI DATA ANALYSTS", tag: 'AI STRATEGY', date: '2026.08.04', read: '4 MIN', file: 'blog-ai-data-analysts.html',
