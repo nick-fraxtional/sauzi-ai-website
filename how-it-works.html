@@ -3,113 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sauzi.ai | How It Works — Select Your Level</title>
-<meta name="description" content="Every company starts somewhere different in their data journey. Foundation, structuring, AI connection — Sauzi meets you where you are and gets you to agents answering questions in seconds.">
+<title>Sauzi.ai | How It Works — Build Your Data Ecosystem</title>
+<meta name="description" content="Connect your data sources, define shared business metrics, and connect agents for questions, reports, and insights. Explore how Sauzi builds your data ecosystem.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="retro.css">
-<script src="retro.js" defer></script>
+<link rel="stylesheet" href="ecosystem.css?v=warehouse-pages-4">
+<script src="retro.js?v=warehouse-pages-4" defer></script>
 </head>
-<body>
-<retro-header active="how-it-works.html" tag="WORLD 1 — 3 LEVELS"></retro-header>
-
-<main class="rt-wrap rt-page" id="levels">
-  <div class="rt-card hiw-card" style="padding:44px 40px 20px">
-
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:34px;flex-wrap:wrap">
-      <div style="flex:1 1 420px;min-width:0">
-        <h2 class="rt-h2">SELECT YOUR LEVEL</h2>
-        <p class="rt-lead" style="margin:0">Every company starts somewhere different in their data journey. Sauzi meets you where you are and gets you to the same place: AI agents answering questions in seconds.</p>
-      </div>
-      <img class="pixel" src="brand/data-sentinel-full-body.png" alt="Data Sentinel" style="height:150px;width:auto;flex:none">
+<body class="warehouse-page">
+<a class="skip-link" href="#levels">Skip to content</a>
+<retro-header active="how-it-works.html" tag="● TAKING CLIENTS"></retro-header>
+<main id="levels" class="page-wrap">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div>
+      <p class="page-eyebrow">HOW IT WORKS / CONNECT → DEFINE → DELIVER</p>
+      <h1 id="page-title">A connected ecosystem.<br><span>Built around you.</span></h1>
+      <p>Every company starts somewhere different. We connect your sources, get your business definitions in order, and give agents the foundation to investigate, answer, and report.</p>
+      <div class="page-actions"><a class="rt-btn" href="#build-plan">EXPLORE THE THREE STAGES ↓</a></div>
     </div>
-
-    <!-- World map -->
-    <div class="hiw-map" style="position:relative;border:4px solid var(--ink);background:var(--panel-2);padding:38px 40px 34px;box-shadow:6px 6px 0 var(--rust)">
-      <div class="hiw-line" style="position:absolute;left:40px;right:40px;top:96px;border-top:5px dotted var(--muted)"></div>
-      <div class="hiw-grid" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:34px">
-        <div class="lvl-node is-on" data-level="1"><span class="lvl-ind">▼</span><div class="lvl-box">1</div>
-          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">FOUNDATION</div>
-          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">PIPES &amp; WAREHOUSE</div></div>
-        <div class="lvl-node" data-level="2"><span class="lvl-ind">▼</span><div class="lvl-box">2</div>
-          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">STRUCTURING</div>
-          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">MODELS &amp; SEMANTICS</div></div>
-        <div class="lvl-node" data-level="3"><span class="lvl-ind">▼</span><div class="lvl-box">3</div>
-          <div style="font:700 15px var(--disp);color:var(--ink);margin-top:16px">AI CONNECTION</div>
-          <div style="font:400 11px var(--disp);color:var(--muted);margin-top:7px">AGENTS ONLINE</div></div>
-      </div>
+    <figure class="page-hero-art" style="--scene-position:50% 50%">
+      <img src="Brand%20Assets/warehouse/warehouse-one-ecosystem-v2.png" alt="Warehouse One workers connect pipelines, define metrics, and build answers and reports." width="1672" height="941" fetchpriority="high">
+      <figcaption><span>WAREHOUSE ONE / THE BUILD PLAN</span><span>THREE CONNECTED STAGES</span></figcaption>
+    </figure>
+  </section>
+  <section class="page-section" id="build-plan" aria-labelledby="build-title">
+    <div class="section-intro"><div><p class="section-eyebrow">THE SYSTEM BEHIND THE ANSWERS</p><h2 class="section-title" id="build-title">Start where your data is today.</h2></div><p>Explore each stage to see what gets built, which tools fit, and what your team can do next.</p></div>
+    <div class="phase-tabs" role="group" aria-label="Explore the implementation stages">
+      <button type="button" class="lvl-node phase-tab is-on" data-level="1" aria-pressed="true" aria-controls="phase-detail"><span class="phase-number">01</span><span><strong>Connect the sources</strong><small>PIPELINE OBSERVATORY</small></span></button>
+      <button type="button" class="lvl-node phase-tab" data-level="2" aria-pressed="false" aria-controls="phase-detail"><span class="phase-number">02</span><span><strong>Define the business</strong><small>SEMANTIC WORKSHOP</small></span></button>
+      <button type="button" class="lvl-node phase-tab" data-level="3" aria-pressed="false" aria-controls="phase-detail"><span class="phase-number">03</span><span><strong>Deliver the answers</strong><small>MCP + REPORT BRIDGE</small></span></button>
     </div>
-
-    <!-- Level info -->
-    <div class="rt-panel rt-panel--shadow" style="margin-top:30px;background:var(--cream)">
-      <div class="rt-panel__hd"><span>LEVEL <span id="lvl-num">1</span> INFO</span><span class="amber" id="lvl-status">START HERE</span></div>
-      <div style="padding:28px 30px 30px">
-        <h3 class="rt-h3" id="lvl-name">PHASE 1: FOUNDATION</h3>
-        <p class="rt-p" id="lvl-body" style="max-width:900px"></p>
-        <div class="rt-grid-2">
-          <div>
-            <div class="rt-label" style="margin-bottom:12px">OBJECTIVES</div>
-            <div id="lvl-items"></div>
-          </div>
-          <div>
-            <div class="rt-label" style="margin-bottom:12px">EQUIPMENT</div>
-            <div id="lvl-tools" style="display:flex;flex-wrap:wrap;gap:9px"></div>
-            <div style="margin-top:26px;border:3px solid var(--muted);padding:16px;background:var(--panel-2)">
-              <div class="rt-label" style="margin-bottom:9px">CLEAR CONDITION</div>
-              <div style="font:400 16px/1.6 var(--text);color:var(--ink)" id="lvl-clear"></div>
-            </div>
-          </div>
+    <article class="rt-panel phase-detail" id="phase-detail" aria-live="polite" aria-atomic="true">
+      <div class="rt-panel__hd"><span>STAGE <span id="lvl-num">1</span> / IMPLEMENTATION</span><span class="amber" id="lvl-status">CONNECT</span></div>
+      <div class="panel-content">
+        <h3 class="rt-h3" id="lvl-name">Pipeline Observatory</h3>
+        <p class="rt-p" id="lvl-body">We connect your sources and organize incoming data into reliable warehouse tables and views.</p>
+        <div class="detail-columns">
+          <div><span class="rt-label">WHAT WE BUILD</span><div id="lvl-items"></div></div>
+          <div><span class="rt-label">TOOLS THAT FIT YOUR STACK</span><div id="lvl-tools" class="detail-tools"></div><div class="outcome"><span class="rt-label">WHAT YOUR TEAM GETS</span><p id="lvl-clear">Clean data flowing reliably into a configured warehouse.</p></div></div>
         </div>
-        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
-          <a href="playbooks.html" class="rt-btn">▶ SEE THE PLAYBOOKS</a>
-          <a href="readiness-map.html" class="rt-btn rt-btn--ghost">BOOK A CALL</a>
-        </div>
+        <div class="page-actions"><a href="playbooks.html" class="rt-btn">EXPLORE THE PLAYBOOKS ↗</a><a href="readiness-map.html" class="rt-btn rt-btn--ghost">FIND MY STARTING POINT</a></div>
       </div>
+    </article>
+  </section>
+  <section class="page-section" aria-labelledby="handover-title">
+    <div class="section-intro"><div><p class="section-eyebrow">BUILT TO KEEP WORKING</p><h2 class="section-title" id="handover-title">The whole picture stays connected.</h2></div></div>
+    <div class="principle-grid">
+      <article class="principle"><span>01 / OBSERVE</span><h3>Keep the data moving.</h3><p>Monitor pipelines and quality so your team can spot a broken feed before it becomes a confusing report.</p></article>
+      <article class="principle"><span>02 / REFINE</span><h3>Keep definitions current.</h3><p>Document business logic and evolve the semantic layer as your products, channels, and questions change.</p></article>
+      <article class="principle"><span>03 / INFORM</span><h3>Keep your team in the loop.</h3><p>Connect questions, recurring reports, and proactive insights to the same authorized data and shared definitions.</p></article>
     </div>
-
-    <retro-footer hint="<span>◀▶ SELECT LEVEL</span><span>A: ENTER</span><span>B: MAP</span>"></retro-footer>
-  </div>
-
-  <!-- Bonus study: Tetris — you can't skip a row -->
-  <div class="rt-card" style="padding:32px 40px 22px;margin-top:34px">
-    <h2 class="rt-h2" style="font-size:24px">STACK MODE — YOU CAN'T SKIP A ROW.</h2>
-    <p class="rt-p" style="max-width:900px">Sources, pipelines, warehouse, models, agents. Each layer only holds if the one under it is complete. Most implementations drop the agent layer onto empty space. Click the well to fast-drop.</p>
-    <div style="display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap">
-      <div style="border:4px solid var(--ink);box-shadow:5px 5px 0 var(--rust)">
-        <div class="rt-panel__hd" style="padding:9px 11px;font-size:10px"><span>LAYERS</span><span class="amber"><span id="tet-layer">00</span>/05</span></div>
-        <canvas id="tetris" style="display:block;width:220px;height:264px;image-rendering:pixelated;cursor:pointer"></canvas>
-      </div>
-      <div style="flex:1 1 260px;min-width:0">
-        <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
-          <img class="pixel" src="brand/data-sentinel-emblem.png" alt="" style="height:22px;width:22px">
-          <span class="rt-label">STACK — TOP DOWN</span>
-        </div>
-        <div id="tet-legend"></div>
-      </div>
-    </div>
-    <div style="border:3px solid var(--ink);background:var(--panel-2);padding:14px 16px;margin-top:20px">
-      <div class="rt-label" style="margin-bottom:7px">STATUS</div>
-      <div style="font:400 16px/1.6 var(--text);color:var(--ink);min-height:52px" id="tet-msg"></div>
-    </div>
-    <retro-footer hint="<span>◀▶ MOVE</span><span>A: DROP</span><span>B: HOLD</span>"></retro-footer>
-  </div>
+  </section>
+  <section class="page-cta" aria-labelledby="cta-title">
+    <div><p class="section-eyebrow">YOUR MISSION STARTS HERE</p><h2 id="cta-title">Your next step, mapped out.</h2><p>Start with a readiness map. See what’s connected, what’s missing, and what it takes to make your data ready for AI.</p></div>
+    <a class="rt-btn" href="readiness-map.html">GET MY DATA READINESS MAP ↗</a>
+  </section>
 </main>
-
-<style>
-.tet-leg { display:flex; gap:10px; padding:9px 0; border-bottom:2px dotted var(--muted-2); }
-#lvl-items > div { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:2px dotted var(--muted-2); }
-
-/* Narrow phones: keep the three level nodes inside the viewport */
-@media (max-width:600px){
-  .hiw-card { padding-left:14px !important; padding-right:14px !important; }
-  .hiw-map { padding:24px 12px 22px !important; }
-  .hiw-line { display:none !important; }
-  .hiw-grid { gap:8px !important; }
-  .hiw-grid .lvl-node { min-width:0; }
-  .hiw-grid .lvl-box { width:56px; height:56px; font-size:22px; box-shadow:3px 3px 0 var(--rust); }
-  .hiw-grid .lvl-node > div:not(.lvl-box){ font-size:10px !important; margin-top:8px !important; line-height:1.3; }
-}
-</style>
+<retro-footer hint="<span>SAUZI OPERATIONS / READY FOR YOUR NEXT MISSION</span>"></retro-footer>
 </body>
 </html>

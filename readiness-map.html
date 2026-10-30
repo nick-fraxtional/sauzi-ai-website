@@ -3,67 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sauzi.ai | Data Readiness Map</title>
-<meta name="description" content="Tell us what you're running. We'll show you which phase you start in, what's already clear, and exactly what gets built. Every company starts somewhere different.">
+<title>Sauzi.ai | Your Data Readiness Map</title>
+<meta name="description" content="Map your data sources and existing capabilities to a starting plan for connected pipelines, shared definitions, and AI agents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="retro.css">
-<script src="retro.js" defer></script>
+<link rel="stylesheet" href="ecosystem.css?v=warehouse-pages-4">
+<script src="retro.js?v=warehouse-pages-4" defer></script>
 </head>
-<body>
-<retro-header active="" tag="SCAN REPORT"></retro-header>
+<body class="warehouse-page">
+<a class="skip-link" href="#readiness">Skip to content</a>
+<retro-header active="" tag="● TAKING CLIENTS"></retro-header>
+<main id="readiness" class="page-wrap">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div>
+      <p class="page-eyebrow">DATA READINESS / FIND YOUR STARTING POINT</p>
+      <h1 id="page-title">See the gaps.<br><span>Map the next steps.</span></h1>
+      <p>Tell us where your data lives and what’s already in place. Get a starting view of the work that connects your pipelines, definitions, and agents.</p>
 
-<main class="rt-wrap rt-page" id="readiness">
-  <div class="rt-card" style="padding:44px 40px 20px">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap">
-      <div style="flex:1 1 420px;min-width:0">
-        <div class="rt-kicker" style="margin-bottom:16px">DIAGNOSTIC ▸ STAGE SELECT</div>
-        <h2 class="rt-h2">DATA READINESS MAP</h2>
-        <p class="rt-lead">Tell us what you're running. We'll show you which phase you start in, what's already clear, and exactly what gets built. Every company starts somewhere different — this is where you are today.</p>
-      </div>
-      <img class="pixel" src="brand/data-sentinel-full-body.png" alt="Data Sentinel" style="height:150px;width:auto;flex:none">
     </div>
-
-    <div class="rt-grid-2">
-      <!-- Scan input -->
-      <div class="rt-panel rt-panel--shadow">
-        <div class="rt-panel__hd"><span>SCAN INPUT</span><span class="amber"><span id="rm-count">03</span> SOURCES SELECTED</span></div>
-        <div style="padding:26px 26px 28px">
-          <div class="rt-label" style="margin-bottom:14px">WHERE DOES YOUR DATA LIVE?</div>
-          <div id="rm-sources" style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px"></div>
-          <div class="rt-label" style="margin-bottom:14px">WHAT'S ALREADY IN PLACE?</div>
-          <div id="rm-caps"></div>
-        </div>
-      </div>
-
-      <!-- Result -->
-      <div class="rt-panel rt-panel--tint rt-panel--shadow">
-        <div class="rt-panel__hd"><span>RESULT</span><span class="amber">AI READINESS</span></div>
-        <div style="padding:26px 26px 28px">
-          <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:10px">
-            <span id="rm-score" style="font:700 62px var(--disp);color:var(--ink);line-height:1">000</span>
-            <span style="font:400 12px var(--disp);color:var(--muted);padding-bottom:10px">/ 100</span>
-          </div>
-          <div id="rm-bar" class="rt-pips" style="font-size:20px;letter-spacing:2px;margin-bottom:26px"></div>
-
-          <div style="border:3px solid var(--ink);background:var(--panel);padding:16px 18px;margin-bottom:24px">
-            <div class="rt-label" style="margin-bottom:8px">YOU START AT</div>
-            <div id="rm-start" style="font:700 18px var(--disp);color:var(--ink)"></div>
-          </div>
-
-          <div id="rm-gauges"></div>
-
-          <div class="rt-label" style="margin:24px 0 12px">YOUR ROUTE</div>
-          <div id="rm-route"></div>
-
-          <a href="form.html" class="rt-btn rt-btn--block" style="margin-top:24px">▶ BOOK THE WALKTHROUGH</a>
-        </div>
-      </div>
+    <figure class="page-hero-art" style="--scene-position:40% 40%">
+      <img src="Brand%20Assets/warehouse/warehouse-one-ecosystem-v2.png" alt="Warehouse One workers connect pipelines, define metrics, and build answers and reports." width="1672" height="941" fetchpriority="high">
+      <figcaption><span>WAREHOUSE ONE / YOUR BUILD PLAN</span><span>CONNECT → DEFINE → DELIVER</span></figcaption>
+    </figure>
+  </section>
+  <section class="page-section" aria-labelledby="map-title">
+    <div class="section-intro"><div><p class="section-eyebrow">YOUR STACK, AT A GLANCE</p><h2 class="section-title" id="map-title">What’s already connected?</h2></div><p>This is an illustrative self-assessment. We’ll refine the plan around your business in the walkthrough.</p></div>
+    <div class="form-layout">
+      <section class="rt-panel" aria-labelledby="input-title"><div class="rt-panel__hd"><span id="input-title">YOUR CURRENT SETUP</span><span class="amber"><span id="rm-count">03</span> SOURCES</span></div>
+        <div class="panel-content"><fieldset><legend class="rt-label">WHERE DOES YOUR DATA LIVE?</legend><div id="rm-sources" class="option-chips"></div></fieldset><fieldset><legend class="rt-label">WHAT’S ALREADY IN PLACE?</legend><div id="rm-caps"></div></fieldset></div>
+      </section>
+      <section class="rt-panel rt-panel--tint" aria-labelledby="result-title"><div class="rt-panel__hd"><span id="result-title">YOUR STARTING MAP</span><span class="amber">AI READINESS</span></div>
+        <div class="panel-content"><div class="readiness-score" aria-live="polite" aria-atomic="true"><strong id="rm-score">005</strong><span>/ 100</span></div><div id="rm-bar" class="rt-pips score-bar" aria-hidden="true"></div><div class="outcome"><span class="rt-label">START HERE</span><p id="rm-start"></p></div><div id="rm-gauges"></div><div class="readiness-route"><span class="rt-label">YOUR SUGGESTED ROUTE</span><div id="rm-route" aria-live="polite"></div></div><a href="form.html" class="rt-btn rt-btn--block">BOOK THE WALKTHROUGH ↗</a></div>
+      </section>
     </div>
+  </section>
 
-    <retro-footer hint="<span>◀▶ TOGGLE</span><span>A: SCAN</span><span>B: BACK</span>"></retro-footer>
-  </div>
 </main>
+<retro-footer hint="<span>SAUZI OPERATIONS / READY FOR YOUR NEXT MISSION</span>"></retro-footer>
 </body>
 </html>

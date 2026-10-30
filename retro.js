@@ -54,18 +54,27 @@
         : `<span class="rt-nav__tag">${tagRaw}</span>`;
       const links = NAV.map(([href, label]) => {
         const on = href === active ? ' is-active' : '';
-        return `<a href="${href}" class="rt-nav__link${on}">${label}</a>`;
+        return `<a href="${href}" class="rt-nav__link${on}"${on ? ' aria-current="page"' : ''}>${label}</a>`;
       }).join('');
       this.innerHTML = `
-      <nav class="rt-nav">
+      <nav class="rt-nav" aria-label="Main navigation">
         <a href="index.html"><img class="rt-nav__logo" src="brand/data-rally-lockup-reverse.png" alt="sauzi.ai"></a>
-        <button class="rt-nav__burger" aria-label="Menu">▣</button>
-        <div class="rt-nav__links">${links}</div>
+        <button type="button" class="rt-nav__burger" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">☰</button>
+        <div class="rt-nav__links" id="site-navigation">${links}</div>
         ${tagHtml}
       </nav>`;
       const burger = $('.rt-nav__burger', this);
       const menu = $('.rt-nav__links', this);
-      burger.addEventListener('click', () => menu.classList.toggle('is-open'));
+      const setMenu = (open) => {
+        menu.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      };
+      burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+      menu.addEventListener('click', (event) => { if (event.target.closest('a')) setMenu(false); });
+      this.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.classList.contains('is-open')) { setMenu(false); burger.focus(); }
+      });
     }
   }
 
@@ -355,57 +364,47 @@
     function compute() {
       const src = st.src.length;
       const score = Math.round(Math.min(src, 6) / 6 * 10 + (st.etl ? 20 : 0) + (st.wh ? 25 : 0) + (st.model ? 30 : 0) + (st.agent ? 15 : 0));
-      let start = 'PHASE 1 — FOUNDATION', route;
-      if (!st.wh || !st.etl) { start = 'PHASE 1 — FOUNDATION'; route = ['Build or repair pipelines from every source', 'Stand up and configure the warehouse', 'Model dimensions and facts for AI', 'Connect the agents']; }
-      else if (!st.model) { start = 'PHASE 2 — STRUCTURING'; route = ['Audit and rebuild the semantic layer', 'Design medallion architecture', 'Connect the agents']; }
-      else if (!st.agent) { start = 'PHASE 3 — AI CONNECTION'; route = ['Connect Claude / Cowork to the warehouse', 'Stand up natural-language querying', 'Enable automated anomaly detection']; }
+      let start = '01 — PIPELINE OBSERVATORY', route;
+      if (!st.wh || !st.etl) { start = '01 — PIPELINE OBSERVATORY'; route = ['Build or repair pipelines from every source', 'Stand up and configure the warehouse', 'Model dimensions and facts for AI', 'Connect the agents']; }
+      else if (!st.model) { start = '02 — SEMANTIC WORKSHOP'; route = ['Audit and rebuild the semantic layer', 'Design medallion architecture', 'Connect the agents']; }
+      else if (!st.agent) { start = '03 — MCP + REPORT BRIDGE'; route = ['Connect Claude / Cowork to the warehouse', 'Stand up natural-language querying', 'Enable automated anomaly detection']; }
       else { start = 'TUNING'; route = ['Extend coverage to remaining sources', 'Harden anomaly detection and monitoring', 'Train the team on what is running']; }
       const gauges = [
-        { name: 'PHASE 1 FOUNDATION', pips: pip((st.etl ? 1 : 0) + (st.wh ? 1 : 0) + (src > 0 ? 1 : 0), 3), state: (st.etl && st.wh && src > 0) ? 'CLEAR' : 'INCOMPLETE' },
-        { name: 'PHASE 2 STRUCTURING', pips: pip(st.model ? 3 : 0, 3), state: st.model ? 'CLEAR' : 'INCOMPLETE' },
-        { name: 'PHASE 3 AI CONNECTION', pips: pip(st.agent ? 3 : 0, 3), state: st.agent ? 'CLEAR' : 'LOCKED' }
+        { name: '01 / CONNECT', pips: pip((st.etl ? 1 : 0) + (st.wh ? 1 : 0) + (src > 0 ? 1 : 0), 3), state: (st.etl && st.wh && src > 0) ? 'CLEAR' : 'INCOMPLETE' },
+        { name: '02 / DEFINE', pips: pip(st.model ? 3 : 0, 3), state: st.model ? 'CLEAR' : 'INCOMPLETE' },
+        { name: '03 / DELIVER', pips: pip(st.agent ? 3 : 0, 3), state: st.agent ? 'CLEAR' : 'LOCKED' }
       ];
       return { src, score, start, route, gauges };
     }
     function render() {
-      // sources
-      srcWrap.innerHTML = RM_SOURCES.map((n, i) => {
-        const on = st.src.includes(i);
-        return `<span data-i="${i}" style="cursor:pointer;border:3px solid var(--ink);padding:9px 12px;font:400 12px var(--disp);background:${on ? 'var(--ink)' : '#fff'};color:${on ? 'var(--cream)' : 'var(--ink)'}">${on ? '■' : '□'} ${n}</span>`;
-      }).join('');
-      // caps
-      capWrap.innerHTML = CAPS.map(c => {
-        const on = st[c.key];
-        return `<div data-k="${c.key}" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px;border:3px solid var(--muted);margin-bottom:10px;background:var(--panel-2)">
-          <div><div style="font:700 12px var(--disp);color:var(--ink)">${c.label}</div>
-          <div style="font:400 15px var(--text);color:var(--body);margin-top:4px">${c.hint}</div></div>
-          <span style="font:700 13px var(--disp);color:var(--rust)">${on ? '[YES]' : '[ NO ]'}</span></div>`;
-      }).join('');
+      srcWrap.innerHTML = RM_SOURCES.map((name, i) =>
+        `<button type="button" class="option-chip" data-i="${i}" aria-pressed="${st.src.includes(i)}">${name}</button>`).join('');
+      capWrap.innerHTML = CAPS.map(cap =>
+        `<button type="button" class="cap-option" data-k="${cap.key}" aria-pressed="${st[cap.key]}">
+          <span><strong>${cap.label}</strong><small>${cap.hint}</small></span>
+          <span aria-hidden="true">${st[cap.key] ? 'CONNECTED' : 'NOT YET'}</span></button>`).join('');
       const r = compute();
       el('rm-count').textContent = pad(r.src, 2);
       el('rm-score').textContent = pad(r.score, 3);
       el('rm-bar').textContent = pip(Math.round(r.score / 10), 10);
       el('rm-start').textContent = r.start;
       el('rm-gauges').innerHTML = r.gauges.map(g =>
-        `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:2px dotted var(--muted-2)">
-          <span style="font:400 11px var(--disp);color:var(--ink)">${g.name}</span>
-          <span style="display:flex;align-items:center;gap:12px">
-            <span style="font:400 14px var(--disp);color:var(--rust);letter-spacing:2px">${g.pips}</span>
-            <span style="font:400 10px var(--disp);color:var(--muted);width:82px;text-align:right">${g.state}</span></span></div>`).join('');
-      el('rm-route').innerHTML = r.route.map((t, i) =>
-        `<div style="display:flex;align-items:flex-start;gap:12px;padding:8px 0">
-          <span style="font:700 12px var(--disp);color:var(--rust);margin-top:3px">${pad(i + 1, 2)}</span>
-          <span style="font:400 17px var(--text);color:var(--body)">${t}</span></div>`).join('');
+        `<div class="readiness-gauge"><span>${g.name}</span><span><b aria-hidden="true">${g.pips}</b><small>${g.state}</small></span></div>`).join('');
+      el('rm-route').innerHTML = r.route.map((text, i) =>
+        `<div class="build-step"><span>${pad(i + 1, 2)}</span><div>${text}</div></div>`).join('');
     }
     srcWrap.addEventListener('click', (e) => {
       const t = e.target.closest('[data-i]'); if (!t) return;
       const i = +t.dataset.i;
       st.src = st.src.includes(i) ? st.src.filter(x => x !== i) : [...st.src, i];
       render();
+      srcWrap.querySelector(`[data-i="${i}"]`).focus();
     });
     capWrap.addEventListener('click', (e) => {
       const t = e.target.closest('[data-k]'); if (!t) return;
-      st[t.dataset.k] = !st[t.dataset.k]; render();
+      const key = t.dataset.k;
+      st[key] = !st[key]; render();
+      capWrap.querySelector(`[data-k="${key}"]`).focus();
     });
     render();
   }
@@ -414,9 +413,9 @@
      SUBMISSION FORM — live registration card + confirmation
   ========================================================= */
   const FORM_STAGES = [
-    { label: 'NO WAREHOUSE YET', hint: 'Data lives in the platforms and spreadsheets', card: 'PHASE 1 — FOUNDATION' },
-    { label: 'WAREHOUSE, NO MODELS', hint: 'Data lands somewhere but nothing is structured', card: 'PHASE 2 — STRUCTURING' },
-    { label: 'MODELED, NO AGENTS', hint: 'dim/fact tables exist, no AI connected', card: 'PHASE 3 — AI CONNECTION' },
+    { label: 'NO WAREHOUSE YET', hint: 'Data lives in the platforms and spreadsheets', card: '01 — PIPELINE OBSERVATORY' },
+    { label: 'WAREHOUSE, NO MODELS', hint: 'Data lands somewhere but nothing is structured', card: '02 — SEMANTIC WORKSHOP' },
+    { label: 'MODELED, NO AGENTS', hint: 'dim/fact tables exist, no AI connected', card: '03 — MCP + REPORT BRIDGE' },
     { label: 'NOT SURE', hint: "That's a normal answer. We'll work it out on the call.", card: 'TO BE SCANNED' }
   ];
   function initForm() {
@@ -425,25 +424,19 @@
     const el = (id) => $('#' + id, root);
     const stageWrap = el('f-stages'), srcWrap = el('f-srcs');
 
-    function ready() { return st.name.trim() && st.email.trim() && st.stage !== null; }
+    function ready() { return Boolean(st.name.trim() && st.email.trim() && el('i-email').validity.valid && st.stage !== null); }
     function done() {
       return [st.name, st.email, st.co].filter(v => v && v.trim().length > 1).length
         + (st.stage !== null ? 1 : 0) + (st.src.length ? 1 : 0) + (st.q.trim().length > 3 ? 1 : 0);
     }
     function renderStages() {
-      stageWrap.innerHTML = FORM_STAGES.map((s, i) => {
-        const on = st.stage === i;
-        return `<div data-i="${i}" class="rt-tile" style="display:flex;gap:11px;padding:14px;border-color:${on ? 'var(--ink)' : 'var(--muted)'};background:${on ? 'var(--panel-2)' : '#fff'}">
-          <span style="font:700 13px var(--disp);color:var(--rust);margin-top:1px">${on ? '◉' : '○'}</span>
-          <div><div style="font:700 11px var(--disp);color:var(--ink)">${s.label}</div>
-          <div style="font:400 14px var(--text);color:var(--muted);margin-top:5px">${s.hint}</div></div></div>`;
-      }).join('');
+      stageWrap.innerHTML = FORM_STAGES.map((stage, i) =>
+        `<button type="button" class="stage-option" data-i="${i}" aria-pressed="${st.stage === i}">
+          <span aria-hidden="true">${st.stage === i ? '◉' : '○'}</span><span><strong>${stage.label}</strong><small>${stage.hint}</small></span></button>`).join('');
     }
     function renderSrcs() {
-      srcWrap.innerHTML = RM_SOURCES.map((n, i) => {
-        const on = st.src.includes(i);
-        return `<span data-i="${i}" style="cursor:pointer;border:3px solid var(--ink);padding:9px 12px;font:400 12px var(--disp);background:${on ? 'var(--ink)' : '#fff'};color:${on ? 'var(--cream)' : 'var(--ink)'}">${on ? '■' : '□'} ${n}</span>`;
-      }).join('');
+      srcWrap.innerHTML = RM_SOURCES.map((name, i) =>
+        `<button type="button" class="option-chip" data-i="${i}" aria-pressed="${st.src.includes(i)}">${name}</button>`).join('');
     }
     function renderCard() {
       el('f-step').textContent = 'FIELD ' + pad(done(), 2) + ' / 06';
@@ -456,8 +449,8 @@
       el('c-src').textContent = st.src.length ? st.src.map(i => RM_SOURCES[i]).join(' · ') : '—';
       el('c-q').textContent = val(st.q);
       const btn = el('f-submit');
-      btn.textContent = ready() ? '▶ START THE SCAN' : 'FILL NAME, EMAIL, STAGE';
-      btn.style.background = ready() ? 'var(--ink)' : 'var(--muted)';
+      btn.textContent = st.submitted ? 'BRIEF RECEIVED' : (ready() ? 'SEND MY MISSION BRIEF ↗' : 'ADD YOUR NAME, EMAIL, AND STAGE');
+      btn.disabled = !ready() || st.submitted;
       // confirmation echoes
       const setTxt = (id, v) => { const n = el(id); if (n) n.textContent = v; };
       setTxt('k-name', val(st.name)); setTxt('k-co', val(st.co));
@@ -476,12 +469,14 @@
     stageWrap.addEventListener('click', (e) => {
       const t = e.target.closest('[data-i]'); if (!t) return;
       st.stage = +t.dataset.i; renderStages(); renderCard();
+      stageWrap.querySelector(`[data-i="${st.stage}"]`).focus();
     });
     srcWrap.addEventListener('click', (e) => {
       const t = e.target.closest('[data-i]'); if (!t) return;
       const i = +t.dataset.i;
       st.src = st.src.includes(i) ? st.src.filter(x => x !== i) : [...st.src, i];
       renderSrcs(); renderCard();
+      srcWrap.querySelector(`[data-i="${i}"]`).focus();
     });
     // Same Make webhook the classic index.html form posts to. Keys map to
     // the existing Make scenario (fullName/email/role/company/industry); the
@@ -489,11 +484,11 @@
     const WEBHOOK_URL = 'https://hook.us2.make.com/50v4vpsrkfcxljo1e017w0uv16s3323c';
     let submitting = false;
     async function submitForm() {
-      if (!ready() || submitting) return;
+      if (!ready() || submitting || st.submitted) return;
       submitting = true;
       const btn = el('f-submit');
       btn.textContent = 'SENDING…';
-      btn.style.background = 'var(--muted)';
+      btn.disabled = true;
       const payload = {
         timestamp: new Date().toISOString(),
         fullName: st.name.trim(),
@@ -507,23 +502,26 @@
         source: 'retro/form.html'
       };
       try {
-        await fetch(WEBHOOK_URL, {
+        const response = await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+        if (!response.ok) throw new Error('Submission returned ' + response.status);
         st.submitted = true; renderCard(); showState();
+        el('f-feedback').textContent = 'Your brief has been received. We’ll be in touch within one business day.';
       } catch (e) {
         console.error('Form submit failed:', e);
-        btn.textContent = 'SUBMIT FAILED — RETRY';
-        btn.style.background = 'var(--rust)';
+        btn.textContent = 'TRY SENDING AGAIN';
+        btn.disabled = false;
+        el('f-feedback').textContent = 'Your brief could not be sent. Please try again.';
       } finally {
         submitting = false;
       }
     }
-    el('f-submit').addEventListener('click', submitForm);
+    el('contact-form').addEventListener('submit', (event) => { event.preventDefault(); submitForm(); });
     const editBtn = el('f-edit');
-    if (editBtn) editBtn.addEventListener('click', () => { st.submitted = false; showState(); });
+    if (editBtn) editBtn.addEventListener('click', () => { st.submitted = false; renderCard(); showState(); });
     renderStages(); renderSrcs(); renderCard(); showState();
   }
 
@@ -531,18 +529,21 @@
      HOW IT WORKS — world-map level select
   ========================================================= */
   const LEVELS = {
-    1: { name: 'PHASE 1: FOUNDATION', status: 'START HERE', body: "We connect your data sources, build or repair your pipelines, and get clean data flowing into your warehouse. You can't deploy AI on a leaky pipe — so we fix the pipe first.",
-         items: ['ETL/ELT Pipeline Buildout', 'Pipeline Repair & Optimization', 'Warehouse Setup & Migration'],
-         tools: ['FIVETRAN', 'SNOWFLAKE', 'BIGQUERY', 'SHOPIFY', 'RECHARGE'],
-         clear: 'Clean data flowing reliably into a configured warehouse.' },
-    2: { name: 'PHASE 2: STRUCTURING', status: 'MOST SKIP THIS', body: 'We build the dimension and fact tables AI agents need to reason about your business. Most implementations skip this step — and fail because of it.',
-         items: ['Semantic Layer Modeling', 'AI-Ready Data Structuring', 'Medallion Architecture Design'],
-         tools: ['DBT', 'SEMANTIC LAYER', 'MEDALLION', 'DIM/FACT'],
-         clear: 'A single source of truth an agent can reason about.' },
-    3: { name: 'PHASE 3: AI CONNECTION', status: 'AGENTS ONLINE', body: 'Connect your structured warehouse to AI tools. Your team asks questions in plain English and gets answers in seconds — no ticket queue.',
-         items: ['Claude / Cowork Connection', 'Natural Language Query Interface', 'Automated Anomaly Detection'],
-         tools: ['CLAUDE', 'COWORK', 'NL QUERY', 'ANOMALY WATCH'],
-         clear: 'Plain-English questions answered in seconds, 24/7.' }
+    1: { name: 'Pipeline Observatory', status: '01 / CONNECT',
+         body: 'We connect your business systems, build or repair the pipelines, and organize incoming data into warehouse tables and views. Workers monitor the flow so a broken feed can be investigated before it reaches your reporting.',
+         items: ['Connect sales, marketing, finance, and product sources', 'Build and monitor ETL / ELT pipelines', 'Configure your warehouse, tables, views, and access'],
+         tools: ['FIVETRAN', 'AIRBYTE', 'SNOWFLAKE', 'BIGQUERY', 'YOUR SOURCE SYSTEMS'],
+         clear: 'Reliable source data, organized in a warehouse your team can use.' },
+    2: { name: 'Semantic Workshop', status: '02 / DEFINE',
+         body: 'We model how your business works: the customers, orders, relationships, and metrics behind the numbers. Workers help refine the shared semantic layer so answers and reports use the same definitions.',
+         items: ['Model dimensions, facts, and business relationships', 'Define and document metrics with your team', 'Refactor existing models as the business evolves'],
+         tools: ['DBT', 'SEMANTIC LAYER', 'DIMENSIONS + FACTS', 'METRIC DEFINITIONS'],
+         clear: 'One agreed set of definitions, reused across business questions and reports.' },
+    3: { name: 'MCP + Report Bridge', status: '03 / DELIVER',
+         body: 'We connect AI tools to authorized data and shared definitions through MCP. Agents can investigate business requests, build team reports, and surface changes worth reviewing, with your team setting the context and permissions.',
+         items: ['Connect AI tools through MCP with appropriate access', 'Build question-and-answer and reporting workflows', 'Configure monitoring and proactive insights'],
+         tools: ['MCP', 'CONNECTED AI TOOLS', 'TEAM REPORTS', 'PROACTIVE INSIGHTS'],
+         clear: 'A connected path from business questions to useful answers, reports, and insights.' }
   };
   function initLevels() {
     const root = $('#levels'); if (!root) return;
@@ -550,13 +551,17 @@
     let cur = 1;
     function render() {
       const L = LEVELS[cur];
-      $$('.lvl-node', root).forEach(n => n.classList.toggle('is-on', +n.dataset.level === cur));
+      $$('.lvl-node', root).forEach(node => {
+        const on = +node.dataset.level === cur;
+        node.classList.toggle('is-on', on);
+        node.setAttribute('aria-pressed', String(on));
+      });
       el('lvl-num').textContent = cur;
       el('lvl-status').textContent = L.status;
       el('lvl-name').textContent = L.name;
       el('lvl-body').textContent = L.body;
-      el('lvl-items').innerHTML = L.items.map(i =>
-        `<div style="display:flex;gap:10px;padding:7px 0"><span style="color:var(--rust);font:700 12px var(--disp)">▸</span><span style="font:400 16px var(--text);color:var(--body)">${i}</span></div>`).join('');
+      el('lvl-items').innerHTML = L.items.map((text, i) =>
+        `<div class="build-step"><span>${pad(i + 1, 2)}</span><div>${text}</div></div>`).join('');
       el('lvl-tools').innerHTML = L.tools.map(t =>
         `<span class="rt-tag rt-tag--grey">${t}</span>`).join('');
       el('lvl-clear').textContent = L.clear;
@@ -585,17 +590,17 @@
     let cur = 'A';
     function render() {
       const P = PBS[cur];
-      $$('.cart', root).forEach(c => c.classList.toggle('is-on', c.dataset.pb === cur));
+      $$('.cart', root).forEach(card => {
+        const on = card.dataset.pb === cur;
+        card.classList.toggle('is-on', on);
+        card.setAttribute('aria-pressed', String(on));
+      });
       el('pb-id').textContent = cur;
       el('pb-body').textContent = P.body;
-      el('pb-flow').innerHTML = P.flow.map((f, i) =>
-        `<div style="display:flex;align-items:center;gap:8px">
-          <div style="border:3px solid var(--ink);background:${i === P.flow.length - 1 ? 'var(--amber)' : '#fff'};padding:10px 12px;min-width:0">
-            <div style="font:400 9px var(--disp);color:var(--muted)">${f[0]}</div>
-            <div style="font:700 11px var(--disp);color:var(--ink);margin-top:4px">${f[1]}</div></div>
-          ${i < P.flow.length - 1 ? '<span style="color:var(--rust);font:700 16px var(--disp)">▸</span>' : ''}</div>`).join('');
-      el('pb-steps').innerHTML = P.steps.map(s =>
-        `<div style="display:flex;gap:10px;padding:8px 0"><span style="color:var(--rust);font:700 12px var(--disp)">▸</span><span style="font:400 16px var(--text);color:var(--body)">${s}</span></div>`).join('');
+      el('pb-flow').innerHTML = P.flow.map(flow =>
+        `<div class="pipeline-step"><span>${flow[0]}</span><strong>${flow[1]}</strong></div>`).join('');
+      el('pb-steps').innerHTML = P.steps.map((text, i) =>
+        `<div class="build-step"><span>${pad(i + 1, 2)}</span><div>${text}</div></div>`).join('');
     }
     $$('.cart', root).forEach(c => c.addEventListener('click', () => { cur = c.dataset.pb; render(); }));
 
@@ -603,6 +608,7 @@
     const scan = { wh: null, etl: null };
     function scanText() {
       const { wh, etl } = scan;
+      if (wh === null || etl === null) return 'Answer both questions to see your recommended starting point.';
       if (wh === false) return 'No warehouse yet — that’s Playbook A. We stand up Snowflake, wire your sources, and model for AI.';
       if (wh === true && etl === false) return 'Warehouse but no ETL — we can integrate a platform like Fivetran, then structure what lands.';
       if (wh === true && etl === true) return 'Both in place — that’s Playbook B. We audit the models, fix the structure, and connect the agents.';
@@ -612,6 +618,10 @@
       el('sc-wh').textContent = scan.wh === null ? '' : (scan.wh ? '[YES]' : '[NO]');
       el('sc-etl').textContent = scan.etl === null ? '' : (scan.etl ? '[YES]' : '[NO]');
       el('sc-result').textContent = scanText();
+      $$('[data-scan]', root).forEach(button => {
+        const on = scan[button.dataset.scan] === (button.dataset.val === 'yes');
+        button.setAttribute('aria-pressed', String(on));
+      });
     }
     $$('[data-scan]', root).forEach(b => b.addEventListener('click', () => {
       scan[b.dataset.scan] = b.dataset.val === 'yes'; renderScan();
@@ -623,25 +633,25 @@
      BLOG — save-file select
   ========================================================= */
   const POSTS = [
-    { title: 'DBT CHARTS: YOUR DASHBOARDS JUST BECAME CODE', tag: 'STACK WATCH', date: '2026.09.17', read: '5 MIN', file: 'blog-dbt-charts.html',
+    { title: 'dbt Charts: Your dashboards just became code', tag: 'STACK WATCH', date: '2026.09.17', read: '5 MIN', file: 'blog-dbt-charts.html',
       body: "BI was the last black box in the modern data stack. dbt Labs just open-sourced a way to turn it into a text file. Here's what shipped, why it matters for AI agents, and the one gap to plan around." },
-    { title: 'FEWER ANALYSTS. MORE STEWARDS.', tag: 'WAREHOUSE ONE', date: '2026.08.19', read: '4 MIN', file: 'blog-fewer-analysts-more-stewards.html',
+    { title: 'Fewer analysts. More stewards.', tag: 'WAREHOUSE ONE', date: '2026.08.19', read: '4 MIN', file: 'blog-fewer-analysts-more-stewards.html',
       body: "The playbook used to be: hire analysts, build dashboards, wait for reports. It's collapsing — not because AI is trendy, but because the bottleneck was never the dashboard. It was the queue behind it." },
-    { title: "WE'RE GOING ALL IN ON AI DATA ANALYSTS", tag: 'AI STRATEGY', date: '2026.08.04', read: '4 MIN', file: 'blog-ai-data-analysts.html',
+    { title: "We’re going all in on AI data analysts", tag: 'AI STRATEGY', date: '2026.08.04', read: '4 MIN', file: 'blog-ai-data-analysts.html',
       body: 'For the past year, Sauzi has been in the trenches: fixing broken pipelines, cleaning messy data, building scalable infrastructure for fast-moving companies. Good work. Important work.' },
-    { title: 'PLANNING AN AI PROJECT? ASK THESE 5 QUESTIONS FIRST.', tag: 'AI READINESS', date: '2026.07.22', read: '4 MIN', file: 'blog-planning-ai-project.html',
+    { title: 'Planning an AI project? Ask these 5 questions first.', tag: 'AI READINESS', date: '2026.07.22', read: '4 MIN', file: 'blog-planning-ai-project.html',
       body: 'Every executive wants to implement AI right now. The pressure from the board is real, and the competitive landscape demands it. But before you invest in shiny new AI tooling, ask five questions first.' },
-    { title: 'DATA TEAMS LOOK VERY DIFFERENT THAN THEY DID 5 YEARS AGO', tag: 'TEAM BUILDING', date: '2026.07.09', read: '4 MIN', file: 'blog-data-teams.html',
+    { title: 'Data teams look very different than they did 5 years ago', tag: 'TEAM BUILDING', date: '2026.07.09', read: '4 MIN', file: 'blog-data-teams.html',
       body: 'The modern data team has fundamentally transformed in just a half-decade. The roles, the tooling, and the expectations have all moved.' },
-    { title: "THE DATA TEAM OF 2030 WON'T LOOK LIKE THE DATA TEAM OF 2020", tag: 'DATA STRATEGY', date: '2026.06.25', read: '4 MIN', file: 'blog-data-team-impact.html',
+    { title: "The data team of 2030 won’t look like the data team of 2020", tag: 'DATA STRATEGY', date: '2026.06.25', read: '4 MIN', file: 'blog-data-team-impact.html',
       body: "The data team of 2030 won't look like the data team of 2020. Fewer dashboard builders, more people designing the systems AI agents run on." },
-    { title: "CULTURE TAKES TIME. DATA DOESN'T HAVE TO.", tag: 'DATA STRATEGY', date: '2026.06.11', read: '3 MIN', file: 'blog-ai-data-culture.html',
+    { title: "Culture takes time. Data doesn’t have to.", tag: 'DATA STRATEGY', date: '2026.06.11', read: '3 MIN', file: 'blog-ai-data-culture.html',
       body: '90% of companies say data and culture are the biggest barriers to AI. Culture takes years — but the data barrier you can start clearing this quarter.' },
-    { title: 'MONDAY METRICS: RETENTION RATE', tag: 'MONDAY METRICS', date: '2026.05.28', read: '3 MIN', file: 'blog-monday-metrics-retention.html',
+    { title: 'Monday Metrics: Retention rate', tag: 'MONDAY METRICS', date: '2026.05.28', read: '3 MIN', file: 'blog-monday-metrics-retention.html',
       body: "Retention is the metric that separates growing companies from leaky buckets. But if you're only tracking a single retention number, you're missing the story entirely." },
-    { title: 'MONDAY METRICS: CLTV', tag: 'DATA ENGINEERING', date: '2026.05.14', read: '3 MIN', file: 'blog-monday-metrics-cltv.html',
+    { title: 'Monday Metrics: CLTV', tag: 'DATA ENGINEERING', date: '2026.05.14', read: '3 MIN', file: 'blog-monday-metrics-cltv.html',
       body: 'Customer Lifetime Value might be the most important metric most companies get wrong. Not because the math is hard — because the data behind it is a mess.' },
-    { title: 'MONDAY METRICS: WEEKS OF COVER', tag: 'MONDAY METRICS', date: '2026.04.30', read: '3 MIN', file: 'blog-monday-metrics-weeks-of-cover.html',
+    { title: 'Monday Metrics: Weeks of cover', tag: 'MONDAY METRICS', date: '2026.04.30', read: '3 MIN', file: 'blog-monday-metrics-weeks-of-cover.html',
       body: "If you sell physical products, Weeks of Cover is the metric that determines whether you're growing or firefighting. Get it right and you never run out of your best-sellers." }
   ];
   function initBlog() {
@@ -649,21 +659,17 @@
     const el = (id) => $('#' + id, root);
     let cur = 0;
     const listWrap = el('bl-list');
-    listWrap.innerHTML = POSTS.map((p, i) =>
-      `<div class="bl-row" data-i="${i}" style="cursor:pointer;display:flex;gap:14px;padding:18px 22px;border-bottom:2px dotted var(--muted-2)">
-        <span class="bl-mark" style="font:700 14px var(--disp);color:var(--rust);width:14px">${i === 0 ? '▸' : ' '}</span>
-        <div style="flex:1;min-width:0">
-          <div style="display:flex;gap:12px;font:400 10px var(--disp);color:var(--muted);margin-bottom:8px">
-            <span>FILE ${pad(i + 1, 2)}</span><span>${p.date}</span><span>${p.read}</span></div>
-          <div style="font:700 14px/1.5 var(--disp);color:var(--ink)">${p.title}</div>
-          <div style="margin-top:10px"><span class="rt-tag">${p.tag}</span></div>
-        </div></div>`).join('');
+    listWrap.innerHTML = POSTS.map((post, i) =>
+      `<button type="button" class="bl-row" data-i="${i}" aria-pressed="${i === 0}" aria-controls="bl-title">
+        <span class="bl-mark" aria-hidden="true">${pad(i + 1, 2)}</span><span class="bl-row-content">
+          <span class="bl-row-meta"><span>${post.date}</span><span>${post.read}</span></span>
+          <span class="bl-row-title">${post.title}</span><span class="rt-tag">${post.tag}</span>
+        </span></button>`).join('');
     function render() {
       const p = POSTS[cur];
       $$('.bl-row', root).forEach(r => {
         const on = +r.dataset.i === cur;
-        r.style.background = on ? 'var(--panel-2)' : '#fff';
-        $('.bl-mark', r).textContent = on ? '▸' : ' ';
+        r.setAttribute('aria-pressed', String(on));
       });
       el('bl-n').textContent = pad(cur + 1, 2);
       el('bl-read').textContent = p.read;

@@ -3,57 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sauzi.ai | Field Notes — Select File</title>
-<meta name="description" content="How we think about data infrastructure, written for the people who have to live with it. No black boxes.">
+<title>Sauzi.ai | Field Notes — Inside the Data Ecosystem</title>
+<meta name="description" content="Notes on data infrastructure, shared metrics, and AI agents, written for the people building and using the modern data ecosystem.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="retro.css">
-<script src="retro.js" defer></script>
+<link rel="stylesheet" href="ecosystem.css?v=warehouse-pages-4">
+<script src="retro.js?v=warehouse-pages-4" defer></script>
 </head>
-<body>
-<retro-header active="blog.html" tag="SELECT FILE"></retro-header>
-
-<main class="rt-wrap rt-page" id="blogindex">
-  <div class="rt-card" style="padding:44px 40px 20px">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:34px;flex-wrap:wrap">
-      <div style="flex:1 1 420px;min-width:0">
-        <h2 class="rt-h2">FIELD NOTES</h2>
-        <p class="rt-lead" style="margin:0">How we think about data infrastructure, written for the people who have to live with it. No black boxes here either.</p>
-      </div>
-      <img class="pixel" src="brand/query-ranger-full-body.png" alt="Query Ranger" style="height:140px;width:auto;flex:none">
+<body class="warehouse-page">
+<a class="skip-link" href="#blogindex">Skip to content</a>
+<retro-header active="blog.html" tag="● TAKING CLIENTS"></retro-header>
+<main id="blogindex" class="page-wrap">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div>
+      <p class="page-eyebrow">FIELD NOTES / FROM THE WAREHOUSE</p>
+      <h1 id="page-title">Ideas for the people<br><span>behind the data.</span></h1>
+      <p>Notes on building reliable pipelines, defining the numbers that matter, and putting agents to work. Written for the teams who have to live with the system.</p>
+      <div class="page-actions"><a class="rt-btn" href="#notes">EXPLORE THE NOTES ↓</a></div>
     </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:start" class="bl-cols">
-      <!-- File list -->
-      <div class="rt-panel rt-panel--shadow">
-        <div class="rt-panel__hd"><span>SELECT FILE</span><span class="amber">10 SAVED</span></div>
-        <div id="bl-list" style="padding:8px 0"></div>
-      </div>
-
-      <!-- Now reading -->
-      <div class="rt-panel rt-panel--tint rt-panel--shadow">
-        <div class="rt-panel__hd"><span>NOW READING ▸ FILE <span id="bl-n">01</span></span><span class="amber" id="bl-read">5 MIN</span></div>
-        <div style="padding:30px 30px 34px">
-          <div style="display:flex;gap:14px;font:400 10px var(--disp);color:var(--muted);margin-bottom:18px">
-            <span id="bl-tag">STACK WATCH</span><span id="bl-date">2026.09.17</span>
-          </div>
-          <h3 style="font:700 24px/1.45 var(--disp);color:var(--ink);margin:0 0 22px" id="bl-title"></h3>
-          <p style="font:400 19px/1.8 var(--text);color:var(--body);margin:0 0 26px" id="bl-body"></p>
-          <div style="border-top:3px solid var(--muted);padding-top:22px;display:flex;gap:14px;flex-wrap:wrap">
-            <a id="bl-open" href="blog-dbt-charts.html" class="rt-btn">▶ READ FULL POST</a>
-            <a href="readiness-map.html" class="rt-btn rt-btn--ghost">GET YOUR READINESS MAP</a>
-          </div>
+    <figure class="page-hero-art" style="--scene-position:65% 65%">
+      <img src="Brand%20Assets/warehouse/warehouse-one-ecosystem-v2.png" alt="Warehouse One workers connect pipelines, define metrics, and build answers and reports." width="1672" height="941" fetchpriority="high">
+      <figcaption><span>WAREHOUSE ONE / FIELD NOTES</span><span>CONNECT · DEFINE · DELIVER</span></figcaption>
+    </figure>
+  </section>
+  <section class="page-section" id="notes" aria-labelledby="notes-title">
+    <div class="section-intro"><div><p class="section-eyebrow">INSIDE THE ECOSYSTEM</p><h2 class="section-title" id="notes-title">What we’re thinking about.</h2></div><p>Select a note to preview it, then open the full article.</p></div>
+    <div class="notes-layout">
+      <div class="rt-panel"><div class="rt-panel__hd"><span>THE READING LIST</span><span class="amber">10 NOTES</span></div><div id="bl-list" role="group" aria-label="Preview a field note"></div></div>
+      <article class="rt-panel rt-panel--tint note-preview" aria-labelledby="bl-title">
+        <div class="rt-panel__hd"><span>NOTE <span id="bl-n">01</span> / PREVIEW</span><span class="amber" id="bl-read">5 MIN</span></div>
+        <div class="panel-content" aria-live="polite" aria-atomic="true">
+          <div class="note-meta"><span id="bl-tag">STACK WATCH</span><span id="bl-date">2026.09.17</span></div>
+          <h3 class="rt-h3" id="bl-title">dbt Charts: Your dashboards just became code</h3>
+          <p id="bl-body">dbt Labs just turned BI into a text file. Here is what that means for teams putting AI agents on their data.</p>
+          <div class="page-actions"><a id="bl-open" href="blog-dbt-charts.html" class="rt-btn">READ THE FULL NOTE ↗</a></div>
         </div>
-      </div>
+      </article>
     </div>
-
-    <retro-footer hint="<span>▲▼ SELECT</span><span>A: LOAD</span><span>B: BACK</span>"></retro-footer>
-  </div>
+    <noscript><p><a href="blog-dbt-charts.html">dbt Charts: Your dashboards just became code</a> · <a href="blog-fewer-analysts-more-stewards.html">Fewer analysts. More stewards.</a> · <a href="blog-ai-data-analysts.html">AI data analysts</a> · <a href="blog-planning-ai-project.html">Planning an AI project</a> · <a href="blog-data-teams.html">Modern data teams</a> · <a href="blog-data-team-impact.html">The data team of 2030</a> · <a href="blog-ai-data-culture.html">Data and culture</a> · <a href="blog-monday-metrics-retention.html">Retention</a> · <a href="blog-monday-metrics-cltv.html">CLTV</a> · <a href="blog-monday-metrics-weeks-of-cover.html">Weeks of cover</a></p></noscript>
+  </section>
+  <section class="page-cta" aria-labelledby="cta-title">
+    <div><p class="section-eyebrow">YOUR MISSION STARTS HERE</p><h2 id="cta-title">Turn the ideas into your next step.</h2><p>Start with a readiness map. See what’s connected, what’s missing, and what it takes to make your data ready for AI.</p></div>
+    <a class="rt-btn" href="readiness-map.html">GET MY DATA READINESS MAP ↗</a>
+  </section>
 </main>
-
-<style>
-@media (max-width:900px){ .bl-cols{ grid-template-columns:1fr !important; } }
-</style>
+<retro-footer hint="<span>SAUZI OPERATIONS / READY FOR YOUR NEXT MISSION</span>"></retro-footer>
 </body>
 </html>

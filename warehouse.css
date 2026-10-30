@@ -1,0 +1,132 @@
+/* Homepage-only Warehouse One environment. Shared pages retain retro.css. */
+.warehouse-home{background:#121310;color:var(--cream);background-image:none}
+.warehouse-home retro-header{display:block;position:relative;z-index:60}
+.warehouse-home .rt-nav{background:#121310;border-bottom:1px solid #ffffff20}
+.skip-link{position:absolute;left:16px;top:-80px;z-index:100;background:var(--amber);padding:12px;color:var(--ink)}
+.skip-link:focus{top:10px}
+.warehouse-home a:focus-visible{outline:3px solid var(--amber);outline-offset:6px}
+.warehouse-hero{position:relative;isolation:isolate;min-height:760px;height:calc(100svh - 64px);max-height:1200px;overflow:hidden;background:#121310}
+.warehouse-scene{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% center;image-rendering:pixelated}
+.scene-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(11,14,12,.95),rgba(11,14,12,.82) 23%,rgba(11,14,12,.18) 55%,rgba(11,14,12,.04)),linear-gradient(0deg,#121310 0%,transparent 24%,transparent 78%,#12131088)}
+.hero-topline,.hero-bottom{position:absolute;left:4%;right:4%;display:flex;justify-content:space-between;gap:20px;font:10px/1.6 var(--disp);letter-spacing:1px;color:#d8d0c2}
+.hero-topline{top:24px}.scene-status{display:flex;align-items:center;gap:10px}.scene-status i,.signal-light{display:inline-block;width:7px;height:7px;background:var(--amber);box-shadow:0 0 12px #f4a30099}
+.hero-copy{position:relative;margin-left:6%;padding-top:clamp(90px,13vh,170px);width:520px;max-width:85%}
+.eyebrow{font:11px/1.6 var(--disp);letter-spacing:2px;color:var(--amber);margin:0 0 22px}
+.hero-copy h1{font:700 clamp(40px,4.7vw,74px)/1.13 var(--disp);letter-spacing:-2px;margin:0 0 26px;text-shadow:3px 4px #111}.hero-copy h1 span{color:var(--amber)}
+.hero-description{font:18px/1.8 var(--text);color:#e0d9cc;margin:0 0 30px}
+.hero-cta{background:var(--amber);color:#171812;font-size:11px;padding:19px 22px;box-shadow:4px 4px #835517;line-height:1.6}.hero-cta:hover{background:#ffbd36;color:#171812}.hero-cta span{margin-left:16px}
+.hero-bottom{bottom:28px;align-items:center}.hero-bottom b{color:var(--amber);margin:0 10px}.hero-bottom a{color:var(--cream);text-decoration:none}.hero-bottom a span{color:var(--amber);margin-left:12px}
+.beacon{position:absolute;display:flex;gap:12px;align-items:center;color:var(--cream);text-decoration:none;font:11px/1.5 var(--disp);padding:10px 14px;background:#10130fed;border:1px solid #b48b4d99;box-shadow:3px 3px #0005;transition:background .2s}
+.beacon:hover{background:#30271b;color:#fff}.beacon small{display:block;color:#e9ad4c;font:9px/1.9 var(--disp);letter-spacing:1px}.beacon-dot{width:8px;height:8px;background:var(--amber);box-shadow:0 0 0 5px #f4a30020;animation:signal 3s ease-in-out infinite}
+.beacon-source{left:46%;top:28%}.beacon-core{right:9%;top:40%}.beacon-quality{left:45%;bottom:19%}.beacon-insights{right:4%;bottom:24%}
+@keyframes signal{50%{box-shadow:0 0 0 9px #f4a30000}}
+.ecosystem{max-width:1440px;margin:auto;padding:110px 6% 70px;scroll-margin-top:30px}.section-heading{max-width:790px}.section-heading h2,.boarding h2{font:700 clamp(25px,3vw,42px)/1.35 var(--disp);margin:0 0 22px;letter-spacing:-1px}.section-heading>p:last-child,.boarding p:last-child{font:18px/1.8 var(--text);color:#bdb8ac;max-width:680px}
+.operation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:50px;border:1px solid #484536}.operation{padding:26px 22px;display:flex;flex-direction:column;border-right:1px solid #484536;background:#1a1b16;scroll-margin-top:30px}.operation:last-child{border:0}.operation:target{background:#28251b;outline:2px solid var(--amber);outline-offset:-2px}.operation-number{font:10px/1.7 var(--disp);color:#e9ad4c}.agent-stage,.source-stack{height:160px;margin:22px 0;display:flex;align-items:center;gap:12px}.agent-stage img{height:112px;max-width:44%;object-fit:contain;image-rendering:pixelated}.agent-stage span{font:10px/1.7 var(--disp)}.agent-stage small{display:block;font:9px/1.8 var(--text);color:#bdb8ac;margin-top:7px}.source-stack{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:center}.source-stack span{border:1px solid #69604a;padding:12px 8px;font:9px/1.6 var(--disp);color:#dbd3c3;background:#24251d}.operation h3{font:15px/1.5 var(--disp);margin:0 0 16px}.operation p{font:16px/1.8 var(--text);color:#bdb8ac;margin:0 0 26px}.mission{margin-top:auto;border-top:1px solid #484536;padding-top:18px;font:9px/1.8 var(--disp);color:#e9ad4c}.operations-note{display:flex;align-items:center;gap:14px;color:#bdb8ac;font:14px/1.7 var(--text);margin-top:20px}.signal-light{flex-shrink:0}
+.experience{border-block:1px solid #383a30;padding:35px 6%;text-align:center}.experience .eyebrow{font-size:9px;color:#bdb8ac}.experience>div{display:flex;justify-content:center;flex-wrap:wrap;gap:24px 60px;font:15px var(--disp);color:#d8d0c2}.boarding{max-width:1440px;margin:auto;padding:90px 6%;display:flex;align-items:center;justify-content:space-between;gap:50px}.boarding>div{max-width:680px}.boarding .rt-btn{flex-shrink:0}.warehouse-home .rt-foot{border-top:1px solid #383a30;background:#10110f}
+@media(min-width:1700px){.hero-copy{margin-left:8%}.warehouse-scene{object-position:center}}
+@media(max-width:1100px){.hero-copy{margin-left:4%;width:440px}.hero-copy h1{font-size:48px}.beacon{font-size:9px;padding:8px}.beacon-source{left:55%;top:25%}.beacon-core{right:3%;top:43%}.beacon-quality{left:52%;bottom:20%}.beacon-insights{right:3%;bottom:33%}.operation-grid{grid-template-columns:1fr 1fr}.operation:nth-child(2){border-right:0}.operation:nth-child(-n+2){border-bottom:1px solid #484536}.boarding{align-items:flex-start;flex-direction:column;gap:20px}}
+@media(max-width:650px){.warehouse-hero{height:auto;min-height:calc(100svh - 64px);padding-bottom:90px}.warehouse-scene{height:100%;object-position:57% center;opacity:.65}.scene-shade{background:linear-gradient(90deg,#10130ff0,#10130f80),linear-gradient(0deg,#121310,transparent 45%)}.hero-topline{top:18px;font-size:8px}.scene-status{display:none}.hero-copy{padding-top:86px;margin-left:6%;max-width:88%;width:auto}.hero-copy h1{font-size:clamp(36px,10vw,56px)}.hero-description{font-size:17px}.hero-cta{font-size:10px;padding:16px}.station-beacons{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:36px 6% 20px}.beacon{position:static;font-size:8px;gap:9px;padding:11px 9px}.beacon small{font-size:7px}.beacon-dot{width:5px;height:5px;flex-shrink:0}.hero-bottom{bottom:23px;left:6%;right:6%;font-size:8px}.hero-bottom>span{display:none}.hero-bottom a{width:100%;display:flex;justify-content:space-between}.ecosystem{padding:65px 6% 40px}.section-heading h2,.boarding h2{font-size:25px;letter-spacing:-.8px}.operation-grid{grid-template-columns:1fr;margin-top:32px}.operation{border-right:0;border-bottom:1px solid #484536!important;padding:24px}.operation:last-child{border-bottom:0!important}.agent-stage,.source-stack{height:120px;margin:18px 0}.source-stack{max-width:310px}.agent-stage img{height:105px}.agent-stage span{font-size:12px}.agent-stage small{font-size:11px}.experience>div{font-size:12px;gap:24px}.boarding{padding:60px 6%}.warehouse-home .rt-foot{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.warehouse-home *, .warehouse-home *::before,.warehouse-home *::after{animation:none!important;transition:none!important}}
+
+/* Temporary live font comparison; all three alternatives use Inter for body copy. */
+.warehouse-home[data-font="space"]{--disp:'Space Grotesk',sans-serif;--text:'Inter',sans-serif}
+.warehouse-home[data-font="inter"]{--disp:'Inter',sans-serif;--text:'Inter',sans-serif}
+.warehouse-home[data-font="mono"]{--disp:'IBM Plex Mono',monospace;--text:'Inter',sans-serif}
+.warehouse-home:not([data-font="original"]) .hero-copy h1{letter-spacing:-.045em;font-size:clamp(46px,5.7vw,88px);line-height:1.04;text-shadow:none}
+.warehouse-home:not([data-font="original"]) .hero-description{font-size:17px;line-height:1.8}
+.warehouse-home:not([data-font="original"]) .beacon{font-size:12px}
+.warehouse-home:not([data-font="original"]) .beacon small{font-size:10px}
+.warehouse-home:not([data-font="original"]) .rt-nav__links{font-size:12px;font-weight:600}
+.warehouse-home:not([data-font="original"]) .operation h3{font-size:21px;letter-spacing:-.025em}
+.warehouse-home:not([data-font="original"]) .hero-cta{font-size:12px;font-weight:700}
+.warehouse-home:not([data-font="original"]) .hero-topline,.warehouse-home:not([data-font="original"]) .hero-bottom{font-size:11px}
+.font-preview{position:fixed;right:20px;bottom:20px;z-index:80;width:300px;padding:16px;background:#f1ede4;color:#191816;border:1px solid #9b8c70;box-shadow:5px 5px 0 #0006;font-family:'Inter',sans-serif}
+.font-preview-heading{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:800;letter-spacing:.7px;margin-bottom:12px}.font-preview-heading span{font-size:10px;font-weight:400;letter-spacing:0;color:#5c564f}
+.font-preview-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}.font-preview button{padding:10px 8px;background:transparent;color:#191816;border:1px solid #bdb4a4;text-align:left;font:600 11px/1.4 'Inter',sans-serif;cursor:pointer}.font-preview button small{display:block;font-size:9px;font-weight:400;margin-top:5px;line-height:1.5}.font-preview button[aria-pressed="true"]{background:#191816;color:#f1ede4;border-color:#191816;box-shadow:inset 3px 0 #f4a300}.font-preview button:hover{border-color:#191816}.font-preview p{font-size:10px;margin:12px 0 0;color:#5c564f}
+.font-preview button[data-font-choice="space"]{font-family:'Space Grotesk',sans-serif}.font-preview button[data-font-choice="mono"]{font-family:'IBM Plex Mono',monospace}.font-preview button[data-font-choice="original"]{font-family:'Silkscreen',monospace;font-size:9px}
+@media(max-width:650px){.font-preview{right:10px;bottom:10px;width:calc(100% - 20px);padding:12px}.font-preview-options{grid-template-columns:repeat(4,1fr)}.font-preview button{font-size:10px;padding:8px 5px}.font-preview button small{display:none}.font-preview button[data-font-choice="original"]{font-size:8px}.warehouse-home:has(.font-preview:not([hidden])){padding-bottom:140px}.warehouse-home:not([data-font="original"]) .hero-copy h1{font-size:clamp(44px,12vw,64px)}.warehouse-home:not([data-font="original"]) .beacon{font-size:9px}.warehouse-home:not([data-font="original"]) .beacon small{font-size:8px}.warehouse-home:not([data-font="original"]) .hero-topline{font-size:8px}}
+
+/* One continuous environment, with a camera that follows the document scroll. */
+.warehouse-tour{position:relative}
+.tour-chapters{position:relative;padding:40px 6% 60px}
+.tour-chapter{padding:25px 0;scroll-margin-top:24px}
+.tour-card{max-width:480px;border:1px solid #72654a!important;box-shadow:8px 8px 0 #0004;background:#161b17f2;padding:30px}
+.tour-card .operation-number{font-size:12px;letter-spacing:1px}
+.tour-card .agent-stage,.tour-card .source-stack{height:125px;margin:20px 0}
+.tour-card .agent-stage img{height:115px}
+.warehouse-home:not([data-font="original"]) .tour-card h2{font-size:30px;line-height:1.15}
+.tour-card p{font-size:17px;line-height:1.8}
+.tour-card .mission{font-size:10px}
+.tour-motion .warehouse-hero{position:sticky;top:0;height:100svh;min-height:640px;max-height:none}
+.tour-motion .warehouse-scene{transform-origin:0 0;will-change:transform}
+.tour-motion .hero-copy,.tour-motion .station-beacons{opacity:var(--intro-opacity,1)}
+.tour-motion .hero-copy{visibility:visible}
+.tour-motion[data-stop="1"] .hero-copy,.tour-motion[data-stop="2"] .hero-copy,.tour-motion[data-stop="3"] .hero-copy,.tour-motion[data-stop="4"] .hero-copy{visibility:hidden}
+.tour-motion .station-beacons{pointer-events:none}
+.tour-motion[data-stop="0"] .station-beacons{pointer-events:auto}
+.tour-motion .hero-bottom{z-index:2}
+.tour-motion .hero-bottom>a{pointer-events:auto}
+.tour-motion .tour-chapters{margin-top:-100svh;padding:100svh 6% 0;pointer-events:none}
+.tour-motion .tour-chapter{min-height:max(100svh,640px);display:flex;align-items:center;padding:70px 0 100px;scroll-margin-top:0}
+.tour-motion .tour-card{width:35%;min-width:300px;max-width:420px;pointer-events:auto;position:relative}
+.tour-motion .hero-topline{z-index:2}
+.tour-motion .scene-shade{background:linear-gradient(90deg,#0b0e0ce6,#0b0e0c66 40%,transparent 70%),linear-gradient(0deg,#121310e6,transparent 20%,transparent 85%,#12131099)}
+.font-preview .font-preview-close{font:20px/1 'Inter',sans-serif;border:0;padding:0 4px;background:none;color:#191816}
+.font-preview[hidden]{display:none}
+@media(max-width:700px),(prefers-reduced-motion:reduce){.tour-chapter{position:relative}.tour-chapter::before{content:'';display:block;height:200px;background-image:linear-gradient(0deg,#12131022,#12131022),url('Brand%20Assets/warehouse/warehouse-one-ecosystem-v2.png');background-size:230%;border:1px solid #72654a;border-bottom:0}.tour-chapter:nth-child(1)::before{background-position:10% 25%}.tour-chapter:nth-child(2)::before{background-position:65% 45%}.tour-chapter:nth-child(3)::before{background-position:5% 100%}.tour-chapter:nth-child(4)::before{background-position:100% 95%}.tour-card{max-width:none;box-shadow:none}}
+.tour-motion:not([data-stop="0"]) .station-beacons{visibility:hidden}
+.tour-motion .hero-bottom{opacity:var(--intro-opacity,1)}
+@media(min-width:701px){.tour-motion .tour-card{width:39%;max-width:440px}.tour-card .agent-stage,.tour-card .source-stack{height:100px;margin:16px 0}.tour-card .agent-stage img{height:95px}.tour-card p{font-size:16px;line-height:1.65}.tour-card{padding:26px}.tour-card h2{margin-bottom:14px}}
+
+/* Focal points match the three work areas in the ecosystem cutaway. */
+.tour-card h2{font:700 24px/1.2 var(--disp);letter-spacing:-.025em;margin:0 0 16px}
+.tour-motion .warehouse-scene{max-width:none;object-fit:fill;object-position:center}
+.beacon-source{left:48%;top:25%}.beacon-core{right:4%;top:30%}.beacon-quality{left:47%;bottom:25%}.beacon-insights{right:4%;bottom:19%}
+@media(max-width:700px),(prefers-reduced-motion:reduce){.tour-chapter:nth-child(1)::before{background-position:45% 20%}.tour-chapter:nth-child(2)::before{background-position:100% 20%}.tour-chapter:nth-child(3)::before{background-position:45% 95%}.tour-chapter:nth-child(4)::before{background-position:100% 95%}}
+
+/* Stage examples replace the old named-character portraits. */
+.tour-card .operation-number{margin-bottom:22px}
+.stage-example{border:1px solid #74613d;background:#0c100dc9;padding:18px;margin:0 0 22px}
+.example-label{display:block;font:600 10px/1.6 var(--disp);letter-spacing:1px;color:#e9ad4c}
+.source-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.source-chips span{padding:6px 8px;border:1px solid #63583f;color:#e7e0d2;font:500 11px/1.4 var(--text)}
+.flow-connector{text-align:center;color:var(--amber);font:22px/1.6 var(--text)}
+.warehouse-bin{border:1px solid #9c7534;padding:12px;text-align:center;font:600 11px/1.5 var(--disp)}
+.warehouse-bin>div{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}.warehouse-bin code{font:11px/1.4 'IBM Plex Mono',monospace;background:#3c3321;padding:4px 6px;color:#f2d6a2}
+.warehouse-bin small,.metric-example small{font:11px/1.6 var(--text);color:#bab6a8}
+.metric-formula{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:18px 0;color:#f1ede4;font:600 13px/1.5 var(--text)}.metric-formula b{color:var(--amber)}.metric-formula span{border-bottom:1px solid #8b7447;padding-bottom:5px}
+.tour-card .stage-example p{font:13px/1.6 var(--text);margin:0 0 10px}.bridge-example>div+div{border-top:1px solid #484536;margin-top:12px;padding-top:12px}.bridge-example p{margin:5px 0 0!important}
+.beacon-quality{left:auto;right:8%;bottom:22%}
+@media(max-width:650px){.station-beacons{grid-template-columns:1fr}.beacon{width:100%}.tour-card .stage-example{padding:15px}}
+@media(max-width:700px),(prefers-reduced-motion:reduce){.tour-chapter:nth-child(3)::before{background-size:150%;background-position:85% 100%}}
+
+/* Establish the complete warehouse before entering its work areas. */
+.warehouse-hero .hero-copy{margin:0 4%;padding-top:30px;width:92%;max-width:none}
+.warehouse-home .warehouse-hero .hero-copy h1{font-size:clamp(26px,3vw,44px);line-height:1.12;letter-spacing:-.035em;margin:0 0 12px;max-width:calc(100% - 320px)}
+.warehouse-hero .hero-copy h1 br{display:none}
+.warehouse-hero .hero-copy h1 br::after{content:' '}
+.warehouse-hero .hero-copy .eyebrow{margin-bottom:12px;font-size:10px}
+.warehouse-home .warehouse-hero .hero-description{font-size:14px;line-height:1.65;max-width:640px;margin:0}
+.warehouse-hero .hero-description br{display:none}
+.warehouse-hero .hero-cta{position:absolute;right:0;top:64px}
+.warehouse-hero .station-beacons{position:absolute;left:4%;right:4%;bottom:26px;display:flex;justify-content:center;gap:12px;margin:0}
+.warehouse-hero .beacon{position:static;font-size:10px;padding:8px 12px;width:auto}
+.warehouse-hero .beacon small{font-size:8px}
+.warehouse-hero .hero-bottom{bottom:8px;justify-content:center;font-size:8px}
+.warehouse-hero .hero-bottom>span{display:none}
+.tour-motion .scene-shade{opacity:calc(1 - var(--intro-opacity,1))}
+@media(max-width:700px),(prefers-reduced-motion:reduce){
+ .warehouse-hero{display:flex;flex-direction:column;height:auto;min-height:0;max-height:none;padding:0 0 40px}
+ .warehouse-hero .hero-copy{order:1;padding-top:30px}
+ .warehouse-home .warehouse-hero .hero-copy h1{max-width:none;font-size:30px}
+ .warehouse-hero .hero-cta{position:static;margin-top:20px}
+ .warehouse-hero .warehouse-scene{position:relative;order:2;inset:auto;z-index:0;width:100%;height:auto;object-fit:contain;opacity:1;margin:28px 0}
+ .warehouse-hero .scene-shade{display:none}
+ .warehouse-hero .station-beacons{position:static;order:3;margin:0 4%;display:flex;flex-wrap:wrap;gap:8px}
+ .warehouse-hero .hero-bottom{bottom:12px}
+}
+@media(min-width:701px) and (max-width:1000px){.warehouse-hero .hero-description{max-width:calc(100% - 300px)}}
+.tour-motion{--tour-height:max(640px,calc(100svh - 64px))}
+.tour-motion .warehouse-hero{height:var(--hero-height,var(--tour-height));top:var(--hero-top,0px)}
+.tour-motion .tour-chapters{margin-top:calc(-1 * var(--hero-height,var(--tour-height)));padding-top:var(--hero-height,var(--tour-height))}
+.tour-motion .tour-chapter{min-height:var(--tour-height)}
+@media(min-width:701px){.warehouse-home .warehouse-hero .hero-description{max-width:calc(100% - 320px)}}
