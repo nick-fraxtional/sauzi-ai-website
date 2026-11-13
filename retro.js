@@ -39,6 +39,7 @@
     ['how-it-works.html', 'HOW IT WORKS'],
     ['playbooks.html', 'PLAYBOOKS'],
     ['why-sauzi.html', 'WHY SAUZI'],
+    ['partners.html', 'PARTNERS'],
     ['blog.html', 'BLOG']
   ];
 
